@@ -1,0 +1,16 @@
+# Mac
+.DS_Store
+
+.env
+/.idea
+/.vscode
+/docker/ash/.ash_history
+/docker/php/psysh
+/docker/php/logs
+/docker/nginx/logs
+/docker/mysql/logs
+!/docker/php/psysh/config.php
+/logs/*
+
+# Visual Studio Code
+.vscode
