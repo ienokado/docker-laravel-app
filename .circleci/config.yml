@@ -9,11 +9,11 @@ jobs:
           command: |
             cp .env.sample .env
             docker-compose up -d --build
-            docker-compose run app composer install
       - run:
           name: Setup Laravel
           command: |
             cp src/.env.example src/.env
+            docker-compose run app composer install
             docker-compose run app php artisan key:generate
             docker-compose run app php artisan migrate:refresh
             docker-compose run node npm install
