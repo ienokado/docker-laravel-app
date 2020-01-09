@@ -7,7 +7,7 @@ jobs:
       - run:
           name: Setup docker
           command: |
-            cp .env.sample .env
+            cp .env.circleci .env
             docker-compose up -d --build
       - run:
           name: Setup Laravel
