@@ -1,6 +1,6 @@
-versin: 2
+version: 2
 jobs:
-  docker_build:
+  build:
     machine: true
     steps:
       - checkout
@@ -59,7 +59,7 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - docker_build
+      - build
       - test:
           requires:
-            - docker_build
+            - build
