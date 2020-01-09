@@ -13,8 +13,8 @@ jobs:
           name: Setup docker
           command: |
             if [ ! -f ~/caches/images.tar ]; then
-              docker-compose pull db cache
-              docker-compose build app
+              cp .env.sample .env
+              docker-compose up -d --build
               mkdir -p ~/caches
               docker save $(docker images | awk 'NR>=2 && ! /^<none>/{print $1}') -o ~/caches/images.tar
             fi
