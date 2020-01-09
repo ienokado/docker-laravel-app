@@ -13,7 +13,7 @@ jobs:
           name: Setup docker
           command: |
             if [ ! -f ~/caches/images.tar ]; then
-              cp .env.sample .env
+              cp .env.circleci .env
               docker-compose up -d --build
               mkdir -p ~/caches
               docker save $(docker images | awk 'NR>=2 && ! /^<none>/{print $1}') -o ~/caches/images.tar
@@ -40,9 +40,9 @@ jobs:
       - run:
           name: Setup Laravel
           command: |
-            cp .env.sample .env
+            cp .env.circleci .env
             docker-compose run app composer install
-            cp src/.env.example src/.env
+            cp src/.env.circleci src/.env
             docker-compose run app php artisan key:generate
             docker-compose run app php artisan migrate:refresh
             docker-compose run node npm install
