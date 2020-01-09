@@ -40,6 +40,7 @@ jobs:
       - run:
           name: Setup Laravel
           command: |
+            cp .env.sample .env
             docker-compose run app composer install
             cp src/.env.example src/.env
             docker-compose run app php artisan key:generate
