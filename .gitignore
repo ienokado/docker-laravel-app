@@ -1,3 +1,6 @@
+# CircleCI
+process.yml
+
 # Mac
 .DS_Store
 
