@@ -1,63 +1,106 @@
-version: 2
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/php:7.3-stretch-node-browsers
+    environment:
+      - APP_ENV: testing
+  testing-image:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/php:7.3-stretch-node-browsers
+      - image: circleci/mysql:8.0.17
+        command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      - APP_DEBUG: true
+      - APP_ENV: testing
+      - APP_KEY: base64:YlIJx6uH3OUb3hxN+PAiJKlC+EGZ2KYi8VHxsfdJpLk=
+      - DB_CONNECTION: circleci
+
+commands:
+  install-dockerize:
+    steps:
+      - run:
+          name: Install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.6.1
+  install-php-extensions:
+    steps:
+      - run:
+          name: Install PHP Extensions
+          command: sudo docker-php-ext-install pdo_mysql
+  restore-cache-composer:
+    steps:
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "src/composer.json" }}
+            - v1-dependencies-
+  composer-install:
+    steps:
+      - run:
+          name: composer install
+          working_directory: src
+          command: composer install -n --prefer-dist
+  save-cache-composer:
+    steps:
+      - save_cache:
+          paths:
+            - ./src/vendor
+          key: v1-dependencies-{{ checksum "src/composer.json" }}
+  wait-for-mysql:
+    steps:
+      - run:
+          name: Wait for MySQL
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+  migration-seeding:
+    steps:
+      - run:
+          name: Migration & Seeding
+          working_directory: ./src
+          command: php artisan migrate --seed
+  test-static-code-analysis:
+    steps:
+      - run:
+          name: Coding rules check
+          working_directory: src
+          command: ./vendor/bin/phpcs --standard=phpcs.xml ./
+  test-unittest:
+    steps:
+      - run:
+          name: Unittest
+          working_directory: src
+          command: ./vendor/bin/phpunit
+
 jobs:
   build:
-    machine: true
+    executor:
+      name: default
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - docker-laravel-app-{{ .Branch }}--{{ checksum ".circleci/config.yml" }}--{{ checksum "docker-compose.yml" }}
-          paths:
-            - ~/caches/images.tar
-      - run:
-          name: Setup docker
-          command: |
-            if [ ! -f ~/caches/images.tar ]; then
-              cp .env.circleci .env
-              docker-compose up -d --build
-              mkdir -p ~/caches
-              docker save $(docker images | awk 'NR>=2 && ! /^<none>/{print $1}') -o ~/caches/images.tar
-            fi
-      - save_cache:
-          key: docker-laravel-app-{{ .Branch }}--{{ checksum ".circleci/config.yml" }}--{{ checksum "docker-compose.yml" }}
-          paths:
-            - ~/caches/images.tar
+      - install-php-extensions
+      - restore-cache-composer
+      - composer-install
+      - save-cache-composer
   test:
-    machine: true
+    executor:
+      name: testing-image
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - docker-laravel-app-{{ .Branch }}--{{ checksum ".circleci/config.yml" }}--{{ checksum "docker-compose.yml" }}
-          paths:
-            - ~/caches/images.tar
-      - run:
-          name: docker load
-          command: |
-            if [[ -e ~/caches/images.tar ]]; then
-              docker load -i ~/caches/images.tar
-            fi
-      - run:
-          name: Setup Laravel
-          command: |
-            cp .env.circleci .env
-            docker-compose run app composer install
-            cp src/.env.circleci src/.env
-            docker-compose run app php artisan key:generate
-            docker-compose run app php artisan migrate:refresh
-            docker-compose run node npm install
-            docker-compose run node npm run dev
-      - run:
-          name: Run Sniffer
-          command: |
-            docker-compose run app composer sniffer
-      - run:
-          name: Run Test
-          command: |
-            docker-compose run app vendor/bin/phpunit
+      - install-dockerize
+      - install-php-extensions
+      - restore-cache-composer
+      - composer-install
+      - save-cache-composer
+      - wait-for-mysql
+      - migration-seeding
+      - test-static-code-analysis
+      - test-unittest
+
 workflows:
-  version: 2
-  build_and_test:
+  build-and-test:
     jobs:
       - build
       - test:
