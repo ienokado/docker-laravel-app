@@ -18,6 +18,9 @@ executors:
       - APP_ENV: testing
       - APP_KEY: base64:YlIJx6uH3OUb3hxN+PAiJKlC+EGZ2KYi8VHxsfdJpLk=
       - DB_CONNECTION: circleci
+      - DB_DATABASE: circle_test
+      - DB_USERNAME: root
+      - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
 commands:
   install-dockerize:
@@ -59,8 +62,8 @@ commands:
     steps:
       - run:
           name: Migration & Seeding
-          working_directory: ./src
-          command: php artisan migrate --seed
+          working_directory: src
+          command: php artisan migrate:refresh --seed
   test-static-code-analysis:
     steps:
       - run:
