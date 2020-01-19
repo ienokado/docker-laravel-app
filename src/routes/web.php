@@ -11,9 +11,6 @@
 |
 */
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/', 'TopController')->name('top');
-Route::post('/debayashi/search', 'DebayashiSearchController@index')->name('debayashi.search.index');
+Route::get('/', function () {
+    return view('welcome');
+});
