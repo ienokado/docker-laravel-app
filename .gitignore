@@ -3,7 +3,6 @@
 
 .env
 /.idea
-/.vscode
 /docker/ash/.ash_history
 /docker/php/psysh
 /docker/php/logs
@@ -13,7 +12,7 @@
 /logs/*
 
 # Visual Studio Code
-.vscode
+/.vscode
 
-# CircleCI
-process.yml
+# Local CircleCI
+/process.yml

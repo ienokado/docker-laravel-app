@@ -1,1 +1,89 @@
-//
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import 'footer';
+
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color;
+    font-family: "游ゴシック体 Medium";
+    text-align: center;
+  }
+
+  // IE
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+
+  // Edge
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+body {
+  font-family: YuGothic, 'Yu Gothic', sans-serif;
+}
+
+h1.cover-heading {
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  span {
+    display: inline-block;
+    font-weight: bold;
+  }
+}
+
+.container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.c1, .c2, .c3 {
+  width: 100%;
+}
+
+.c1 {
+  width: 60%;
+  -webkit-order: 2;
+  order: 2;
+}
+
+.c2 {
+  width: 40%;
+  -webkit-order: 1;
+  order: 1;
+}
+
+.c3 {
+  width: 100%;
+  -webkit-order: 3;
+  order: 3;
+}
+
+.search {
+  padding:6px 15px 6px 30px;
+  margin:3px;
+  background-color: #FFD3CF;
+  @include placeholder(#4960FA);
+}
+
+.input-search {
+  font-family: FontAwesome;
+  border: none;
+  border-radius: 20%;
+  background: #4960FA;
+  color: #fff;
+  outline : none;
+  background-position: center;
+  background-size: auto 90%;
+}
