@@ -28,7 +28,7 @@ class DebayashisTableSeeder extends Seeder
             }
 
             $list[] = [
-                "id" => ($index + 1),
+                "id" => $index,
                 "name" => $line[2],
                 "artist_name" => $line[1],
                 "created_at" => $now,

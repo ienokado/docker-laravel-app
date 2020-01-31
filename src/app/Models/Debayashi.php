@@ -16,14 +16,14 @@ class Debayashi extends Model
     /**
      * Get all of the groups for the debayashi.
      */
-    public function groups()
+    public function comedian_groups()
     {
-        return $this->hasMany('App\Models\Group');
+        return $this->hasMany('App\Models\ComedianGroup');
     }
 
     public static function getByKeyword(string $keyword = null)
     {
-        return Debayashi::whereHas('groups', function ($query) use ($keyword) {
+        return Debayashi::whereHas('comedian_groups', function ($query) use ($keyword) {
             $query->where('name', 'like', "%${keyword}%");
         })->get();
     }

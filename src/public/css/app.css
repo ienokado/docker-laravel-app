@@ -11357,33 +11357,45 @@ a.text-dark:focus {
 }
 
 .copyright {
-  background-color: #222222;
   color: #b1aca1;
 }
 
-.copyright p {
-  margin: 15px 0px;
-}
-
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 20%;
   background-color: #222222;
-  padding: 30px 0px;
-  margin: 30px 0px;
 }
 
-footer .menu-block {
-  margin-right: 0px;
-  margin-left: 0px;
+footer .menu-items {
+  width: 65%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
-footer .menu li a {
+footer .menu-items a {
   color: #b1aca1;
   padding: 10px;
   text-decoration: none;
 }
 
-footer .menu li a:hover {
+footer .menu-items a:hover {
   color: #7dabdb;
+}
+
+footer .hr {
+  height: 2px;
+  background: #fff;
+  display: block;
 }
 
 .fa-facebook-square,

@@ -28,7 +28,7 @@ class ComedianGroupsTableSeeder extends Seeder
             }
 
             $list[] = [
-                "id" => ($index + 1),
+                "id" => $index,
                 "name" => $line[0],
                 "debayashi_id" => ($index + 1),
                 "created_at" => $now,
