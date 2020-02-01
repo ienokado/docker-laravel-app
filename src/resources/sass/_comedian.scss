@@ -1,0 +1,68 @@
+.comedian-wrapper {
+  position: absolute;
+	bottom: 0;
+  width: 100%;
+  height: 400px;
+}
+.comedian {
+  position: relative;
+}
+.serif {
+  position: absolute;
+  top: -25px;
+  left: 40px;
+}
+.male {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  .male-trim {
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+    height: 400px;
+    img{
+      position: absolute;
+      top: 0;
+      left: -100px;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+.female {
+  position: absolute;
+  top: -6px;
+  left: -49px;
+  .female-trim {
+    position: relative;
+    overflow: hidden;
+    width: 366px;
+    height: 406px;
+    img {
+      position: absolute;
+      top: 0;
+      left: 100px;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+.microphone {
+  position: absolute;
+  top: 162px;
+  left: 120px;
+  .trim {
+    position: relative;
+    overflow: hidden;
+    width: 40px;
+    height: 238px;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0px;
+      width: auto;
+      height: auto;
+    }
+  }
+}
