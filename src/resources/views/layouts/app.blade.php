@@ -4,6 +4,7 @@
 <body>
     {{-- @include('common.header') --}}
 
+
     <div id="content">
         @yield('content')
     </div>

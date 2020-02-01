@@ -7,15 +7,18 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import 'search';
 
+@import 'logo';
+@import 'comedian';
+@import 'search';
 @import 'footer';
 
 @mixin placeholder($color) {
   &::placeholder {
     color: $color;
-    font-family: "游ゴシック体 Medium";
-    text-align: center;
+    text-align: left;
+    font: Medium 18px/31px YuGothic;
+    opacity: 0.7;
   }
 
   // IE
@@ -45,15 +48,62 @@ body {
 	vertical-align: middle;
 }
 
-h1.cover-heading {
-  margin-top: 100px;
-  margin-bottom: 100px;
-
-  span {
-    display: inline-block;
-    font-weight: bold;
+.main-wrapper {
+  position: absolute;
+	top: 50%;
+	left: 50%;
+  transform: translate(-50%, -50%);
+  p {
+    text-align: center;
+    font: Bold 15px/31px YuGothic;
+    color: #FFFFFF;
   }
 }
+
+.search-parent {
+  position: relative;
+}
+.search-child {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+.search-text {
+  width: 303px;
+  height: 58px;
+  padding-left: 20px;
+  background: #FFD3CF;
+  border-radius: 10px;
+  border: none;
+  @include placeholder(#4960FA);
+}
+.search-btn {
+  width: 45px;
+  height: 45px;
+  background: #1F28CF;
+  border-radius: 10px;
+  border: none;
+  font-family: FontAwesome;
+  color: #FFFFFF;
+}
+
+
+
+// cover-heading {
+//   margin-top: 100px;
+
+// }
+
+// h1.cover-heading {
+//   margin-top: 100px;
+//   margin-bottom: 100px;
+
+//   span {
+//     display: inline-block;
+//     font-weight: bold;
+//   }
+// }
 
 .container {
   display: -webkit-flex;
@@ -84,20 +134,20 @@ h1.cover-heading {
   order: 3;
 }
 
-.search {
-  padding:6px 15px 6px 30px;
-  margin:3px;
-  background-color: #FFD3CF;
-  @include placeholder(#4960FA);
-}
+// .search {
+//   padding:6px 15px 6px 30px;
+//   margin:3px;
+//   background-color: #FFD3CF;
+//   @include placeholder(#4960FA);
+// }
 
-.input-search {
-  font-family: FontAwesome;
-  border: none;
-  border-radius: 20%;
-  background: #4960FA;
-  color: #fff;
-  outline : none;
-  background-position: center;
-  background-size: auto 90%;
-}
+// .input-search {
+//   font-family: FontAwesome;
+//   border: none;
+//   border-radius: 20%;
+//   background: #4960FA;
+//   color: #fff;
+//   outline : none;
+//   background-position: center;
+//   background-size: auto 90%;
+// }
