@@ -16,7 +16,7 @@ class Debayashi extends Model
     /**
      * Get all of the groups for the debayashi.
      */
-    public function comedian_groups()
+    public function comedianGroups()
     {
         return $this->hasMany('App\Models\ComedianGroup');
     }
