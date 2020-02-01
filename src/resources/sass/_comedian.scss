@@ -1,0 +1,40 @@
+.comedian {
+  // z-index: 10;
+  bottom: 0;
+  position: relative;
+  border: black;
+  margin-top: 40px;
+  background: rgb(255, 254, 192);
+  width: 200px;
+  height: 300px;
+}
+
+
+.serif-img {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 174px;
+  height: 111px;
+}
+.female-img {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 446px;
+  height: 559px;
+}
+.male-img {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 326px;
+  height: 474px;
+}
+.ｍicrophone-img {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 38px;
+  height: 286px;
+}
