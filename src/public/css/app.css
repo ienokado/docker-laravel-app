@@ -11416,29 +11416,30 @@ footer {
   /* Set the fixed height of the footer here */
   height: 20%;
   background-color: #222222;
+  
+.notfound {
+  text-align: center;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  opacity: 1;
+  font: Bold 30px/42px YuGothic;
 }
 
-footer .menu-items {
-  width: 65%;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  display: -webkit-inline-box;
-  display: inline-flex;
-  -webkit-box-align: center;
-          align-items: center;
+.return-btn {
+  background: #FFD3CF 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  text-align: center;
+  letter-spacing: 0;
+  color: #4960FA;
+  opacity: 1;
 }
 
-footer .menu-items a {
+.footer-copyright {
   color: #b1aca1;
-  padding: 10px;
-  text-decoration: none;
 }
 
-footer .menu-items a:hover {
-  color: #7dabdb;
+footer {
+  background-color: #222222;
 }
 
 footer .hr {
@@ -11467,8 +11468,20 @@ footer .hr {
   color: #00c300;
 }
 
+html {
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: table;
+}
+
 body {
   font-family: YuGothic, "Yu Gothic", sans-serif;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .main-wrapper {

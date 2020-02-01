@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use Weidner\Goutte\GoutteFacade as GoutteFacade;
 
 class DebayashiController extends Controller
@@ -13,9 +12,6 @@ class DebayashiController extends Controller
     {
         // ここではアマゾンカメラランキングをスクレイピング
         $goutte = GoutteFacade::request('GET', '');
-
-        dump($goutte);
-        die;
 
         //テキストを取得
         $goutte->filter('.p13n-sc-truncate')->each(function ($node) use (&$texts) {

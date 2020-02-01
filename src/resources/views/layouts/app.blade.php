@@ -2,15 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('common.head')
 <body>
-    <div id="app">
-        {{-- @include('common.header') --}}
+    {{-- @include('common.header') --}}
 
-        <main role="main" class="inner cover">
-            @yield('content')
-        </main>
 
-        <!-- @include('common.footer') -->
+    <div id="content">
+        @yield('content')
     </div>
+
+    {{-- @include('common.footer') --}}
 
     <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
 </body>

@@ -7,8 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import '_logo';
-@import '_comedian';
+
+@import 'logo';
+@import 'comedian';
+@import 'search';
 @import 'footer';
 
 @mixin placeholder($color) {
@@ -30,8 +32,20 @@
   }
 }
 
+html {
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table;
+}
+
 body {
   font-family: YuGothic, 'Yu Gothic', sans-serif;
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .main-wrapper {

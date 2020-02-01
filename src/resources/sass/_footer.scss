@@ -1,35 +1,9 @@
-.copyright {
+.footer-copyright {
   color: #b1aca1;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 20%;
   background-color: #222222;
-
-  .menu-items {
-    width: 65%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    display: inline-flex;
-    align-items: center;
-
-    a {
-      color: #b1aca1;
-      padding: 10px;
-      text-decoration: none;
-
-      &:hover {
-        color: #7dabdb;
-      }
-    }
-  }
 
   .hr {
     height: 2px;
