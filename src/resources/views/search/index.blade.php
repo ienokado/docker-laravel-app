@@ -2,8 +2,10 @@
 
 @section('content')
 @if (count($debayashis) > 0)
-
-    <p>{{ $keyword }}</p>
+    <div class="search-result">
+        {{ $keyword }}の<br>
+        出囃子は・・・
+    </div>
 
     @foreach ($debayashis as $debayashi)
         <p>{{ $debayashi->artist_name }}</p>

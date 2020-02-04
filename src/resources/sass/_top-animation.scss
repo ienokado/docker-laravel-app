@@ -1,0 +1,41 @@
+// form {
+//   animation:
+//     form-display 2000ms ease 0ms 1 normal backwards running,
+//     form-up 2000ms ease 2000ms 1 normal backwards running;
+// }
+
+@keyframes form-display {
+  0% {
+      opacity: 0;
+      transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes form-up {
+  0% {
+      transform: translateY(120%);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+
+// .serif {
+//   animation-name: serif-fadein;
+//   transition-delay: 4s;
+//   animation-duration: 1s;
+//   animation-iteration-count: 3;
+// }
+// @keyframes serif-fadein {
+//   0% {
+//       opacity: 0;
+//   }
+//   100% {
+//       opacity: 1;
+//   }
+// }
