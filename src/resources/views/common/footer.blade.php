@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer class="page-footer font-small fixed-bottom">
     <div class="hr"></div>
-    <!-- Footer Elements -->
+    {{-- <!-- Footer Elements -->
     <div class="container">
         <!-- Grid row-->
         <div class="row">
@@ -20,11 +20,11 @@
         </div>
         <!-- Grid row-->
     </div>
-    <!-- Footer Elements -->
+    <!-- Footer Elements --> --}}
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center">
-        <p>Copyright © 2020 All rights reserved</p>
+    <div class="footer-copyright text-center m-2">
+        Copyright © 2020 All rights reserved
     </div>
     <!-- Copyright -->
     <div class="hr"></div>
