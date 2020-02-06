@@ -18,17 +18,17 @@
       </div>
       <div class="male">
         <div class="male-trim">
-          <img src="{{ asset('images/top/male.svg')}}">
+          <img class="male-img" src="{{ asset('images/top/male.svg')}}">
         </div>
       </div>
       <div class="female">
         <div class="female-trim">
-          <img src="{{ asset('images/top/female.svg')}}">
+          <img class="female-img" src="{{ asset('images/top/female.svg')}}">
         </div>
       </div>
       <div class="microphone">
         <div class="trim">
-          <img src="{{ asset('images/top/microphone.svg')}}">
+          <img class="microphone-img" src="{{ asset('images/top/microphone.svg')}}">
         </div>
       </div>
     </div>
