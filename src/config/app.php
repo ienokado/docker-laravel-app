@@ -228,6 +228,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
+
+        'SpotifyService' => App\Facades\SpotifyService::class,
     ],
 
 ];
