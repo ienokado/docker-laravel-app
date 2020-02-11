@@ -30,6 +30,7 @@ class SpotifyService extends Facade
      */
     public function search($query, $type = 'track', $options = [])
     {
+        // どうにかして該当の1件に絞りたい
         $options['limit'] = 1;
 
         $result = $this->client->api->search($query, $type, $options);

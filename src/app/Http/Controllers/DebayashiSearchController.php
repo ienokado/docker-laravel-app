@@ -19,23 +19,26 @@ class DebayashiSearchController extends Controller
 
         // もしキーワードが入力されている場合
         if (!empty($keyword)) {
-            $debayashis = Debayashi::getByKeyword($keyword);
-            $spotify = new SpotifyService();
-            $query = $debayashis[0]->artist_name. ' '. $debayashis[0]->name;
-            $result = $spotify->search($query, $type = 'track', $options = ['market' => 'JP']);
+            $debayashi = Debayashi::getByKeyword($keyword);
+            // Client IDとClient Secretが設定されていない場合はSpotifyAPIを利用しない
+            if ($debayashi && env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')) {
+                $spotify = new SpotifyService();
+                $query = $debayashi->artist_name. ' '. $debayashi->name;
+                $result = $spotify->search($query, $type = 'track', $options = ['market' => 'JP']);
 
-            if (count($result) > 0) {
-                $spotifyValue = [
-                    'name' => $result[0]->name,
-                    'external_url' => $result[0]->external_urls->spotify,
-                    'preview_url' => $result[0]->preview_url,
-                ];
+                if (count($result) > 0) {
+                    $spotifyValue = [
+                        'name' => $result[0]->name,
+                        'external_url' => $result[0]->external_urls->spotify,
+                        'preview_url' => $result[0]->preview_url,
+                    ];
+                }
             }
         }
 
         //検索フォームへ
         return view('search.index', [
-            'debayashis' => $debayashis,
+            'debayashi' => $debayashi,
             'spotifyValue' => $spotifyValue,
             'keyword' => $keyword,
         ]);
