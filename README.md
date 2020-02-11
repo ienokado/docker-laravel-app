@@ -30,3 +30,8 @@ http://localhost:10080
 ```cmd
 $ docker-compose exec app php artisan db:seed
 ```
+
+### sniffer(コード整形)
+```
+ docker-compose run app composer sniffer
+```
