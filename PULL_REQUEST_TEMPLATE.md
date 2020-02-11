@@ -1,9 +1,10 @@
 # 目的
- - 
- -
- -
+- 
+-
+-
 
 # 関連するissue
+- https://github.com/ienokado/debayashi-koreyashi/issues/XXX
 
 # レビューポイント
 
