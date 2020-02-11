@@ -11599,8 +11599,68 @@ form {
   letter-spacing: 0;
   color: #FFFFFF;
   opacity: 1;
-  width: 258px;
-  height: 63px;
+  width: 375px;
+  margin: 50px auto 30px;
+  position: relative;
+  font: Bold 20px/35px YuGothic;
+}
+
+.search-result .result-header {
+  width: 100%;
+}
+
+.search-result .result-header .keyword {
+  font-size: 30px;
+}
+
+.search-result-card {
+  position: absolute;
+  bottom: 0;
+  background: #FFD3CF 0% 0% no-repeat padding-box;
+  border-radius: 30px 30px 0px 0px;
+  opacity: 1;
+  width: 375px;
+  height: 666px;
+  display: block;
+  padding-top: 60px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search-result-card .debayashi-info {
+  width: 100%;
+  text-align: center;
+  color: #4960FA;
+  font: Bold 23px/35px YuGothic;
+}
+
+.search-result-card .debayashi-info .debayashi-img {
+  border: 1px solid blue;
+  width: 174px;
+  height: 174px;
+  margin: 0 auto 26px;
+  position: relative;
+}
+
+.search-result-card .debayashi-info .debayashi-img p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+
+.search-result-card .debayashi-info p {
+  margin-bottom: 13px;
+}
+
+.search-result-card .debayashi-info .debayashi-name {
+  font-size: 30px;
+}
+
+.search-result-card .debayashi-info .artist-name {
+  font-size: 23px;
 }
 
 .notfound {
@@ -11611,6 +11671,37 @@ form {
   font: Bold 30px/42px YuGothic;
 }
 
+.link-area {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link-btn {
+  display: inline-block;
+  width: 303px;
+  height: 58px;
+  padding: 8px 24px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  opacity: 0.7;
+}
+
+.apple-logo {
+  width: 139px;
+}
+
+.spotify-logo {
+  width: 145px;
+}
+
 .return-btn {
   background: #FFD3CF 0% 0% no-repeat padding-box;
   border-radius: 10px;
@@ -11618,6 +11709,47 @@ form {
   letter-spacing: 0;
   color: #4960FA;
   opacity: 1;
+}
+
+.return-btn-blue {
+  display: block;
+  width: 303px;
+  height: 58px;
+  background: #4960FA 0% 0% no-repeat padding-box;
+  border-radius: 10px;
+  text-align: center;
+  font: Bold 18px/58px YuGothic;
+  color: #FFFFFF;
+  margin: 0 auto;
+}
+
+.share-item {
+  display: inline-block;
+}
+
+.share-area {
+  display: block;
+  margin: 15px auto;
+}
+
+.share-area span {
+  font: Bold 15px/26px YuGothic;
+  color: #4960FA;
+  margin-right: 25px;
+}
+
+.share-area a {
+  background: #4960FA;
+  text-align: center;
+  text-decoration: none;
+  font: 400 20px/38px fontawesome;
+  color: #fff;
+  display: inline-block;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  margin: 0 2px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .footer-copyright {
@@ -11634,26 +11766,6 @@ footer .hr {
   display: block;
 }
 
-.fa-facebook-square,
-.fa-twitter,
-.fa-line {
-  color: #b1aca1;
-  font-size: 50px;
-  padding: 10px;
-}
-
-.fa-facebook-square:hover {
-  color: #3B5998;
-}
-
-.fa-twitter:hover {
-  color: #1DA1F2;
-}
-
-.fa-line:hover {
-  color: #00c300;
-}
-
 html {
   height: 100%;
   margin: 0 auto;
@@ -11666,18 +11778,16 @@ body {
   min-height: 100%;
   margin: 0 auto;
   padding: 0;
-  display: table-cell;
-  vertical-align: middle;
 }
 
 .main-wrapper {
   position: absolute;
   height: 100%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
 }
 
-.main-wrapper p {
+.main-wrapper p.font-white {
   text-align: center;
   font: Bold 18px/31px YuGothic;
   color: #FFFFFF;
