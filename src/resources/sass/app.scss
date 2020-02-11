@@ -12,6 +12,7 @@
 @import 'comedian';
 @import 'top-animation';
 @import 'search';
+// @import 'search-animation';
 @import 'footer';
 
 @mixin placeholder($color) {
@@ -45,15 +46,13 @@ body {
 	min-height: 100%;
 	margin: 0 auto;
 	padding: 0;
-	display: table-cell;
-	vertical-align: middle;
 }
 
 .main-wrapper {
   position: absolute;
   height :100%;
-  transform: translate(-50%, -50%);
-  p {
+  transform: translate(-50%, 0%);
+  p.font-white {
     text-align: center;
     font: Bold 18px/31px YuGothic;
     color: #FFFFFF;
