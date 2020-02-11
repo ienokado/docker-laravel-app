@@ -26,6 +26,15 @@ $ docker-compose run node npm run dev
 
 http://localhost:10080
 
+### Spotify API の設定
+- [PHPライブラリ仕様](https://github.com/jwilsson/spotify-web-api-php)
+```cmd
+.envへ追記
+
+SPOTIFY_CLIENT_ID=XXXX
+SPOTIFY_CLIENT_SECRET=XXXX
+```
+
 ### Insert Initial Data
 ```cmd
 $ docker-compose exec app php artisan db:seed
