@@ -2,66 +2,64 @@
 
 @section('content')
 <div class="main-wrapper">
-@if ($debayashi)
-      <div class="search-result">
-        <div class="result-header">
-          <span class="keyword">{{ $keyword }}</span>の<br>
-          出囃子は・・・
+    @if ($debayashi)
+        <div class="search-result">
+            <div class="result-header">
+            <span class="keyword">{{ $keyword }}</span>の<br>
+            出囃子は・・・
+            </div>
         </div>
-      </div>
-      <div class="search-result-card">
-        <div class="debayashi-info">
-            <div class="debayashi-img"><img src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}"></div>
-            <p class="debayashi-name">{{ $debayashi->name }}</p>
-            <p class="artist-name">{{ $debayashi->artist_name }}</p>
-        </div>
-        <div class="link-area">
-            <video controls="" autoplay="" name="media">
-                <source src="{{ $spotifyValue['preview_url'] }}" type="audio/mpeg">
-            </video>
-            <a href="#" id="link-apple-music" class="link-btn">
-              <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
-            </a>
-            <a href="{{ $spotifyValue['external_url'] }}" id="link-spotify" class="link-btn" target="_blank">
-              <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
-            </a>
-        </div>
-          <div class="share-area">
-            <span class="share-item">SHARE ON</span>
-            <a class="share-item" href="{{ config('const.sns_share_url.twitter') }}" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a class="share-item" href="{{ config('const.sns_share_url.facebook') }}" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a class="share-item" href="{{ config('const.sns_share_url.line') }}" target="_blank">
-              <i class="fab fa-line"></i>
-            </a>
-          </div>
+        <div class="search-result-card">
+            <div class="debayashi-info">
+                <div class="debayashi-img">
+                    @if ($spotifyValue && $spotifyValue['image_url'])
+                        <img src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}">
+                    @else
+                        <p>No Image</p>
+                    @endif
+                </div>
+                <p class="debayashi-name">{{ $debayashi->name }}</p>
+                <p class="artist-name">{{ $debayashi->artist_name }}</p>
+             </div>
+            <div class="link-area">
+                @if ($spotifyValue && $spotifyValue['preview_url'])
+                    <video controls="" autoplay="" name="media">
+                        <source src="{{ $spotifyValue['preview_url'] }}" type="audio/mpeg">
+                    </video>
+                @endif
+                <a href="#" id="link-apple-music" class="link-btn">
+                    <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
+                </a>
+                @if ($spotifyValue && $spotifyValue['external_url'])
+                    <a href="{{ $spotifyValue['external_url'] }}" id="link-spotify" class="link-btn" target="_blank">
+                        <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
+                    </a>
+                @endif
+            </div>
             <div class="share-area">
-              <span class="share-item">SHARE ON</span>
-              <a class="share-item" href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a class="share-item" href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a class="share-item" href="#">
-                <i class="fab fa-line"></i>
-              </a>
+                <span class="share-item">SHARE ON</span>
+                <a class="share-item" href="{{ config('const.sns_share_url.twitter') }}" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="share-item" href="{{ config('const.sns_share_url.facebook') }}" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="share-item" href="{{ config('const.sns_share_url.line') }}" target="_blank">
+                    <i class="fab fa-line"></i>
+                </a>
             </div>
 
-          <a href="{{ route('top') }}" class="return-btn-blue">
-            <span>検索に戻る</span>
-          </a>
+            <a href="{{ route('top') }}" class="return-btn-blue">
+                <span>検索に戻る</span>
+            </a>
         </div>
-  @else
-      <div class="notfound">
-        <p>その芸人さん、<br>知らんわ…</p>
-        <a href="{{ route('top') }}" class="return-btn">
-          <span>検索に戻る</span>
-        </a>
-      </div>
-  @endif
+    @else
+        <div class="notfound">
+            <p>その芸人さん、<br>知らんわ…</p>
+            <a href="{{ route('top') }}" class="return-btn">
+                <span>検索に戻る</span>
+            </a>
+        </div>
+    @endif
 </div>
 @endsection
