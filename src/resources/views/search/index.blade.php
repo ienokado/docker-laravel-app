@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="main-wrapper">
 @if ($debayashi)
-    <div class="main-wrapper">
       <div class="search-result">
         <div class="result-header">
           <span class="keyword">{{ $keyword }}</span>の<br>
@@ -38,18 +38,30 @@
               <i class="fab fa-line"></i>
             </a>
           </div>
+            <div class="share-area">
+              <span class="share-item">SHARE ON</span>
+              <a class="share-item" href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="share-item" href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="share-item" href="#">
+                <i class="fab fa-line"></i>
+              </a>
+            </div>
 
-        <a href="{{ route('top') }}" class="return-btn-blue">
+          <a href="{{ route('top') }}" class="return-btn-blue">
+            <span>検索に戻る</span>
+          </a>
+        </div>
+  @else
+      <div class="notfound">
+        <p>その芸人さん、<br>知らんわ…</p>
+        <a href="{{ route('top') }}" class="return-btn">
           <span>検索に戻る</span>
         </a>
       </div>
-    </div>
-@else
-    <div class="notfound">
-        <p class="mb-5">その芸人さん、<br>知らんわ…</p>
-        <a href="{{ route('top') }}" class="btn w-100 p-3 font-weight-bold return-btn">
-            <span>検索に戻る</span>
-        </a>
-    </div>
-@endif
+  @endif
+</div>
 @endsection

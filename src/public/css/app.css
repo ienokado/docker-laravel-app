@@ -11664,6 +11664,14 @@ form {
 }
 
 .notfound {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.notfound p {
   text-align: center;
   letter-spacing: 0;
   color: #FFFFFF;
@@ -11671,12 +11679,26 @@ form {
   font: Bold 30px/42px YuGothic;
 }
 
-.link-area {
+.notfound .return-btn {
+  display: block;
+  width: 303px;
+  height: 58px;
+  background: #FFD3CF 0% 0% no-repeat padding-box;
+  border-radius: 10px;
   text-align: center;
+  font: Bold 18px/58px YuGothic;
+  color: #4960FA;
+  margin: 70px auto 0;
 }
 
-a {
+.notfound a:hover {
+  opacity: 0.8;
+  color: #1F28CF;
   text-decoration: none;
+}
+
+.link-area {
+  text-align: center;
 }
 
 .link-btn {
@@ -11702,15 +11724,6 @@ a {
   width: 145px;
 }
 
-.return-btn {
-  background: #FFD3CF 0% 0% no-repeat padding-box;
-  border-radius: 10px;
-  text-align: center;
-  letter-spacing: 0;
-  color: #4960FA;
-  opacity: 1;
-}
-
 .return-btn-blue {
   display: block;
   width: 303px;
@@ -11721,6 +11734,12 @@ a {
   font: Bold 18px/58px YuGothic;
   color: #FFFFFF;
   margin: 0 auto;
+}
+
+a:hover {
+  opacity: 0.8;
+  color: black;
+  text-decoration: none;
 }
 
 .share-item {
@@ -11860,6 +11879,10 @@ body {
   border: none;
   font-family: FontAwesome;
   color: #FFFFFF;
+}
+
+a {
+  text-decoration: none;
 }
 
 .container {
