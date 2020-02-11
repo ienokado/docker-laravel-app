@@ -27,9 +27,15 @@
         </div>
           <div class="share-area">
             <span class="share-item">SHARE ON</span>
-            <a class="share-item" href="#"></a>
-            <a class="share-item" href="#"></a>
-            <a class="share-item" href="#"></a>
+            <a class="share-item" href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a class="share-item" href="#">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="share-item" href="#">
+              <i class="fab fa-line"></i>
+            </a>
           </div>
 
         <a href="{{ route('top') }}" class="return-btn-blue">

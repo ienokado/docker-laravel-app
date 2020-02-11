@@ -11752,18 +11752,6 @@ a {
   -webkit-font-smoothing: antialiased;
 }
 
-.share-area a:nth-of-type(1):before {
-  content: "\F099";
-}
-
-.share-area a:nth-of-type(2):before {
-  content: "\F09A";
-}
-
-.share-area a:nth-of-type(3):before {
-  content: "\F3C0";
-}
-
 .footer-copyright {
   color: #b1aca1;
 }
@@ -11776,26 +11764,6 @@ footer .hr {
   height: 2px;
   background: #fff;
   display: block;
-}
-
-.fa-facebook-square,
-.fa-twitter,
-.fa-line {
-  color: #b1aca1;
-  font-size: 50px;
-  padding: 10px;
-}
-
-.fa-facebook-square:hover {
-  color: #3B5998;
-}
-
-.fa-twitter:hover {
-  color: #1DA1F2;
-}
-
-.fa-line:hover {
-  color: #00c300;
 }
 
 html {
