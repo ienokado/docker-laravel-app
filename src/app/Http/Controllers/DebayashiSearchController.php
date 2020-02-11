@@ -46,7 +46,7 @@ class DebayashiSearchController extends Controller
         // Client IDとClient Secretが設定されていない場合はSpotifyAPIを利用しない
         if ($debayashi && env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')) {
             $spotify = new SpotifyService();
-            $query = $debayashi->artist_name. ' '. $debayashi->name;
+            $query = $debayashi->artist_name . ' ' . $debayashi->name;
             $result = $spotify->search($query, 'track', ['market' => 'JP']);
 
             if (count($result) > 0) {

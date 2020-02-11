@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 class SpotifyService extends Facade
 {
+
     protected static function getFacadeAccessor() {
         return 'SpotifyService';
     }
@@ -18,7 +19,6 @@ class SpotifyService extends Facade
         $this->client->session->requestCredentialsToken();
         $accessToken = $this->client->session->getAccessToken();
         $this->client->api->setAccessToken($accessToken);
-
     }
 
     /**
