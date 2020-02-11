@@ -24,7 +24,7 @@ class Debayashi extends Model
     public static function getByKeyword(string $keyword = null)
     {
         return Debayashi::whereHas('comedianGroups', function ($query) use ($keyword) {
-            $query->where('name', 'like', "%${keyword}%");
-        })->get();
+            $query->where('name', "${keyword}");
+        })->get()->first();
     }
 }

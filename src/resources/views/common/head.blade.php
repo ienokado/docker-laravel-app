@@ -13,6 +13,12 @@
     <!-- スマホ用アイコン -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
 
+    <!-- OGP画像 -->
+    <meta property="og:url" content="{{ route('home') }}" />
+    <meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
+    <meta property="og:image" content="{{ asset('ogp.png') }}" />
+    <meta property="og:description" content="{{ config('app.description', 'Laravel') }}" />
+
     <!-- Windows用アイコン -->
     <meta name="application-name" content="{{ config('app.name', 'Laravel') }}"/>
     <meta name="msapplication-square70x70logo" content="{{ asset('small.png') }}"/>
