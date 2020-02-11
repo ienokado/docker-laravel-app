@@ -11655,11 +11655,11 @@ form {
   margin-bottom: 13px;
 }
 
-.search-result-card .debayashi-info .artist-name {
+.search-result-card .debayashi-info .debayashi-name {
   font-size: 30px;
 }
 
-.search-result-card .debayashi-info .debayashi-name {
+.search-result-card .debayashi-info .artist-name {
   font-size: 23px;
 }
 

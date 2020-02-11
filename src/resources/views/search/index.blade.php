@@ -13,8 +13,8 @@
         <div class="debayashi-info">
           @foreach ($debayashis as $debayashi)
               <div class="debayashi-img"><p>image</p></div>
-              <p class="artist-name">{{ $debayashi->artist_name }}</p>
               <p class="debayashi-name">{{ $debayashi->name }}</p>
+              <p class="artist-name">{{ $debayashi->artist_name }}</p>
           @endforeach
         </div>
         <div class="link-area">
