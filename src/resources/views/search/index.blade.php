@@ -11,27 +11,30 @@
       </div>
       <div class="search-result-card">
         <div class="debayashi-info">
-            <div class="debayashi-img"><p>image</p></div>
+            <div class="debayashi-img"><img src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}"></div>
             <p class="debayashi-name">{{ $debayashi->name }}</p>
             <p class="artist-name">{{ $debayashi->artist_name }}</p>
         </div>
         <div class="link-area">
+            <video controls="" autoplay="" name="media">
+                <source src="{{ $spotifyValue['preview_url'] }}" type="audio/mpeg">
+            </video>
             <a href="#" id="link-apple-music" class="link-btn">
               <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
             </a>
-            <a href="#" id="link-spotify" class="link-btn">
+            <a href="{{ $spotifyValue['external_url'] }}" id="link-spotify" class="link-btn" target="_blank">
               <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
             </a>
         </div>
           <div class="share-area">
             <span class="share-item">SHARE ON</span>
-            <a class="share-item" href="#">
+            <a class="share-item" href="{{ config('const.sns_share_url.twitter') }}" target="_blank">
               <i class="fab fa-twitter"></i>
             </a>
-            <a class="share-item" href="#">
+            <a class="share-item" href="{{ config('const.sns_share_url.facebook') }}" target="_blank">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a class="share-item" href="#">
+            <a class="share-item" href="{{ config('const.sns_share_url.line') }}" target="_blank">
               <i class="fab fa-line"></i>
             </a>
           </div>
