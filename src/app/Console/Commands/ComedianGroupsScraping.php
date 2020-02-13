@@ -38,7 +38,10 @@ class ComedianGroupsScraping extends Command
      */
     public function handle()
     {
-        $goutte = GoutteFacade::request('GET', 'https://ja.wikipedia.org/wiki/%E6%BC%AB%E6%89%8D%E5%B8%AB%E4%B8%80%E8%A6%A7');
+        // スクレイピングするURL
+        $url = 'https://ja.wikipedia.org/wiki/%E6%BC%AB%E6%89%8D%E5%B8%AB%E4%B8%80%E8%A6%A7';
+
+        $goutte = GoutteFacade::request('GET', $url);
 
         $filePath = database_path('csv/comedian_groups.csv');
 
