@@ -35,6 +35,11 @@ SPOTIFY_CLIENT_ID=XXXX
 SPOTIFY_CLIENT_SECRET=XXXX
 ```
 
+### 芸人データのスクレイピング
+```
+docker-compose run app php artisan command:comedian_groups_scraping
+```
+
 ### Insert Initial Data
 ```cmd
 $ docker-compose exec app php artisan db:seed
