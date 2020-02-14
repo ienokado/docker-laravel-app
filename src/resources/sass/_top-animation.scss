@@ -1,18 +1,18 @@
-form {
-  animation:
+form.top-animation {
+    animation:
     form-display 2000ms ease 0ms 1 normal backwards running,
     form-up 2000ms ease 2000ms 1 normal backwards running;
 }
-.female-img,
-.microphone-img {
-  animation:
-  comedian-up 2000ms ease-out 2000ms 1 normal backwards running
+.female-img.top-animation,
+.microphone-img.top-animation {
+    animation:
+    comedian-up 2000ms ease-out 2000ms 1 normal backwards running
 }
-.male-img {
+.male-img.top-animation {
   animation:
     male-jump 2000ms ease-out 2000ms 1 normal backwards running
 }
-.serif {
+.serif.top-animation {
   animation:
     serif-display 1000ms ease 4000ms 1 normal backwards running
 }
