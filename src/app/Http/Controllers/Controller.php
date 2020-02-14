@@ -17,7 +17,8 @@ class Controller extends BaseController
     public function __construct()
     {
       //cookieで表示回数を保持
-        $this->cookieName = str_replace('Controller', '', (new \ ReflectionClass($this))-> getShortName()) . '_DispCount';
+        $this->cookieName = str_replace('Controller', '', (new \ ReflectionClass($this))-> getShortName())
+                              . '_DispCount';
         $value = 1;
         if (isset($_COOKIE[$this->cookieName])) {
             $value += $_COOKIE[$this->cookieName];
