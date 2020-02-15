@@ -5,4 +5,7 @@ return [
         'twitter' => env('TWITTER_SHARE_URL', 'http://twitter.com/share?url='). env('APP_URL'),
         'line' => env('LINE_SHARE_URL', 'https://social-plugins.line.me/lineit/share?url='). env('APP_URL'),
     ],
+    'cookie_expire' => [
+        'disp_count' => 60*60*24*30,
+    ],
 ];
