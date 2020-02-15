@@ -6,6 +6,6 @@ return [
         'line' => env('LINE_SHARE_URL', 'https://social-plugins.line.me/lineit/share?url='). env('APP_URL'),
     ],
     'cookie_expire' => [
-        'dispCount' => 60*60*24*1,
+        'disp_count' => 60*60*24*30,
     ],
 ];

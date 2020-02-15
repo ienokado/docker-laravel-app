@@ -39,20 +39,20 @@
 
 @section('javascript')
   <script>
-  "use strict";
-  {
-    const cookies = document.cookie;
-    const cookiesArray = cookies.split(/; ?/);
-    for(var c of cookiesArray){
-      var cArray = c.split('=');
-      if( cArray[0] == "{{ $cookieName }}" && cArray[1] > 1){
-        const animationItems = document.getElementsByClassName('top-animation');
-        const itemArray = Array.prototype.slice.call(animationItems);
-        itemArray.forEach(item => {
-          item.classList.remove('top-animation');
-        });
-      }
+    window.onload = function(){
+        // Cookie名の存在チェック
+        var cookieValue = "{{ \Cookie::get($cookieName) }}"
+
+        if (cookieValue) {
+            // top-animationとクラス名がついているelementを取得
+            var animationItems = document.getElementsByClassName('top-animation');
+
+            var itemArray = Array.prototype.slice.call(animationItems);
+            // top-animationのclassを削除
+            itemArray.forEach(item => {
+                item.classList.remove('top-animation');
+            });
+        }
     }
-  }
   </script>
 @endsection

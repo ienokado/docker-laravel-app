@@ -2,27 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Cookie;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests;
-    use DispatchesJobs;
-    use ValidatesRequests;
-
-    protected $cookieName;
     public function __construct()
     {
-      //cookieで表示回数を保持
-        $this->cookieName = str_replace('Controller', '', (new \ ReflectionClass($this))-> getShortName())
-                              . '_DispCount';
-        $value = 1;
-        if (isset($_COOKIE[$this->cookieName])) {
-            $value += $_COOKIE[$this->cookieName];
+        // Cookieが設定されていない場合に設定
+        if (is_null(Cookie::get($this->getCookieName()))) {
+            $this->setCookie();
         }
-        setcookie($this->cookieName, $value, time() + config('const.cookie_expire.dispCount'), '/', '', false, false);
+    }
+
+    /**
+     * Cookie名を取得する
+     *
+     * @return string
+     */
+    protected function getCookieName()
+    {
+        // 動作しているController名を取得する
+        $controllerName = str_replace('Controller', '', (new \ReflectionClass($this))->getShortName());
+
+        return $controllerName . '_DispCount';
+    }
+
+    /**
+     * Cookieを設定する
+     *
+     * @return void
+     */
+    protected function setCookie()
+    {
+        // 30日間の有効期限
+        $expireTime = time() + config('const.cookie_expire.disp_count');
+
+        Cookie::queue(Cookie::make($this->getCookieName(), 1, $expireTime));
     }
 }

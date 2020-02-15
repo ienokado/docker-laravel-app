@@ -15,7 +15,7 @@ class TopController extends Controller
     public function __invoke(Request $request)
     {
         return view('top', [
-            'cookieName' => $this->cookieName,
+            'cookieName' => $this->getCookieName(),
         ]);
     }
 }
