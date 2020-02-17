@@ -11594,44 +11594,47 @@ form.top-animation {
   }
 }
 
-.search-result {
+.search-keyword {
   text-align: center;
   letter-spacing: 0;
   color: #FFFFFF;
   opacity: 1;
-  width: 375px;
+  width: 303px;
   margin: 50px auto 30px;
   position: relative;
   font: Bold 20px/35px YuGothic;
+  word-break: break-all;
 }
 
-.search-result .result-header {
-  width: 100%;
-}
-
-.search-result .result-header .keyword {
+.search-keyword .keyword-header .keyword {
   font-size: 30px;
 }
 
 .search-result-card {
-  position: absolute;
   bottom: 0;
+  width: 375px;
   background: #FFD3CF 0% 0% no-repeat padding-box;
   border-radius: 30px 30px 0px 0px;
   opacity: 1;
-  width: 375px;
-  height: 666px;
+  height: auto;
+  min-height: 666px;
   display: block;
   padding-top: 60px;
-  margin: 0 auto;
+  margin: 0 auto 0;
+  padding-bottom: 48px;
   text-align: center;
 }
 
 .search-result-card .debayashi-info {
-  width: 100%;
+  width: 303px;
   text-align: center;
   color: #4960FA;
   font: Bold 23px/35px YuGothic;
+  margin: 0 auto;
+}
+
+.search-result-card .debayashi-info > p {
+  word-break: break-all;
 }
 
 .search-result-card .debayashi-info .debayashi-img {
@@ -11668,7 +11671,7 @@ form.top-animation {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .notfound p {
