@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use App\Models\Debayashi;
 
 class ComedianGroupsTableSeeder extends Seeder
 {
@@ -20,22 +21,33 @@ class ComedianGroupsTableSeeder extends Seeder
             \SplFileObject::DROP_NEW_LINE
         );
 
-        $list = [];
         $now = Carbon::now();
+
         foreach($file as $index => $line) {
+            $list = [];
+
             if ($index == 0)  {
                 continue;
             }
 
-            $list[] = [
-                "id" => $index,
-                "name" => $line[0],
-                "debayashi_id" => $index,
-                "created_at" => $now,
-                "updated_at" => $now,
+            $list = [
+                'name' => $line[0],
+                'created_at' => $now,
+                'updated_at' => $now,
             ];
-        }
 
-        DB::table("comedian_groups")->insert($list);
+            // 出囃子データに登録されている場合
+            if (isset($line[1]) || isset($line[2])) {
+                $where = [
+                    'artist_name' => $line[1],
+                    'name' => $line[2],
+                ];
+                $Debayashi = Debayashi::where($where)->get()->first();
+
+                $list['debayashi_id'] = $Debayashi->id;
+            }
+
+            DB::table("comedian_groups")->insert($list);
+        }
     }
 }

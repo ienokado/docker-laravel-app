@@ -22,13 +22,13 @@ class DebayashisTableSeeder extends Seeder
 
         $list = [];
         $now = Carbon::now();
+
         foreach($file as $index => $line) {
-            if ($index == 0)  {
+            if ($index == 0 || (!isset($line[1]) || !isset($line[2])))  {
                 continue;
             }
 
             $list[] = [
-                "id" => $index,
                 "name" => $line[2],
                 "artist_name" => $line[1],
                 "created_at" => $now,
