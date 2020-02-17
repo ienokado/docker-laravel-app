@@ -37,7 +37,7 @@ SPOTIFY_CLIENT_SECRET=XXXX
 
 ### 芸人データのスクレイピング
 ```
-docker-compose run app php artisan command:comedian_groups_scraping
+$ docker-compose run app php artisan command:comedian_groups_scraping
 ```
 
 ### Insert Initial Data
@@ -47,5 +47,5 @@ $ docker-compose exec app php artisan db:seed
 
 ### sniffer(コード整形)
 ```
- docker-compose run app composer sniffer
+$ docker-compose run app composer sniffer
 ```
