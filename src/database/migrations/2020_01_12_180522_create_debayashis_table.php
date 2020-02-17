@@ -15,11 +15,9 @@ class CreateDebayashisTable extends Migration
     {
         Schema::create('debayashis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('artist_name');
-            $table->string('youtube_url')->nullable();
-            $table->string('spotify_url')->nullable();
-            $table->integer('active')->default(1);
+            $table->string('name')->comment('出囃子名');
+            $table->text('artist_name')->comment('アーティスト名');
+            $table->integer('active')->default(1)->comment('0: 非アクティブ, 1: アクティブ');
             $table->timestamps();
         });
     }
