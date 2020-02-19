@@ -2,7 +2,6 @@
 
 @section('content')
   @if ($debayashi)
-    <div class="main-wrapper">
       <div class="search-keyword">
           <div class="keyword-header">
             <span class="keyword">{{ $keyword }}</span><br>
@@ -53,7 +52,6 @@
           <span>検索に戻る</span>
         </a>
       </div>
-    </div>
   @else
     <div class="notfound">
         <p>その芸人さん、<br>知らんわ…</p>
