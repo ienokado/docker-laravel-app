@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComedianGroupsTable extends Migration
+class CreateSpotifyInfoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateComedianGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comedian_groups', function (Blueprint $table) {
+        Schema::create('spotify_info', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('debayashi_id')->nullable()->comment('出囃子ID');
-            $table->string('name')->comment('コンビ名');
-            $table->text('description')->nullable()->comment('備考');
-            $table->integer('dissolve_flg')->default(0)->comment('解散フラグ');
-            $table->integer('active')->default(1)->comment('0: 非アクティブ, 1: アクティブ');
+            $table->text('spotify_url')->nullable()->comment('SpotifyのURL');
+            $table->text('spotify_image_url')->nullable()->comment('Spotifyのジャケット画像URL');
+            $table->text('spotify_preview_url')->nullable()->comment('Spotifyのプレビュー再生URL');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateComedianGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comedian_groups');
+        Schema::dropIfExists('spotify_info');
     }
 }

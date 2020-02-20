@@ -70,6 +70,8 @@ class ComedianGroupsScraping extends Command
     {
         // 不要な文字列
         $search = [
+            ' (お笑い芸人)',
+            ' (お笑いトリオ)',
             ' (お笑いコンビ)',
             ' (お笑い)',
             ' (存在しないページ)',

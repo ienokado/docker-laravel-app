@@ -13,12 +13,19 @@ class Debayashi extends Model
      */
     protected $table = 'debayashis';
 
-    /**
-     * Get all of the groups for the debayashi.
-     */
     public function comedianGroups()
     {
-        return $this->hasMany('App\Models\ComedianGroup');
+        return $this->hasMany(ComedianGroup::class);
+    }
+
+    public function spotifyInfo()
+    {
+        return $this->hasOne(SpotifyInfo::class);
+    }
+
+    public function appleMusicInfo()
+    {
+        return $this->hasOne(AppleMusicInfo::class);
     }
 
     public static function getByKeyword(string $keyword = null)
