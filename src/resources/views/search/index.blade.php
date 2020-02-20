@@ -15,7 +15,9 @@
             @if ($spotifyValue && $spotifyValue['image_url'])
             <img src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}">
             @else
-            <p>No Image</p>
+              <div class="alt-desc">
+                <p>No Image</p>
+              </div>
             @endif
           </div>
           <p class="debayashi-name">{{ $debayashi->name }}</p>
