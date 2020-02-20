@@ -4,13 +4,13 @@
 <body>
     {{-- @include('common.header') --}}
 
+    <div class="wrapper">
+      <!-- <div id="content"> -->
+          @yield('content')
+      <!-- </div> -->
 
-    <div id="content">
-        @yield('content')
+      @include('common.footer')
     </div>
-
-    @include('common.footer')
-
     <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
     @yield('javascript')
 </body>
