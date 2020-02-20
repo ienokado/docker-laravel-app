@@ -1,13 +1,16 @@
-.footer-copyright {
-  color: #b1aca1;
-}
-
 footer {
+  width: 100vw;
   background-color: #222222;
-
+  position: absolute;
+  bottom: 0;
+  z-index: 1030;
   .hr {
     height: 2px;
     background: #fff;
     display: block;
   }
+}
+
+.footer-copyright {
+  color: #b1aca1;
 }

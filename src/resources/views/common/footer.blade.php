@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small fixed-bottom">
+<footer>
     <div class="hr"></div>
     {{-- <!-- Footer Elements -->
     <div class="container">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="main-wrapper">
+<div class="top-page-wrapper">
   <form class="top-animation" action="{{ route('debayashi.search.index') }}" method="post">
     {{ csrf_field() }}
         <img class="logo-img" src="{{ asset('images/top/logo.svg')}}">
