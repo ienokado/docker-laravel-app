@@ -11615,10 +11615,8 @@ form.top-animation {
   width: 375px;
   background: #FFD3CF 0% 0% no-repeat padding-box;
   border-radius: 30px 30px 0px 0px;
-  opacity: 1;
   height: auto;
   min-height: 666px;
-  display: block;
   padding-top: 60px;
   margin: 0 auto 0;
   padding-bottom: 48px;
@@ -11782,6 +11780,80 @@ a:hover {
   height: 38px;
   margin: 0 2px;
   -webkit-font-smoothing: antialiased;
+}
+
+.keyword-header {
+  -webkit-animation: keyword-display 500ms ease-in-out 0ms 1 normal backwards running, keyword-up 1000ms ease-in-out 600ms 1 normal backwards running;
+          animation: keyword-display 500ms ease-in-out 0ms 1 normal backwards running, keyword-up 1000ms ease-in-out 600ms 1 normal backwards running;
+}
+
+.search-result-card {
+  -webkit-animation: card-up 1000ms ease-in-out 600ms 1 normal backwards running;
+          animation: card-up 1000ms ease-in-out 600ms 1 normal backwards running;
+}
+
+@-webkit-keyframes keyword-display {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(50vh - 50%));
+            transform: translateY(calc(50vh - 50%));
+  }
+}
+
+@keyframes keyword-display {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(calc(50vh - 50%));
+            transform: translateY(calc(50vh - 50%));
+  }
+}
+
+@-webkit-keyframes keyword-up {
+  0% {
+    -webkit-transform: translateY(calc(50vh - 50%));
+            transform: translateY(calc(50vh - 50%));
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes keyword-up {
+  0% {
+    -webkit-transform: translateY(calc(50vh - 50%));
+            transform: translateY(calc(50vh - 50%));
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes card-up {
+  0% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes card-up {
+  0% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 
 footer {

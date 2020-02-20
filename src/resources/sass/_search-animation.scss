@@ -1,54 +1,34 @@
-.search-result {
+.keyword-header {
   animation:
-    first-display 2000ms ease 0ms 1 normal backwards running,
+    keyword-display 500ms ease-in-out 0ms 1 normal backwards running,
+    keyword-up 1000ms ease-in-out 600ms 1 normal backwards running,
 }
 
-@keyframes first-display {
+.search-result-card {
+  animation:
+  card-up 1000ms ease-in-out 600ms 1 normal backwards running,
+}
+@keyframes keyword-display {
   0% {
-    opacity: 0;
-    transform: translateY(50%);
-  }
-  100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(calc(50vh - 50%));
   }
 }
 
-@keyframes form-up {
+@keyframes keyword-up {
   0% {
-    transform: translateY(50%);
+    transform: translateY(calc(50vh - 50%));
   }
   100% {
     transform: translateY(0);
   }
 }
 
-@keyframes comedian-up {
+@keyframes card-up {
   0% {
-    transform: translateY(100%);
+    transform: translateY(100vh);
   }
   100% {
     transform: translateY(0);
-  }
-}
-
-@keyframes male-jump {
-  0% {
-    transform: translateY(120%);
-  }
-  70% {
-    transform: translateY(0%) rotate(5deg);
-  }
-  100% {
-    transform: translateY(0%) rotate(0deg);
-  }
-}
-
-@keyframes serif-display {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
