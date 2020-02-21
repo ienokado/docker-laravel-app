@@ -1,13 +1,14 @@
-.keyword-header {
+.keyword-header.search-result-animation {
   animation:
     keyword-display 500ms ease-in-out 0ms 1 normal backwards running,
-    keyword-up 1000ms ease-in-out 600ms 1 normal backwards running,
+    keyword-up 1000ms ease-in-out 500ms 1 normal backwards running,
 }
 
-.search-result-card {
+.search-result-card.search-result-animation {
   animation:
-  card-up 1000ms ease-in-out 600ms 1 normal backwards running,
+    card-up 1000ms ease-in-out 500ms 1 normal backwards running,
 }
+
 @keyframes keyword-display {
   0% {
     opacity: 1;
@@ -26,7 +27,7 @@
 
 @keyframes card-up {
   0% {
-    transform: translateY(100vh);
+    transform: translateY(100%);
   }
   100% {
     transform: translateY(0);

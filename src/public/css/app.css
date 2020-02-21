@@ -11600,7 +11600,8 @@ form.top-animation {
   color: #FFFFFF;
   opacity: 1;
   width: 303px;
-  margin: 50px auto 30px;
+  padding-top: 50px;
+  margin: 0 auto 30px;
   position: relative;
   font: Bold 20px/35px YuGothic;
   word-break: break-all;
@@ -11611,7 +11612,6 @@ form.top-animation {
 }
 
 .search-result-card {
-  bottom: 0;
   width: 375px;
   background: #FFD3CF 0% 0% no-repeat padding-box;
   border-radius: 30px 30px 0px 0px;
@@ -11782,14 +11782,14 @@ a:hover {
   -webkit-font-smoothing: antialiased;
 }
 
-.keyword-header {
-  -webkit-animation: keyword-display 500ms ease-in-out 0ms 1 normal backwards running, keyword-up 1000ms ease-in-out 600ms 1 normal backwards running;
-          animation: keyword-display 500ms ease-in-out 0ms 1 normal backwards running, keyword-up 1000ms ease-in-out 600ms 1 normal backwards running;
+.keyword-header.search-result-animation {
+  -webkit-animation: keyword-display 500ms ease-in-out 0ms 1 normal backwards running, keyword-up 1000ms ease-in-out 500ms 1 normal backwards running;
+          animation: keyword-display 500ms ease-in-out 0ms 1 normal backwards running, keyword-up 1000ms ease-in-out 500ms 1 normal backwards running;
 }
 
-.search-result-card {
-  -webkit-animation: card-up 1000ms ease-in-out 600ms 1 normal backwards running;
-          animation: card-up 1000ms ease-in-out 600ms 1 normal backwards running;
+.search-result-card.search-result-animation {
+  -webkit-animation: card-up 1000ms ease-in-out 500ms 1 normal backwards running;
+          animation: card-up 1000ms ease-in-out 500ms 1 normal backwards running;
 }
 
 @-webkit-keyframes keyword-display {
@@ -11834,8 +11834,8 @@ a:hover {
 
 @-webkit-keyframes card-up {
   0% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
   }
 
   100% {
@@ -11846,8 +11846,8 @@ a:hover {
 
 @keyframes card-up {
   0% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
   }
 
   100% {

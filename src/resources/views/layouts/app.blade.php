@@ -5,11 +5,11 @@
     {{-- @include('common.header') --}}
 
     <div class="wrapper">
-      <!-- <div id="content"> -->
-          @yield('content')
-      <!-- </div> -->
+
+      @yield('content')
 
       @include('common.footer')
+
     </div>
     <script defer src="https://use.fontawesome.com/releases/v5.12.0/js/all.js"></script>
     @yield('javascript')
