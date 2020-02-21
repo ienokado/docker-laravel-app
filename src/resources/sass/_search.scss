@@ -4,7 +4,8 @@
     color: #FFFFFF;
     opacity: 1;
     width: 303px;
-    margin: 50px auto 30px;
+    padding-top: 50px;
+    margin: 0 auto 30px;
     position: relative;
     font: Bold 20px/35px YuGothic;
     word-break: break-all;
@@ -16,14 +17,11 @@
   }
 
   .search-result-card {
-    bottom: 0;
     width: 375px;
     background: #FFD3CF 0% 0% no-repeat padding-box;
     border-radius: 30px 30px 0px 0px;
-    opacity: 1;
     height: auto;
     min-height: 666px;
-    display: block;
     padding-top: 60px;
     margin: 0 auto 0;
     padding-bottom: 48px;

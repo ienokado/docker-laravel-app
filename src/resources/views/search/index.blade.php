@@ -3,12 +3,12 @@
 @section('content')
   @if ($debayashi)
       <div class="search-keyword">
-          <div class="keyword-header">
+          <div class="keyword-header search-result-animation">
             <span class="keyword">{{ $keyword }}</span><br>
             の出囃子は・・・
           </div>
       </div>
-      <div class="search-result-card">
+      <div class="search-result-card search-result-animation">
         <div class="debayashi-info">
           <div class="debayashi-img">
             @if ($spotifyValue && $spotifyValue['image_url'])
@@ -19,8 +19,8 @@
               </div>
             @endif
           </div>
-          <p class="debayashi-name">{{ $debayashi->name }}</p>
-          <p class="artist-name">{{ $debayashi->artist_name }}</p>
+            <p class="debayashi-name">{{ $debayashi->name }}</p>
+            <p class="artist-name">{{ $debayashi->artist_name }}</p>
         </div>
         <div class="link-area">
           @if ($spotifyValue && $spotifyValue['preview_url'])
