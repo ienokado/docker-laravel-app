@@ -44,7 +44,7 @@ class AppleMusicFacade extends Facade
     {
         $api = new AppleMusicAPI($this->client);
 
-        $result = $api->searchCatalog(env('APPLE_COUNTRY_CODE'), $query. '&limit='. $limit, $type);
+        $result = $api->searchCatalog(env('APPLE_COUNTRY_CODE'), $query . '&limit=' . $limit, $type);
 
         return $result->results->songs->data;
     }
