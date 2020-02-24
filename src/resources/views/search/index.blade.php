@@ -43,13 +43,13 @@
         </div>
         <div class="share-area">
           <span class="share-item">SHARE ON</span>
-          <a class="share-item" href="{{ config('const.sns_share_url.twitter') }}" target="_blank">
+            <a class="share-item" href="{{ config('const.sns_share_url.twitter') }}&text={{ $shareText }}" target="_blank">
             <i class="fab fa-twitter"></i>
           </a>
           <a class="share-item" href="{{ config('const.sns_share_url.facebook') }}" target="_blank">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a class="share-item" href="{{ config('const.sns_share_url.line') }}" target="_blank">
+          <a class="share-item" href="{{ config('const.sns_share_url.line') }}{{ $shareText }}" target="_blank">
             <i class="fab fa-line"></i>
           </a>
         </div>
