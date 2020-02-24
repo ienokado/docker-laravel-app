@@ -4,11 +4,11 @@ namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class SpotifyService extends Facade
+class SpotifyFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'SpotifyService';
+        return 'SpotifyFacade';
     }
 
     public $client;

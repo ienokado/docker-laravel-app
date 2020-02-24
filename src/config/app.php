@@ -230,7 +230,8 @@ return [
 
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
 
-        'SpotifyService' => App\Facades\SpotifyService::class,
+        'SpotifyFacade' => App\Facades\SpotifyFacade::class,
+        'AppleMusicFacade' => App\Facades\AppleMusicFacade::class,
     ],
 
 ];
