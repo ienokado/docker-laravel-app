@@ -26,13 +26,46 @@ class DebayashiSearchController extends Controller
         // Apple Music検索
         $appleMusicValue = $this->appleMusicSearch($debayashi);
 
+        // シェアボタン用テキストの取得
+        $shareText = $this->getShareText($debayashi, $spotifyValue, $appleMusicValue);
+
         //検索フォームへ
         return view('search.index', [
             'debayashi' => $debayashi,
             'spotifyValue' => $spotifyValue,
             'appleMusicValue' => $appleMusicValue,
+            'shareText' => $shareText,
             'keyword' => $keyword,
         ]);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Debayashi $debayashi
+     * @param array $spotifyValue
+     * @param array $appleMusic
+     * @return void
+     */
+    private function getShareText($debayashi = null, $spotifyValue = null, $appleMusic = null)
+    {
+        $text = "";
+
+        if ($debayashi) {
+            // 芸人名
+            $comedianName = $debayashi->comedianGroups()->first()->name;
+            // 出囃子名
+            $debayashiName = $debayashi->name;
+            // アーティスト名
+            $artistName = $debayashi->artist_name;
+
+            // コメントの生成
+            $text .= "みんな知ってた？%0a";
+            $text .= "「${comedianName}」の出囃子は・・・「${debayashiName} - ${artistName}」%0a";
+            $text .= "%23". env('APP_NAME');
+        }
+
+        return $text;
     }
 
     /**
