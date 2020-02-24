@@ -10,32 +10,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'placeholder';
 
+@import 'top';
 @import 'logo';
 @import 'comedian';
 @import 'top-animation';
+
 @import 'search';
 @import 'search-animation';
 @import 'footer';
-
-@mixin placeholder($color) {
-  &::placeholder {
-    color: $color;
-    text-align: left;
-    font: Medium 18px/31px YuGothic;
-    opacity: 0.7;
-  }
-
-  // IE
-  &:-ms-input-placeholder {
-    color: $color;
-  }
-
-  // Edge
-  &::-ms-input-placeholder {
-    color: $color;
-  }
-}
 
 html {
 	height: 100%;
@@ -57,43 +41,6 @@ body {
   width: 100vw;
   position: relative;
   box-sizing: border-box;
-}
-
-.top-page-wrapper {
-  position: absolute;
-  height :100%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  p.font-white {
-    text-align: center;
-    font: Bold 18px/31px YuGothic;
-    color: #FFFFFF;
-  }
-}
-
-.search-box {
-  position: relative;
-  .search-text {
-    width: 303px;
-    height: 58px;
-    padding-left: 20px;
-    background: #FFD3CF;
-    border-radius: 10px;
-    border: none;
-    @include placeholder(#4960FA);
-  }
-  .search-btn {
-    position: absolute;
-    top: 7px;
-    right: 7px;
-    width: 45px;
-    height: 45px;
-    background: #1F28CF;
-    border-radius: 10px;
-    border: none;
-    font-family: FontAwesome;
-    color: #FFFFFF;
-  }
 }
 
 a {
