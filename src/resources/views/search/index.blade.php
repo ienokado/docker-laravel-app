@@ -12,29 +12,33 @@
         <div class="debayashi-info">
           <div class="debayashi-img">
             @if ($spotifyValue && $spotifyValue['image_url'])
-            <img src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}">
+              <img src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}">
+            @elseif ($appleMusicValue && $appleMusicValue['image_url'])
+              <img src="{{ $appleMusicValue['image_url'] }}" alt="{{ $appleMusicValue['name'] }}">
             @else
               <div class="alt-desc">
                 <p>No Image</p>
               </div>
             @endif
           </div>
-            <p class="debayashi-name">{{ $debayashi->name }}</p>
-            <p class="artist-name">{{ $debayashi->artist_name }}</p>
+          <p class="debayashi-name">{{ $debayashi->name }}</p>
+          <p class="artist-name">{{ $debayashi->artist_name }}</p>
         </div>
         <div class="link-area">
           @if ($spotifyValue && $spotifyValue['preview_url'])
-          <video controls="" autoplay="" name="media">
-            <source src="{{ $spotifyValue['preview_url'] }}" type="audio/mpeg">
-          </video>
+            <audio src="{{ $spotifyValue['preview_url'] }}" controls></audio>
+          @elseif ($appleMusicValue && $appleMusicValue['preview_url'])
+            <audio src="{{ $appleMusicValue['preview_url'] }}" controls></audio>
           @endif
-          <a href="#" id="link-apple-music" class="link-btn">
-            <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
-          </a>
+          @if ($appleMusicValue && $appleMusicValue['external_url'])
+            <a href="{{ $appleMusicValue['external_url'] }}" id="link-apple-music" class="link-btn" target="_blank">
+              <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
+            </a>
+          @endif
           @if ($spotifyValue && $spotifyValue['external_url'])
-          <a href="{{ $spotifyValue['external_url'] }}" id="link-spotify" class="link-btn" target="_blank">
-            <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
-          </a>
+            <a href="{{ $spotifyValue['external_url'] }}" id="link-spotify" class="link-btn" target="_blank">
+              <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
+            </a>
           @endif
         </div>
         <div class="share-area">
