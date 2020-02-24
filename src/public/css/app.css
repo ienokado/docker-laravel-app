@@ -11360,7 +11360,7 @@ a.text-dark:focus {
   display: block;
   width: 259px;
   height: 156px;
-  margin: 62px auto 30px;
+  margin: 15px auto 20px;
 }
 
 .comedian-wrapper {
@@ -11378,6 +11378,11 @@ a.text-dark:focus {
   position: absolute;
   top: -25px;
   left: 40px;
+}
+
+.serif img {
+  width: auto;
+  height: auto;
 }
 
 .male {

@@ -16,7 +16,7 @@
   <div class="comedian-wrapper">
     <div class="comedian">
       <div class="serif top-animation">
-        <img src="{{ asset('images/top/serif.svg')}}">
+        <img class="serif-img" src="{{ asset('images/top/serif.svg')}}">
       </div>
       <div class="male">
         <div class="male-trim">
