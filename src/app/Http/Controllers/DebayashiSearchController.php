@@ -62,7 +62,7 @@ class DebayashiSearchController extends Controller
             // コメントの生成
             $text .= "みんな知ってた？%0a";
             $text .= "「${comedianName}」の出囃子は・・・「${debayashiName} - ${artistName}」%0a";
-            $text .= "%23". env('APP_NAME');
+            $text .= "%23" . env('APP_NAME');
         }
 
         return $text;
