@@ -1,6 +1,16 @@
 .logo-img {
   display: block;
-  width: 259px;
-  height: 156px;
-  margin: 62px auto 30px;
+  //スマホ small
+  width: 160px;
+  margin: 15px auto 20px;
+  //スマホ large
+  @media screen and (min-width: $bp-width-sp-small) {
+    width: 200px;
+    margin: 30px auto 20px;
+  }
+  //タブレット, PC
+  @media screen and (min-width: $bp-width-sp-large){
+    width: 259px;
+    margin: 62px auto 30px;
+  }
 }
