@@ -1,5 +1,5 @@
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Sawarabi+Gothic);
 
 //FontAwesome
 @import url(//use.fontawesome.com/releases/v5.0.11/css/all.css);
@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  font-family: YuGothic, 'Yu Gothic', sans-serif;
+  font-family: $font-family-sawarabi;
 	min-height: 100vh;
 	margin: 0 auto;
 	padding: 0;

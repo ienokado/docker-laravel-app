@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@import url(//use.fontawesome.com/releases/v5.0.11/css/all.css);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Sawarabi+Gothic);@import url(//use.fontawesome.com/releases/v5.0.11/css/all.css);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -34,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -66,7 +66,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6714,7 +6714,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6839,7 +6839,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -11367,7 +11367,9 @@ a.text-dark:focus {
 .top-page-wrapper p.font-white {
   text-align: center;
   color: #FFFFFF;
-  font: Bold 15px/31px YuGothic;
+  font-weight: Bold;
+  font-size: 15px;
+  line-height: 31px;
 }
 
 @media screen and (min-width: 360px) {
@@ -11387,6 +11389,8 @@ a.text-dark:focus {
   border-radius: 10px;
   border: 0;
   box-shadow: 0px 0px 20px #1F28CF;
+  font-weight: normal;
+  font-size: 15px;
   width: 260px;
   height: 47px;
 }
@@ -11394,35 +11398,45 @@ a.text-dark:focus {
 .search-box .search-text::-webkit-input-placeholder {
   color: #4960FA;
   text-align: left;
-  font: Medium 18px/31px YuGothic;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
   opacity: 0.7;
 }
 
 .search-box .search-text::-moz-placeholder {
   color: #4960FA;
   text-align: left;
-  font: Medium 18px/31px YuGothic;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
   opacity: 0.7;
 }
 
 .search-box .search-text:-ms-input-placeholder {
   color: #4960FA;
   text-align: left;
-  font: Medium 18px/31px YuGothic;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
   opacity: 0.7;
 }
 
 .search-box .search-text::-ms-input-placeholder {
   color: #4960FA;
   text-align: left;
-  font: Medium 18px/31px YuGothic;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
   opacity: 0.7;
 }
 
 .search-box .search-text::placeholder {
   color: #4960FA;
   text-align: left;
-  font: Medium 18px/31px YuGothic;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
   opacity: 0.7;
 }
 
@@ -11825,7 +11839,9 @@ form.top-animation {
   padding-top: 50px;
   margin: 0 auto 30px;
   position: relative;
-  font: Bold 20px/35px YuGothic;
+  font-weight: Bold;
+  font-size: 20px;
+  line-height: 35px;
   word-break: break-all;
 }
 
@@ -11849,7 +11865,9 @@ form.top-animation {
   width: 303px;
   text-align: center;
   color: #4960FA;
-  font: Bold 23px/35px YuGothic;
+  font-weight: Bold;
+  font-size: 23px;
+  line-height: 35px;
   margin: 0 auto;
 }
 
@@ -11909,7 +11927,9 @@ form.top-animation {
   letter-spacing: 0;
   color: #FFFFFF;
   opacity: 1;
-  font: Bold 30px/42px YuGothic;
+  font-weight: Bold;
+  font-size: 30px;
+  line-height: 42px;
 }
 
 .notfound .return-btn {
@@ -11919,7 +11939,9 @@ form.top-animation {
   background: #FFD3CF 0% 0% no-repeat padding-box;
   border-radius: 10px;
   text-align: center;
-  font: Bold 18px/58px YuGothic;
+  font-weight: Bold;
+  font-size: 18px;
+  line-height: 58px;
   color: #4960FA;
   margin: 70px auto 0;
 }
@@ -11964,7 +11986,9 @@ form.top-animation {
   background: #4960FA 0% 0% no-repeat padding-box;
   border-radius: 10px;
   text-align: center;
-  font: Bold 18px/58px YuGothic;
+  font-weight: Bold;
+  font-size: 18px;
+  line-height: 58px;
   color: #FFFFFF;
   margin: 0 auto;
 }
@@ -11985,7 +12009,9 @@ a:hover {
 }
 
 .share-area span {
-  font: Bold 15px/26px YuGothic;
+  font-weight: Bold;
+  font-size: 15px;
+  line-height: 26px;
   color: #4960FA;
   margin-right: 25px;
 }
@@ -12118,7 +12144,7 @@ html {
 }
 
 body {
-  font-family: YuGothic, "Yu Gothic", sans-serif;
+  font-family: "Sawarabi Gothic", sans-serif;
   min-height: 100vh;
   margin: 0 auto;
   padding: 0;
