@@ -7,8 +7,8 @@
         <img class="logo-img" src="{{ asset('images/top/logo.svg')}}">
         <p class="font-white">あの芸人の出囃子を検索しよう</p>
         <div class="search-box">
-          <input id="search-keyword" type="text" name="search_keyword" class="search-text" placeholder="コンビ名で検索" required="">
-          <button id="search-button" type="submit" class="search-btn">
+          <input id="search-keyword" type="text" name="search_keyword" class="search-text outline-none" placeholder="コンビ名で検索" required="">
+          <button id="search-button" type="submit" class="search-btn outline-none">
             <i class="fas fa-search"></i>
           </button>
         </div>

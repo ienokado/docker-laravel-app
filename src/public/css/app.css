@@ -11378,13 +11378,15 @@ a.text-dark:focus {
 
 .search-box {
   position: relative;
+  z-index: 1000;
 }
 
 .search-box .search-text {
   padding-left: 20px;
   background: #FFD3CF;
   border-radius: 10px;
-  border: none;
+  border: 0;
+  box-shadow: 0px 0px 20px #1F28CF;
   width: 260px;
   height: 47px;
 }
@@ -11443,7 +11445,6 @@ a.text-dark:focus {
   position: absolute;
   background: #1F28CF;
   border-radius: 10px;
-  border: none;
   font-family: FontAwesome;
   color: #FFFFFF;
   top: 5px;
@@ -11490,6 +11491,7 @@ a.text-dark:focus {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  z-index: -100;
 }
 
 .comedian {
@@ -12092,6 +12094,20 @@ footer .hr {
 
 .footer-copyright {
   color: #b1aca1;
+}
+
+@media screen and (max-width: 360px) {
+  .footer-copyright {
+    font-size: 11px;
+  }
+}
+
+.outline-none {
+  border: 0;
+}
+
+.outline-none:focus {
+  outline: none;
 }
 
 html {

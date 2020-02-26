@@ -13,4 +13,7 @@ footer {
 
 .footer-copyright {
   color: #b1aca1;
+  @media screen and (max-width: $bp-width-sp-small){
+     font-size: 11px;
+  }
 }

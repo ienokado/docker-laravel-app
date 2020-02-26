@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer>
-    <div class="hr"></div>
+
     {{-- <!-- Footer Elements -->
     <div class="container">
         <!-- Grid row-->
@@ -24,9 +24,9 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center m-2">
-        Copyright © 2020 All rights reserved
+      Copyright © でばやしコレヤシ All Rights Reserved.
     </div>
     <!-- Copyright -->
-    <div class="hr"></div>
+
 </footer>
 <!-- Footer -->
