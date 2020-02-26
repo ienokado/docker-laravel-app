@@ -7,7 +7,9 @@
     text-align: center;
     color: #FFFFFF;
     //スマホ small
-    font: Bold 15px/31px YuGothic;
+    font-weight: Bold;
+    font-size: 15px;
+    line-height: 31px;
     //スマホ large, タブレット, PC
     @media screen and (min-width: $bp-width-sp-small){
       font-size: 18px;
@@ -17,12 +19,16 @@
 
 .search-box {
   position: relative;
+  z-index: 1000;
   .search-text {
     padding-left: 20px;
     background: #FFD3CF;
     border-radius: 10px;
-    border: none;
+    border: 0;
+    box-shadow: 0px 0px 20px #1F28CF;
     @include placeholder(#4960FA);
+    font-weight: normal;
+    font-size: 15px;
     //スマホ small
     width: 260px;
     height: 47px;
@@ -36,7 +42,6 @@
     position: absolute;
     background: #1F28CF;
     border-radius: 10px;
-    border: none;
     font-family: FontAwesome;
     color: #FFFFFF;
     //スマホ small
