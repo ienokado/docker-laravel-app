@@ -10,7 +10,6 @@
     font-weight: Bold;
     font-size: 15px;
     line-height: 31px;
-    // font: Bold 15px/31px YuGothic;
     //スマホ large, タブレット, PC
     @media screen and (min-width: $bp-width-sp-small){
       font-size: 18px;
@@ -30,7 +29,6 @@
     @include placeholder(#4960FA);
     font-weight: normal;
     font-size: 15px;
-    // line-height: 31px;
     //スマホ small
     width: 260px;
     height: 47px;
