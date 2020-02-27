@@ -2,13 +2,13 @@
 
 @section('content')
   @if ($debayashi)
-      <div class="search-keyword">
+      <div class="search-keyword" id="search-keyword-area">
           <div class="keyword-header search-result-animation">
             <span class="keyword">{{ $keyword }}</span><br>
             の出囃子は・・・
           </div>
       </div>
-      <div class="search-result-card search-result-animation">
+      <div class="search-result-card search-result-animation" id="search-result-card">
         <div class="debayashi-info">
           <div class="debayashi-img">
             @if ($spotifyValue && $spotifyValue['image_url'])
@@ -67,3 +67,19 @@
     </div>
   @endif
 @endsection
+
+@if ($debayashi)
+<!-- 検索ヒット時に高さ調整 -->
+  @section('javascript')
+    <script>
+      window.onload = function(){
+          var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
+          var card_h = document.getElementById('search-result-card').clientHeight;
+          var footer_h = document.getElementsByTagName('footer')[0].clientHeight;
+          if ( (searchKeyword_h + card_h + footer_h) < window.parent.screen.height ) {
+            document.getElementById('search-result-card').classList.add('fixed-bottom');
+          }
+      }
+    </script>
+  @endsection
+@endif
