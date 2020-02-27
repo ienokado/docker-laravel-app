@@ -30,8 +30,7 @@ class Controller extends BaseController
     protected function isMobile($request)
     {
         $userAgent = $request->header('User-Agent');
-        if ((strpos($userAgent, 'iPhone') !== false)
-            || (strpos($userAgent, 'Android') !== false)) {
+        if ((strpos($userAgent, 'iPhone') !== false) || (strpos($userAgent, 'Android') !== false)) {
             return true;
         }
 
