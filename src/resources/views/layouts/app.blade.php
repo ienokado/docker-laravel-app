@@ -8,7 +8,7 @@
 
       @yield('content')
 
-      @include('common.footer')
+        {{-- @include('common.footer') --}}
 
     </div>
     @yield('javascript')
