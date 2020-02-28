@@ -11387,8 +11387,6 @@ a.text-dark:focus {
   padding-left: 20px;
   background: #FFD3CF;
   border-radius: 10px;
-  border: 0;
-  box-shadow: 0px 0px 20px #1F28CF;
   font-weight: normal;
   font-size: 15px;
   width: 260px;
@@ -11453,6 +11451,10 @@ a.text-dark:focus {
     width: 303px;
     height: 58px;
   }
+}
+
+.search-box .search-text:focus {
+  box-shadow: 0px 0px 20px #1F28CF;
 }
 
 .search-box .search-btn {
@@ -12033,6 +12035,11 @@ a:hover {
   height: 38px;
   margin: 0 2px;
   -webkit-font-smoothing: antialiased;
+}
+
+.ground-on-bottom {
+  position: absolute;
+  bottom: 0;
 }
 
 .keyword-header.search-result-animation {
