@@ -9,12 +9,6 @@ use Illuminate\Http\Request;
 
 class RequestLogger
 {
-    const ENABLE_ENVIRONMENT = [
-        'local',
-        'development',
-        'production',
-    ];
-
     /**
      * Handle an incoming request.
      *
@@ -24,7 +18,7 @@ class RequestLogger
      */
     public function handle($request, Closure $next)
     {
-        if (config('app.debug') && in_array(App::environment(), self::ENABLE_ENVIRONMENT, true)) {
+        if (in_array(App::environment(), config('const.request_logger.environment'), true)) {
             $this->writeLog($request);
         }
 

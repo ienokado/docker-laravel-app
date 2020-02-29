@@ -8,4 +8,11 @@ return [
     'cookie_expire' => [
         'disp_count' => 60*60*24*30,
     ],
+    'request_logger' => [
+        'environment' => [
+            'local',
+            'development',
+            'production',
+        ],
+    ],
 ];
