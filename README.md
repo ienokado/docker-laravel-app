@@ -29,7 +29,7 @@ http://localhost:10080
 ### Spotify API の設定
 - [PHPライブラリ仕様](https://github.com/jwilsson/spotify-web-api-php)
 ```cmd
-.envへ追記
+./src/.envへ追記
 
 SPOTIFY_CLIENT_ID=XXXX
 SPOTIFY_CLIENT_SECRET=XXXX
@@ -39,12 +39,19 @@ SPOTIFY_COUNTRY_CODE=JP
 ### Apple Music API の設定
 - [PHPライブラリ仕様](https://github.com/PouleR/apple-music-api)
 ```cmd
-.envへ追記
+src/.envへ追記
 
 APPLE_TEAM_ID=XXX
 APPLE_KEY_ID=XXXX
 APPLE_AUTH_KEY_PATH=/path/to/AuthKey.p8
 APPLE_COUNTRY_CODE=jp
+```
+### Sentryの設定（エラー通知）
+- [Sentry](https://sentry.io)
+```cmd
+src/.envへ追記
+
+SENTRY_LARAVEL_DSN=https://XXXXXXX/XXXXX
 ```
 
 ### 芸人データのスクレイピング
