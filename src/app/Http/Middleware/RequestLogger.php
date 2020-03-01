@@ -31,6 +31,12 @@ class RequestLogger
      */
     private function writeLog(Request $request): void
     {
-        Log::channel('request')->info($request->method(), ['url' => $request->fullUrl(), 'request' => $request->search_keyword]);
+        Log::channel('request')->info(
+            $request->method(),
+            [
+                'url' => $request->fullUrl(),
+                'request' => $request->search_keyword
+            ]
+        );
     }
 }
