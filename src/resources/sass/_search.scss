@@ -31,6 +31,7 @@
     //スマホlarge, タブレット, PC
     @media screen and (min-width: $bp-width-sp-large){
       width: 375px;
+      left: calc(50% - ((375/2) * 1px));
     }
     .debayashi-info {
       width: 303px;

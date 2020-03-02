@@ -74,14 +74,12 @@
     <script>
       window.onload = function(){
         // 検索ヒット時に高さ調整
-          var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
-          var card_h = document.getElementById('search-result-card').clientHeight;
-          var footer_h = document.getElementsByTagName('footer')[0].clientHeight;
-          if ( (searchKeyword_h + card_h + footer_h) < document.documentElement.clientHeight ) {
-            document.getElementById('search-result-card').classList.add('ground-on-bottom');
-          }
+        var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
+        var card_h = document.getElementById('search-result-card').clientHeight;
+        if ( (searchKeyword_h + card_h) < document.documentElement.clientHeight ) {
+          document.getElementById('search-result-card').classList.add('ground-on-bottom');
+        }
       }
-
     </script>
   @endsection
 @endif
