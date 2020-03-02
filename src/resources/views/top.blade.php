@@ -1,18 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="top-page-wrapper">
-  <form class="top-animation" action="{{ route('debayashi.search.index') }}" method="post">
-    {{ csrf_field() }}
-        <img class="logo-img" src="{{ asset('images/top/logo.svg')}}">
-        <p class="font-white">あの芸人の出囃子を検索しよう</p>
-        <div class="search-box">
-          <input id="search-keyword" type="text" name="search_keyword" class="search-text outline-none" placeholder="コンビ名で検索" required="">
-          <button id="search-button" type="submit" class="search-btn outline-none">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-  </form>
+  <div class="top-form-group top-animation">
+    <img class="logo-img" src="{{ asset('images/top/logo.svg')}}">
+    <p class="font-white">あの芸人の出囃子を検索しよう</p>
+    <!-- form -->
+    <form action="{{ route('debayashi.search.index') }}" method="post">
+      {{ csrf_field() }}
+          <div class="search-box">
+            <input id="search-keyword" type="text" name="search_keyword" class="search-text outline-none" placeholder="コンビ名で検索" required="">
+            <button id="search-button" type="submit" class="search-btn outline-none">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+    </form>
+    <!-- form -->
+  </div>
   <div class="comedian-wrapper">
     <div class="comedian">
       <div class="center-pos">
@@ -30,7 +35,7 @@
           </div>
         </div>
         <div class="microphone">
-          <div class="trim">
+          <div class="microphone-trim">
             <img class="microphone-img top-animation" src="{{ asset('images/top/microphone.svg')}}">
           </div>
         </div>
