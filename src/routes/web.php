@@ -1,5 +1,8 @@
 <?php
-
+// SSL設定
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
 /*
 |--------------------------------------------------------------------------
 | Web Routes
