@@ -20,15 +20,24 @@
                 <p>No Image</p>
               </div>
             @endif
+
+            @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+              <div id="preview-area">
+                <div id ="preview-control">
+                  <i id ="preview-control-icon" class="fas fa-play-circle preview-control-icon"></i>
+                </div>
+              </div>
+            @endif
+
           </div>
           <p class="debayashi-name">{{ $debayashi->name }}</p>
           <p class="artist-name">{{ $debayashi->artist_name }}</p>
         </div>
         <div class="link-area">
           @if ($spotifyValue && $spotifyValue['preview_url'])
-            <audio src="{{ $spotifyValue['preview_url'] }}" controls></audio>
+            <audio id="music-preview" src="{{ $spotifyValue['preview_url'] }}"></audio>
           @elseif ($appleMusicValue && $appleMusicValue['preview_url'])
-            <audio src="{{ $appleMusicValue['preview_url'] }}" controls></audio>
+            <audio id="music-preview" src="{{ $appleMusicValue['preview_url'] }}"></audio>
           @endif
           @if ($appleMusicValue && $appleMusicValue['external_url'])
             <a href="{{ $appleMusicValue['external_url'] }}" id="link-apple-music" class="link-btn" target="_blank">
@@ -79,7 +88,32 @@
         if ( (searchKeyword_h + card_h) < document.documentElement.clientHeight ) {
           document.getElementById('search-result-card').classList.add('ground-on-bottom');
         }
+
+        // 試聴可能の場合プレビューエリア生成
+        @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+          document.getElementById('preview-control').addEventListener('click', previewClick);
+          var prev = document.getElementById('preview-area');
+          prev.parentNode.classList.add('preview-area-base');
+        @endif
       }
+
+    function previewClick(){
+      //プレビューボタンクリック
+      var controlIcon = document.getElementById('preview-control-icon');
+      var audio = document.getElementById('music-preview');
+
+      if (controlIcon.classList.contains('fa-play-circle')) {
+        // 再生
+        audio.play();
+        controlIcon.classList.remove('fa-play-circle');
+        controlIcon.classList.add('fa-pause-circle');
+      } else if (controlIcon.classList.contains('fa-pause-circle')) {
+        // 停止
+        audio.pause();
+        controlIcon.classList.add('fa-play-circle');
+        controlIcon.classList.remove('fa-pause-circle');
+      }
+    }
     </script>
   @endsection
 @endif

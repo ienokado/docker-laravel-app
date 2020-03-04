@@ -11372,7 +11372,7 @@ a.text-dark:focus {
   line-height: 31px;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .top-page-wrapper p.font-white {
     font-size: 18px;
   }
@@ -11446,7 +11446,7 @@ a.text-dark:focus {
   color: #4960FA;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .search-box .search-text {
     width: 303px;
     height: 58px;
@@ -11472,7 +11472,7 @@ a.text-dark:focus {
   height: 38px;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .search-box .search-btn {
     top: 7px;
     right: 7px;
@@ -11512,7 +11512,7 @@ a.text-dark:focus {
   z-index: -100;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .comedian-wrapper {
     height: 300px;
   }
@@ -11545,7 +11545,7 @@ a.text-dark:focus {
   left: -87px;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .serif {
     top: -55px;
     left: -102px;
@@ -11558,7 +11558,7 @@ a.text-dark:focus {
   height: auto;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .serif img {
     width: auto;
     height: auto;
@@ -11571,7 +11571,7 @@ a.text-dark:focus {
   left: -160px;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .male {
     left: -195px;
   }
@@ -11584,7 +11584,7 @@ a.text-dark:focus {
   height: 250px;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .male .male-trim {
     width: 300px;
     height: 300px;
@@ -11599,7 +11599,7 @@ a.text-dark:focus {
   height: auto;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .male .male-trim img {
     top: -3px;
     left: 4px;
@@ -11614,7 +11614,7 @@ a.text-dark:focus {
   left: -45px;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .female {
     top: -29px;
     left: -30px;
@@ -11628,7 +11628,7 @@ a.text-dark:focus {
   height: 271px;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .female .female-trim {
     width: 197px;
     height: 329px;
@@ -11643,7 +11643,7 @@ a.text-dark:focus {
   height: auto;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .female .female-trim img {
     top: 0px;
     left: 0px;
@@ -11660,7 +11660,7 @@ a.text-dark:focus {
           transform: translateX(-50%);
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .microphone {
     top: 114px;
   }
@@ -11681,7 +11681,7 @@ a.text-dark:focus {
   height: auto;
 }
 
-@media screen and (min-width: 360px) and (min-height: 650px) {
+@media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .microphone .microphone-trim {
     width: 30px;
     height: 186px;
@@ -12055,6 +12055,47 @@ a:hover {
 .ground-on-bottom {
   position: absolute;
   bottom: 0;
+}
+
+.preview-area-base {
+  position: relative;
+}
+
+.preview-area-base #preview-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-area-base #preview-area #preview-control {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.preview-area-base #preview-area #preview-control-icon {
+  position: absolute;
+  font-size: 67px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+}
+
+.preview-area-base #preview-area #preview-control:hover {
+  background: rgba(45, 45, 45, 0.5);
+}
+
+.preview-area-base #preview-area #preview-control:hover #preview-control-icon {
+  opacity: 1;
+  color: #4960FA;
 }
 
 .keyword-header.search-result-animation {
