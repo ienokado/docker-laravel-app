@@ -78,42 +78,78 @@
 @endsection
 
 @if ($debayashi)
-<!-- 検索ヒット時に高さ調整 -->
+<!-- 検索ヒット時 -->
   @section('javascript')
     <script>
+      @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+        const controlIcon = document.getElementById('preview-control-icon');
+        const audio = document.getElementById('music-preview');
+      @endif
+
       window.onload = function(){
-        // 検索ヒット時に高さ調整
+        // 高さ調整
         var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
         var card_h = document.getElementById('search-result-card').clientHeight;
         if ( (searchKeyword_h + card_h) < document.documentElement.clientHeight ) {
           document.getElementById('search-result-card').classList.add('ground-on-bottom');
         }
 
-        // 試聴可能の場合プレビューエリア生成
         @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+          // プレビューエリア生成
           document.getElementById('preview-control').addEventListener('click', previewClick);
           var prev = document.getElementById('preview-area');
           prev.parentNode.classList.add('preview-area-base');
         @endif
       }
 
-    function previewClick(){
-      //プレビューボタンクリック
-      var controlIcon = document.getElementById('preview-control-icon');
-      var audio = document.getElementById('music-preview');
+      @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
 
-      if (controlIcon.classList.contains('fa-play-circle')) {
-        // 再生
-        audio.play();
-        controlIcon.classList.remove('fa-play-circle');
-        controlIcon.classList.add('fa-pause-circle');
-      } else if (controlIcon.classList.contains('fa-pause-circle')) {
-        // 停止
-        audio.pause();
-        controlIcon.classList.add('fa-play-circle');
-        controlIcon.classList.remove('fa-pause-circle');
-      }
-    }
+        //プレビューボタンクリック
+        function previewClick(){
+          if (controlIcon.classList.contains('fa-play-circle')) {
+          // 再生
+            if (audio.readyState === 4) {
+              // 再生可能
+              audio.play();
+            } else {
+              //再生可能でない場合、メディアをロード
+              audio.load();
+              if(audio.classList.contains('available') !== true) {
+                audio.addEventListener('canplaythrough', () => {
+                  audio.play();
+                });
+                audio.classList.add('available');
+              }
+            }
+          } else if (controlIcon.classList.contains('fa-pause-circle')) {
+          // 停止
+            audio.pause();
+          }
+
+          // 初回再生時,自動終了時の処理を設定
+          if(audio.classList.contains('played-even-once') !== true) {
+            audio.addEventListener('ended', () => {
+              previewControlSetting();
+            });
+            audio.classList.add('played-even-once');
+          }
+          previewControlSetting();
+        }
+
+        // ボタン変更
+        function previewControlSetting() {
+          if (controlIcon.classList.contains('fa-play-circle')) {
+            // 再生→停止ボタン
+            controlIcon.classList.remove('fa-play-circle');
+            controlIcon.classList.add('fa-pause-circle');
+          } else {
+            // 停止→再生ボタン
+            controlIcon.classList.add('fa-play-circle');
+            controlIcon.classList.remove('fa-pause-circle');
+          }
+        }
+
+      @endif
     </script>
   @endsection
 @endif

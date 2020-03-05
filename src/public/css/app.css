@@ -12090,7 +12090,7 @@ a:hover {
 }
 
 .preview-area-base #preview-area #preview-control:hover {
-  background: rgba(45, 45, 45, 0.5);
+  background: rgba(45, 45, 45, 0.3);
 }
 
 .preview-area-base #preview-area #preview-control:hover #preview-control-icon {
