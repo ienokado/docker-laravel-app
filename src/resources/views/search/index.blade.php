@@ -20,15 +20,24 @@
                 <p>No Image</p>
               </div>
             @endif
+
+            @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+              <div id="preview-area">
+                <div id ="preview-control">
+                  <i id ="preview-control-icon" class="fas fa-play-circle preview-control-icon"></i>
+                </div>
+              </div>
+            @endif
+
           </div>
           <p class="debayashi-name">{{ $debayashi->name }}</p>
           <p class="artist-name">{{ $debayashi->artist_name }}</p>
         </div>
         <div class="link-area">
           @if ($spotifyValue && $spotifyValue['preview_url'])
-            <audio src="{{ $spotifyValue['preview_url'] }}" controls></audio>
+            <audio id="music-preview" src="{{ $spotifyValue['preview_url'] }}"></audio>
           @elseif ($appleMusicValue && $appleMusicValue['preview_url'])
-            <audio src="{{ $appleMusicValue['preview_url'] }}" controls></audio>
+            <audio id="music-preview" src="{{ $appleMusicValue['preview_url'] }}"></audio>
           @endif
           @if ($appleMusicValue && $appleMusicValue['external_url'])
             <a href="{{ $appleMusicValue['external_url'] }}" id="link-apple-music" class="link-btn" target="_blank">
@@ -69,17 +78,78 @@
 @endsection
 
 @if ($debayashi)
-<!-- 検索ヒット時に高さ調整 -->
+<!-- 検索ヒット時 -->
   @section('javascript')
     <script>
+      @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+        const controlIcon = document.getElementById('preview-control-icon');
+        const audio = document.getElementById('music-preview');
+      @endif
+
       window.onload = function(){
-        // 検索ヒット時に高さ調整
+        // 高さ調整
         var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
         var card_h = document.getElementById('search-result-card').clientHeight;
         if ( (searchKeyword_h + card_h) < document.documentElement.clientHeight ) {
           document.getElementById('search-result-card').classList.add('ground-on-bottom');
         }
+
+        @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+          // プレビューエリア生成
+          document.getElementById('preview-control').addEventListener('click', previewClick);
+          var prev = document.getElementById('preview-area');
+          prev.parentNode.classList.add('preview-area-base');
+        @endif
       }
+
+      @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+
+        //プレビューボタンクリック
+        function previewClick(){
+          if (controlIcon.classList.contains('fa-play-circle')) {
+          // 再生
+            if (audio.readyState === 4) {
+              // 再生可能
+              audio.play();
+            } else {
+              //再生可能でない場合、メディアをロード
+              audio.load();
+              if(audio.classList.contains('available') !== true) {
+                audio.addEventListener('canplaythrough', () => {
+                  audio.play();
+                });
+                audio.classList.add('available');
+              }
+            }
+          } else if (controlIcon.classList.contains('fa-pause-circle')) {
+          // 停止
+            audio.pause();
+          }
+
+          // 初回再生時,自動終了時の処理を設定
+          if(audio.classList.contains('played-even-once') !== true) {
+            audio.addEventListener('ended', () => {
+              previewControlSetting();
+            });
+            audio.classList.add('played-even-once');
+          }
+          previewControlSetting();
+        }
+
+        // ボタン変更
+        function previewControlSetting() {
+          if (controlIcon.classList.contains('fa-play-circle')) {
+            // 再生→停止ボタン
+            controlIcon.classList.remove('fa-play-circle');
+            controlIcon.classList.add('fa-pause-circle');
+          } else {
+            // 停止→再生ボタン
+            controlIcon.classList.add('fa-play-circle');
+            controlIcon.classList.remove('fa-pause-circle');
+          }
+        }
+
+      @endif
     </script>
   @endsection
 @endif
