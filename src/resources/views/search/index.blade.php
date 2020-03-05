@@ -24,7 +24,9 @@
             @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
               <div id="preview-area">
                 <div id ="preview-control">
-                  <i id ="preview-control-icon" class="fas fa-play-circle preview-control-icon"></i>
+                  <div class="icon-base-circle">
+                    <i id ="preview-control-icon" class="fas fa-play preview-control-icon"></i>
+                  </div>
                 </div>
               </div>
             @endif
@@ -106,7 +108,7 @@
 
         //プレビューボタンクリック
         function previewClick(){
-          if (controlIcon.classList.contains('fa-play-circle')) {
+          if (controlIcon.classList.contains('fa-play')) {
           // 再生
             if (audio.readyState === 4) {
               // 再生可能
@@ -121,7 +123,7 @@
                 audio.classList.add('available');
               }
             }
-          } else if (controlIcon.classList.contains('fa-pause-circle')) {
+          } else if (controlIcon.classList.contains('fa-pause')) {
           // 停止
             audio.pause();
           }
@@ -138,14 +140,14 @@
 
         // ボタン変更
         function previewControlSetting() {
-          if (controlIcon.classList.contains('fa-play-circle')) {
+          if (controlIcon.classList.contains('fa-play')) {
             // 再生→停止ボタン
-            controlIcon.classList.remove('fa-play-circle');
-            controlIcon.classList.add('fa-pause-circle');
+            controlIcon.classList.remove('fa-play');
+            controlIcon.classList.add('fa-pause');
           } else {
             // 停止→再生ボタン
-            controlIcon.classList.add('fa-play-circle');
-            controlIcon.classList.remove('fa-pause-circle');
+            controlIcon.classList.add('fa-play');
+            controlIcon.classList.remove('fa-pause');
           }
         }
 

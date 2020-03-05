@@ -12079,23 +12079,31 @@ a:hover {
   height: 100%;
 }
 
-.preview-area-base #preview-area #preview-control-icon {
+.preview-area-base #preview-area .icon-base-circle {
   position: absolute;
-  font-size: 67px;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: rgba(45, 45, 45, 0.7);
+}
+
+.preview-area-base #preview-area .icon-base-circle .preview-control-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   color: white;
+  font-size: 31px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
-.preview-area-base #preview-area #preview-control:hover {
-  background: rgba(45, 45, 45, 0.3);
-}
-
-.preview-area-base #preview-area #preview-control:hover #preview-control-icon {
-  opacity: 1;
-  color: #4960FA;
+.preview-area-base #preview-area .icon-base-circle .fa-play {
+  -webkit-transform: translate(-36%, -50%);
+          transform: translate(-36%, -50%);
 }
 
 .keyword-header.search-result-animation {
