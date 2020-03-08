@@ -11504,7 +11504,7 @@ a.text-dark:focus {
 .comedian-wrapper {
   position: absolute;
   bottom: 0;
-  height: 250px;
+  height: 45%;
   width: 100vw;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -11514,7 +11514,7 @@ a.text-dark:focus {
 
 @media screen and (min-width: 360px) and (min-height: 635px) {
   .comedian-wrapper {
-    height: 300px;
+    height: 45%;
   }
 }
 
@@ -11587,7 +11587,7 @@ a.text-dark:focus {
 @media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .male .male-trim {
     width: 300px;
-    height: 300px;
+    height: 365px;
   }
 }
 
@@ -11631,7 +11631,7 @@ a.text-dark:focus {
 @media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .female .female-trim {
     width: 197px;
-    height: 329px;
+    height: 394px;
   }
 }
 
@@ -11670,7 +11670,7 @@ a.text-dark:focus {
   position: relative;
   overflow: hidden;
   width: 19px;
-  height: 133px;
+  height: 243px;
 }
 
 .center-pos .microphone .microphone-trim img {
@@ -11684,7 +11684,7 @@ a.text-dark:focus {
 @media screen and (min-width: 360px) and (min-height: 635px) {
   .center-pos .microphone .microphone-trim {
     width: 30px;
-    height: 186px;
+    height: 251px;
   }
 
   .center-pos .microphone .microphone-trim img {
