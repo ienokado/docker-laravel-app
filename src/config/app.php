@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Weidner\Goutte\GoutteServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
         'SpotifyFacade' => App\Facades\SpotifyFacade::class,
         'AppleMusicFacade' => App\Facades\AppleMusicFacade::class,

@@ -2,9 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App;
 use Closure;
-use Log;
 use Illuminate\Http\Request;
 
 class RequestLogger
@@ -18,7 +16,7 @@ class RequestLogger
      */
     public function handle($request, Closure $next)
     {
-        if (in_array(App::environment(), config('const.request_logger.environment'), true)) {
+        if (in_array(\App::environment(), config('const.request_logger.environment'), true)) {
             $this->writeLog($request);
         }
 
@@ -31,7 +29,7 @@ class RequestLogger
      */
     private function writeLog(Request $request): void
     {
-        Log::channel('request')->info(
+        \Log::channel('request')->info(
             $request->method(),
             [
                 'url' => $request->fullUrl(),

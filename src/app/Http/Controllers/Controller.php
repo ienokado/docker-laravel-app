@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Cookie;
+use Jenssegers\Agent\Agent;
 
 class Controller extends BaseController
 {
     public function __construct(Request $request)
     {
-        // PCの場合404にする
-        if (!$this->isMobile($request)) {
+        // 本番環境の場合、PCの場合404にする
+        if (\App::environment() === 'production' && !$this->isMobile($request)) {
             return abort(404);
         }
 
@@ -29,8 +30,8 @@ class Controller extends BaseController
      */
     protected function isMobile($request)
     {
-        $userAgent = $request->header('User-Agent');
-        if ((strpos($userAgent, 'iPhone') !== false) || (strpos($userAgent, 'Android') !== false)) {
+        $agent = new Agent();
+        if ($agent->isMobile()) {
             return true;
         }
 
