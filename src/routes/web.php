@@ -1,5 +1,8 @@
 <?php
-
+// SSL設定
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +19,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'TopController')->name('top');
-Route::post('/debayashi/search', 'DebayashiSearchController@index')->name('debayashi.search.index');
+Route::post('/debayashi/search', 'DebayashiSearchController@index')->name('debayashi.search.index')->middleware('request.logger');
