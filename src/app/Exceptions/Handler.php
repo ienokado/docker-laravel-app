@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Exceptions\OnlyMobileException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -50,6 +51,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof OnlyMobileException) {
+            return response()->view('errors.only_mobile', [], 404);
+        }
+
         return parent::render($request, $exception);
     }
 }
