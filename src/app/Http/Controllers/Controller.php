@@ -12,9 +12,9 @@ class Controller extends BaseController
 {
     public function __construct(Request $request)
     {
-        // 本番環境の場合、PCの場合404にする
+        // 本番環境の場合、PCでのアクセスはエラーとする
         if (\App::environment() === 'production' && !$this->isMobile($request)) {
-            throw new OnlyMobileException('スマホからしか見れへん・・・', 404);
+            throw new OnlyMobileException();
         }
 
         // Cookieが設定されていない場合に設定
