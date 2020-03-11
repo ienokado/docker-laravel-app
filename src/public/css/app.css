@@ -11504,7 +11504,7 @@ a.text-dark:focus {
 .comedian-wrapper {
   position: absolute;
   bottom: 0;
-  height: 45%;
+  height: 40%;
   width: 100vw;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -11670,7 +11670,7 @@ a.text-dark:focus {
   position: relative;
   overflow: hidden;
   width: 19px;
-  height: 243px;
+  height: 133px;
 }
 
 .center-pos .microphone .microphone-trim img {
