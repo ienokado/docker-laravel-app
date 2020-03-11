@@ -2,7 +2,7 @@
   position: absolute;
 	bottom: 0;
   // スマホ small
-  height: 45%;
+  height: 40%;
   //スマホ large, タブレット, PC
   @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
     height: 45%;
@@ -148,7 +148,7 @@
       position: relative;
       overflow: hidden;
       width: 19px;
-      height: 243px;
+      height: 133px;
       img {
         position: absolute;
         //スマホ small
