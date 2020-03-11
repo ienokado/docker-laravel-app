@@ -12204,6 +12204,56 @@ footer .hr {
   }
 }
 
+.error-wrapper {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.error-message-for-other-sp {
+  margin: 60px auto;
+  height: 310px;
+}
+
+.error-message-for-other-sp p {
+  text-align: center;
+  font-weight: Bold;
+  font-size: 35px;
+  line-height: 35px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.error-message-for-other-sp .error-code {
+  color: #a3a3a3;
+  font-size: 100px;
+  line-height: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.error-img-for-other-sp .error-img {
+  margin: 0 auto;
+  display: block;
+}
+
+.error-img-for-other-sp .error-img-question {
+  margin-bottom: 50px;
+  max-width: 120px;
+}
+
+.error-img-for-other-sp .error-img-microphone {
+  max-height: 350px;
+}
+
 .outline-none {
   border: 0;
 }

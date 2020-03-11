@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\OnlyMobileException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Cookie;
@@ -11,9 +12,9 @@ class Controller extends BaseController
 {
     public function __construct(Request $request)
     {
-        // 本番環境の場合、PCの場合404にする
+        // 本番環境の場合、PCでのアクセスはエラーとする
         if (\App::environment() === 'production' && !$this->isMobile($request)) {
-            return abort(404);
+            throw new OnlyMobileException();
         }
 
         // Cookieが設定されていない場合に設定
