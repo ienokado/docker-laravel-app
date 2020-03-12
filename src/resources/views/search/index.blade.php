@@ -12,9 +12,9 @@
         <div class="debayashi-info">
           <div class="debayashi-img">
             @if ($spotifyValue && $spotifyValue['image_url'])
-              <img src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}">
+              <img id="artwork" src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}">
             @elseif ($appleMusicValue && $appleMusicValue['image_url'])
-              <img src="{{ $appleMusicValue['image_url'] }}" alt="{{ $appleMusicValue['name'] }}">
+              <img id="artwork" src="{{ $appleMusicValue['image_url'] }}" alt="{{ $appleMusicValue['name'] }}">
             @else
               <div class="alt-desc">
                 <p>No Image</p>
@@ -89,6 +89,24 @@
       @endif
 
       window.onload = function(){
+
+        @if (($spotifyValue && $spotifyValue['image_url']) || ($appleMusicValue && $appleMusicValue['image_url']))
+          // アートワークリサイズ
+          var artwork = document.getElementById( "artwork" ) ;
+          var intervalId = setInterval( function () {
+            if ( artwork.complete ) {
+              var imgW  = artwork.width;
+              var imgH = artwork.height;
+              if ( imgH <= imgW ) {
+                artwork.classList.add('size-based-on-width')
+              } else if (imgW < imgH) {
+                artwork.classList.add('size-based-on-height')
+              }
+              clearInterval( intervalId ) ;
+            }
+          }, 100 ) ;
+        @endif
+
         // 高さ調整
         var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
         var card_h = document.getElementById('search-result-card').clientHeight;

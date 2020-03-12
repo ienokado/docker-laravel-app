@@ -11904,9 +11904,26 @@ a.text-dark:focus {
   position: relative;
 }
 
-.search-result-card .debayashi-info .debayashi-img img {
+.search-result-card .debayashi-info .debayashi-img .size-based-on-width {
   width: 100%;
   height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.search-result-card .debayashi-info .debayashi-img .size-based-on-height {
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .search-result-card .debayashi-info .debayashi-img .alt-desc {
