@@ -23,7 +23,7 @@ class DebayashiSearchController extends Controller
         }
 
         // Spotify検索
-        if (is_null($debayashi->spotifyinfos)) {
+        if (is_null($debayashi->spotifyInfos)) {
             $this->spotifySearch($debayashi);
         }
         // Apple Music検索
@@ -72,13 +72,10 @@ class DebayashiSearchController extends Controller
      * 該当がない場合は空で返す
      *
      * @param App\Models\Debayashi|null $debayashi
-     * @return string $spotifyValue
+     * @return void
      */
     private function spotifySearch($debayashi)
     {
-        // Spotify情報
-        $spotifyValue = [];
-
         // Client IDとClient Secretが設定されていない場合はSpotifyAPIを利用しない
         if ($debayashi && env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')) {
             $spotify = new SpotifyFacade();
@@ -87,24 +84,20 @@ class DebayashiSearchController extends Controller
                 $result = $spotify->search($query, 'track', ['market' => env('SPOTIFY_COUNTRY_CODE', 'JP')]);
 
                 if (count($result) > 0) {
-                    $spotifyValue = [
+                    $spotifyInfo = new SpotifyInfo();
+                    $spotifyInfo->fill([
                         'debayashi_id' => $debayashi->id,
                         // 画像のサイズは固定(300x300)
                         'image_url' => $result[0]->album->images[1]->url,
                         'external_url' => $result[0]->external_urls->spotify,
                         'preview_url' => $result[0]->preview_url,
-                    ];
-
-                    $spotifyInfo = new SpotifyInfo();
-                    $spotifyInfo->fill($spotifyValue);
+                    ]);
                     $spotifyInfo->save();
                 }
             } catch (\Exception $e) {
                 throw $e;
             }
         }
-
-        return $spotifyValue;
     }
 
     /**
