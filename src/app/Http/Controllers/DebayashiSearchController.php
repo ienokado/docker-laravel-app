@@ -123,7 +123,11 @@ class DebayashiSearchController extends Controller
                     $appleMusicInfo->fill([
                         'debayashi_id' => $debayashi->id,
                         // 画像のサイズは固定(300x300)
-                        'image_url' => str_replace(['{w}', '{h}'], ['300', '300'], $result[0]->attributes->artwork->url),
+                        'image_url' => str_replace(
+                            ['{w}', '{h}'],
+                            ['300', '300'],
+                            $result[0]->attributes->artwork->url
+                        ),
                         'external_url' => $result[0]->attributes->url,
                         'preview_url' => $result[0]->attributes->previews[0]->url,
                     ]);
