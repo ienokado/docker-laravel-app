@@ -18,7 +18,7 @@ class Debayashi extends Model
         return $this->hasMany(ComedianGroup::class);
     }
 
-    public function spotifyInfo()
+    public function spotifyInfos()
     {
         return $this->hasOne(SpotifyInfo::class);
     }
