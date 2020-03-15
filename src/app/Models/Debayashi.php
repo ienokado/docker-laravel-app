@@ -23,7 +23,7 @@ class Debayashi extends Model
         return $this->hasOne(SpotifyInfo::class);
     }
 
-    public function appleMusicInfo()
+    public function appleMusicInfos()
     {
         return $this->hasOne(AppleMusicInfo::class);
     }

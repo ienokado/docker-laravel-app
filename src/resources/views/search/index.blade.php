@@ -13,15 +13,15 @@
           <div class="debayashi-img">
             @if ($spotifyValue && $spotifyValue['image_url'])
               <img id="artwork" src="{{ $spotifyValue['image_url'] }}" alt="{{ $spotifyValue['name'] }}">
-            @elseif ($appleMusicValue && $appleMusicValue['image_url'])
-              <img id="artwork" src="{{ $appleMusicValue['image_url'] }}" alt="{{ $appleMusicValue['name'] }}">
+            @elseif ($debayashi->appleMusicInfos)
+              <img id="artwork" src="{{ $debayashi->appleMusicInfos->image_url }}" alt="{{ $debayashi->name }}">
             @else
               <div class="alt-desc">
                 <p>No Image</p>
               </div>
             @endif
 
-            @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+            @if (($spotifyValue && $spotifyValue['preview_url']) || $debayashi->appleMusicInfos)
               <div id="preview-area">
                 <div id ="preview-control">
                   <div class="icon-base-circle">
@@ -38,11 +38,11 @@
         <div class="link-area">
           @if ($spotifyValue && $spotifyValue['preview_url'])
             <audio id="music-preview" src="{{ $spotifyValue['preview_url'] }}"></audio>
-          @elseif ($appleMusicValue && $appleMusicValue['preview_url'])
-            <audio id="music-preview" src="{{ $appleMusicValue['preview_url'] }}"></audio>
+          @elseif ($debayashi->appleMusicInfos)
+            <audio id="music-preview" src="{{ $debayashi->appleMusicInfos->external_url }}"></audio>
           @endif
-          @if ($appleMusicValue && $appleMusicValue['external_url'])
-            <a href="{{ $appleMusicValue['external_url'] }}" id="link-apple-music" class="link-btn" target="_blank">
+          @if ($debayashi->appleMusicInfos)
+            <a href="{{ $debayashi->appleMusicInfos->external_url }}" id="link-apple-music" class="link-btn" target="_blank">
               <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
             </a>
           @endif
@@ -83,14 +83,14 @@
 <!-- 検索ヒット時 -->
   @section('javascript')
     <script>
-      @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+      @if (($spotifyValue && $spotifyValue['preview_url']) || $debayashi->appleMusicInfos)
         const controlIcon = document.getElementById('preview-control-icon');
         const audio = document.getElementById('music-preview');
       @endif
 
       window.onload = function(){
 
-        @if (($spotifyValue && $spotifyValue['image_url']) || ($appleMusicValue && $appleMusicValue['image_url']))
+        @if (($spotifyValue && $spotifyValue['image_url']) || $debayashi->appleMusicInfos)
           // アートワークリサイズ
           var artwork = document.getElementById( "artwork" ) ;
           var intervalId = setInterval( function () {
@@ -114,7 +114,7 @@
           document.getElementById('search-result-card').classList.add('ground-on-bottom');
         }
 
-        @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+        @if (($spotifyValue && $spotifyValue['preview_url']) || $debayashi->appleMusicInfos)
           // プレビューエリア生成
           document.getElementById('preview-control').addEventListener('click', previewClick);
           var prev = document.getElementById('preview-area');
@@ -122,7 +122,7 @@
         @endif
       }
 
-      @if (($spotifyValue && $spotifyValue['preview_url']) || ($appleMusicValue && $appleMusicValue['preview_url']))
+      @if (($spotifyValue && $spotifyValue['preview_url']) || $debayashi->appleMusicInfos)
 
         //プレビューボタンクリック
         function previewClick(){
