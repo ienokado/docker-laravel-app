@@ -116,7 +116,9 @@ class DebayashiSearchController extends Controller
         // Team IDとKey IDとAuthKey Pathが設定されていない場合はApple Music APIを利用しない
         if ($debayashi && env('APPLE_TEAM_ID') && env('APPLE_KEY_ID') && env('APPLE_AUTH_KEY_PATH')) {
             $appleMusic = new AppleMusicFacade();
-            $query = $debayashi->artist_name . ' ' . $debayashi->name;
+            $str = $debayashi->artist_name . ' ' . $debayashi->name;
+            // TODO: AppleMusic検索で「&」の文字列がそのまま利用できないのでURLエンコードするなりして回避したい
+            $query = str_replace(['&', '＆'], 'and', $str);
 
             try {
                 $result = $appleMusic->search($query, 'songs');
