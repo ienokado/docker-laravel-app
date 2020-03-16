@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@1.0.1
+
 executors:
   default:
     working_directory: ~/repo
@@ -81,9 +84,6 @@ commands:
       - name: Coverage
       - command: bash <(curl -s https://codecov.io/bash)
       - when: on_success
-
-orbs:
-  codecov: codecov/codecov@1.0.5
 
 jobs:
   build:
