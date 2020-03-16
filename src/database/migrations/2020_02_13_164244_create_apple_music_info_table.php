@@ -13,12 +13,12 @@ class CreateAppleMusicInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('apple_music_info', function (Blueprint $table) {
+        Schema::create('apple_music_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('debayashi_id')->nullable()->comment('出囃子ID');
+            $table->integer('debayashi_id')->comment('出囃子ID');
             $table->text('external_url')->nullable()->comment('Apple MusicのURL');
             $table->text('image_url')->nullable()->comment('Apple Musicのジャケット画像URL');
-            $table->text('apple_music_preview_url')->nullable()->comment('Apple Musicのプレビュー再生URL');
+            $table->text('preview_url')->nullable()->comment('Apple Musicのプレビュー再生URL');
             $table->timestamps();
         });
     }
