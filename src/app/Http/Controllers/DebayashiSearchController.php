@@ -99,7 +99,7 @@ class DebayashiSearchController extends Controller
                     $debayashi->refresh();
                 }
             } catch (\Exception $e) {
-                throw $e;
+                report($e);
             }
         }
     }
@@ -141,7 +141,7 @@ class DebayashiSearchController extends Controller
                     $debayashi->refresh();
                 }
             } catch (\Exception $e) {
-                throw $e;
+                report($e);
             }
         }
     }
