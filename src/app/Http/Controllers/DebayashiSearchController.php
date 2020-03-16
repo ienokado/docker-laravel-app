@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Debayashi;
 use App\Models\AppleMusicInfo;
+use App\Models\Debayashi;
+use App\Models\SpotifyInfo;
 use SpotifyFacade;
 use AppleMusicFacade;
 
@@ -23,7 +24,9 @@ class DebayashiSearchController extends Controller
         }
 
         // Spotify検索
-        $spotifyValue = $this->spotifySearch($debayashi);
+        if (!is_null($debayashi) && is_null($debayashi->spotifyInfos)) {
+            $this->spotifySearch($debayashi);
+        }
         // Apple Music検索
         if (!is_null($debayashi) && is_null($debayashi->appleMusicInfos)) {
             $this->appleMusicSearch($debayashi);
@@ -34,7 +37,6 @@ class DebayashiSearchController extends Controller
         //検索フォームへ
         return view('search.index', [
             'debayashi' => $debayashi,
-            'spotifyValue' => $spotifyValue,
             'shareText' => $shareText,
             'keyword' => $keyword,
         ]);
@@ -44,8 +46,6 @@ class DebayashiSearchController extends Controller
      * Undocumented function
      *
      * @param Debayashi $debayashi
-     * @param array $spotifyValue
-     * @param array $appleMusic
      * @return void
      */
     private function getShareText($debayashi = null)
@@ -74,31 +74,34 @@ class DebayashiSearchController extends Controller
      * 該当がない場合は空で返す
      *
      * @param App\Models\Debayashi|null $debayashi
-     * @return string $spotifyValue
+     * @return void
      */
     private function spotifySearch($debayashi)
     {
-        // Spotify情報
-        $spotifyValue = [];
-
         // Client IDとClient Secretが設定されていない場合はSpotifyAPIを利用しない
         if ($debayashi && env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')) {
             $spotify = new SpotifyFacade();
             $query = $debayashi->artist_name . ' ' . $debayashi->name;
-            $result = $spotify->search($query, 'track', ['market' => env('SPOTIFY_COUNTRY_CODE', 'JP')]);
+            try {
+                $result = $spotify->search($query, 'track', ['market' => env('SPOTIFY_COUNTRY_CODE', 'JP')]);
 
-            if (count($result) > 0) {
-                $spotifyValue = [
-                    'name' => $result[0]->name,
-                    // 画像のサイズは固定(300x300)
-                    'image_url' => $result[0]->album->images[1]->url,
-                    'external_url' => $result[0]->external_urls->spotify,
-                    'preview_url' => $result[0]->preview_url,
-                ];
+                if (count($result) > 0) {
+                    $spotifyInfo = new SpotifyInfo();
+                    $spotifyInfo->fill([
+                        'debayashi_id' => $debayashi->id,
+                        // 画像のサイズは固定(300x300)
+                        'image_url' => $result[0]->album->images[1]->url,
+                        'external_url' => $result[0]->external_urls->spotify,
+                        'preview_url' => $result[0]->preview_url,
+                    ]);
+                    $spotifyInfo->save();
+
+                    $debayashi->refresh();
+                }
+            } catch (\Exception $e) {
+                throw $e;
             }
         }
-
-        return $spotifyValue;
     }
 
     /**
