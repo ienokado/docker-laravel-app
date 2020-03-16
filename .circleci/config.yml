@@ -81,9 +81,10 @@ commands:
           command: ./vendor/bin/phpunit --coverage-clover=coverage.xml
   test-coverage:
     steps:
-      - name: Coverage
-      - command: bash <(curl -s https://codecov.io/bash)
-      - when: on_success
+      - run:
+        - name: Coverage
+        - command: bash <(curl -s https://codecov.io/bash)
+        - when: on_success
 
 jobs:
   build:
