@@ -82,7 +82,7 @@ commands:
   test-coverage:
     steps:
       - run:
-        - name: Coverage
+          name: Coverage
           working_directory: src
           command: bash <(curl -s https://codecov.io/bash)
           when: on_success
