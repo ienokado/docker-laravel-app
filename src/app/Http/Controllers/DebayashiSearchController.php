@@ -23,7 +23,7 @@ class DebayashiSearchController extends Controller
         }
 
         // Spotify検索
-        if (is_null($debayashi->spotifyInfos)) {
+        if ($debayashi && is_null($debayashi->spotifyInfos)) {
             $this->spotifySearch($debayashi);
         }
         // Apple Music検索
@@ -93,6 +93,7 @@ class DebayashiSearchController extends Controller
                         'preview_url' => $result[0]->preview_url,
                     ]);
                     $spotifyInfo->save();
+                    $debayashi->spotifyInfos = $spotifyInfo;
                 }
             } catch (\Exception $e) {
                 throw $e;
