@@ -84,14 +84,14 @@
 <!-- 検索ヒット時 -->
 @section('javascript')
 <script>
-    @if($debayashi - > spotifyInfos || $debayashi - > appleMusicInfos)
+    @if($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
     const controlIcon = document.getElementById('preview-control-icon');
     const audio = document.getElementById('music-preview');
     @endif
 
     window.onload = function () {
 
-        @if($debayashi - > spotifyInfos || $debayashi - > appleMusicInfos)
+        @if($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
         // アートワークリサイズ
         var artwork = document.getElementById("artwork");
         var intervalId = setInterval(function () {
@@ -115,7 +115,7 @@
             document.getElementById('search-result-card').classList.add('ground-on-bottom');
         }
 
-        @if($debayashi - > spotifyInfos || $debayashi - > appleMusicInfos)
+        @if($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
         // プレビューエリア生成
         document.getElementById('preview-control').addEventListener('click', previewClick);
         var preview = document.getElementById('preview-area');
