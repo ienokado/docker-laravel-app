@@ -13,12 +13,12 @@ class CreateSpotifyInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('spotify_info', function (Blueprint $table) {
+        Schema::create('spotify_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('debayashi_id')->nullable()->comment('出囃子ID');
-            $table->text('spotify_url')->nullable()->comment('SpotifyのURL');
-            $table->text('spotify_image_url')->nullable()->comment('Spotifyのジャケット画像URL');
-            $table->text('spotify_preview_url')->nullable()->comment('Spotifyのプレビュー再生URL');
+            $table->integer('debayashi_id')->comment('出囃子ID');
+            $table->text('external_url')->nullable()->comment('SpotifyのURL');
+            $table->text('image_url')->nullable()->comment('Spotifyのジャケット画像URL');
+            $table->text('preview_url')->nullable()->comment('Spotifyのプレビュー再生URL');
             $table->timestamps();
         });
     }
