@@ -83,8 +83,9 @@ commands:
     steps:
       - run:
         - name: Coverage
-        - command: bash <(curl -s https://codecov.io/bash)
-        - when: on_success
+          working_directory: src
+          command: bash <(curl -s https://codecov.io/bash)
+          when: on_success
 
 jobs:
   build:
