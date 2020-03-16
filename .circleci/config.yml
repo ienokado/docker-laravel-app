@@ -75,7 +75,16 @@ commands:
       - run:
           name: Unittest
           working_directory: src
-          command: ./vendor/bin/phpunit –coverage-html=$CIRCLE_ARTIFACTS
+          command: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+  test-coverage:
+    steps:
+      - name: Coverage
+      - command: bash <(curl -s https://codecov.io/bash)
+      - when: on_success
+
+orbs:
+  codecov: codecov/codecov@1.0.5
+
 jobs:
   build:
     executor:
@@ -100,6 +109,7 @@ jobs:
       - migration-seeding
       - test-static-code-analysis
       - test-unittest
+      - test-coverage
 
 workflows:
   build-and-test:
