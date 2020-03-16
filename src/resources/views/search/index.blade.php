@@ -39,7 +39,7 @@
           @if ($debayashi->spotifyInfos)
             <audio id="music-preview" src="{{ $debayashi->spotifyInfos->preview_url }}"></audio>
           @elseif ($debayashi->appleMusicInfos)
-            <audio id="music-preview" src="{{ $debayashi->appleMusicInfos->external_url }}"></audio>
+            <audio id="music-preview" src="{{ $debayashi->appleMusicInfos->preview_url }}"></audio>
           @endif
           @if ($debayashi->appleMusicInfos)
             <a href="{{ $debayashi->appleMusicInfos->external_url }}" id="link-apple-music" class="link-btn" target="_blank">
@@ -83,92 +83,89 @@
 <!-- 検索ヒット時 -->
   @section('javascript')
     <script>
-      @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
-        const controlIcon = document.getElementById('preview-control-icon');
-        const audio = document.getElementById('music-preview');
-      @endif
-
-      window.onload = function(){
-
         @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
-          // アートワークリサイズ
-          var artwork = document.getElementById( "artwork" ) ;
-          var intervalId = setInterval( function () {
-            if ( artwork.complete ) {
-              var imgW  = artwork.width;
-              var imgH = artwork.height;
-              if ( imgH <= imgW ) {
-                artwork.classList.add('size-based-on-width')
-              } else if (imgW < imgH) {
-                artwork.classList.add('size-based-on-height')
-              }
-              clearInterval( intervalId ) ;
-            }
-          }, 100 ) ;
+            const controlIcon = document.getElementById('preview-control-icon');
+            const audio = document.getElementById('music-preview');
         @endif
 
-        // 高さ調整
-        var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
-        var card_h = document.getElementById('search-result-card').clientHeight;
-        if ( (searchKeyword_h + card_h) < document.documentElement.clientHeight ) {
-          document.getElementById('search-result-card').classList.add('ground-on-bottom');
+        window.onload = function(){
+
+            @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
+                // アートワークリサイズ
+                var artwork = document.getElementById( "artwork" ) ;
+                var intervalId = setInterval( function () {
+                    if ( artwork.complete ) {
+                        var imgW  = artwork.width;
+                        var imgH = artwork.height;
+                        if ( imgH <= imgW ) {
+                            artwork.classList.add('size-based-on-width')
+                        } else if (imgW < imgH) {
+                            artwork.classList.add('size-based-on-height')
+                        }
+                        clearInterval( intervalId ) ;
+                    }
+                }, 100 ) ;
+            @endif
+
+            // 高さ調整
+            var searchKeyword_h = document.getElementById('search-keyword-area').clientHeight;
+            var card_h = document.getElementById('search-result-card').clientHeight;
+            if ( (searchKeyword_h + card_h) < document.documentElement.clientHeight ) {
+                document.getElementById('search-result-card').classList.add('ground-on-bottom');
+            }
+
+            @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
+                // プレビューエリア生成
+                document.getElementById('preview-control').addEventListener('click', previewClick);
+                var preview = document.getElementById('preview-area');
+                preview.parentNode.classList.add('preview-area-base');
+            @endif
         }
 
-        @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
-          // プレビューエリア生成
-          document.getElementById('preview-control').addEventListener('click', previewClick);
-          var prev = document.getElementById('preview-area');
-          prev.parentNode.classList.add('preview-area-base');
-        @endif
-      }
-
-      @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
         //プレビューボタンクリック
-        function previewClick(){
-          if (controlIcon.classList.contains('fa-play')) {
-          // 再生
-            if (audio.readyState === 4) {
-              // 再生可能
-              audio.play();
-            } else {
-              //再生可能でない場合、メディアをロード
-              audio.load();
-              if(audio.classList.contains('available') !== true) {
-                audio.addEventListener('canplaythrough', () => {
-                  audio.play();
-                });
-                audio.classList.add('available');
-              }
+        function previewClick() {
+            if (controlIcon.classList.contains('fa-play')) {
+                // 再生
+                if (audio.readyState === 4) {
+                    // 再生可能
+                    audio.play();
+                } else {
+                    //再生可能でない場合、メディアをロード
+                    audio.load();
+                    if(audio.classList.contains('available') !== true) {
+                    audio.addEventListener('canplaythrough', () => {
+                        audio.play();
+                    });
+                    audio.classList.add('available');
+                    }
+                }
+            } else if (controlIcon.classList.contains('fa-pause')) {
+                // 停止
+                audio.pause();
             }
-          } else if (controlIcon.classList.contains('fa-pause')) {
-          // 停止
-            audio.pause();
-          }
 
-          // 初回再生時,自動終了時の処理を設定
-          if(audio.classList.contains('played-even-once') !== true) {
-            audio.addEventListener('ended', () => {
-              previewControlSetting();
-            });
-            audio.classList.add('played-even-once');
-          }
-          previewControlSetting();
+            // 初回再生時,自動終了時の処理を設定
+            if (audio.classList.contains('played-even-once') !== true) {
+                audio.addEventListener('ended', () => {
+                    previewControlSetting();
+                });
+                audio.classList.add('played-even-once');
+            }
+            previewControlSetting();
         }
 
         // ボタン変更
         function previewControlSetting() {
-          if (controlIcon.classList.contains('fa-play')) {
-            // 再生→停止ボタン
-            controlIcon.classList.remove('fa-play');
-            controlIcon.classList.add('fa-pause');
-          } else {
-            // 停止→再生ボタン
-            controlIcon.classList.add('fa-play');
-            controlIcon.classList.remove('fa-pause');
-          }
+            if (controlIcon.classList.contains('fa-play')) {
+                // 再生→停止ボタン
+                controlIcon.classList.remove('fa-play');
+                controlIcon.classList.add('fa-pause');
+            } else {
+                // 停止→再生ボタン
+                controlIcon.classList.add('fa-play');
+                controlIcon.classList.remove('fa-pause');
+            }
         }
-
-      @endif
     </script>
   @endsection
 @endif
