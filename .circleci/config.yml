@@ -75,8 +75,9 @@ commands:
       - run:
           name: Unittest
           working_directory: src
-          command: ./vendor/bin/phpunit
-
+          command: phpdbg -qrr ./vendor/bin/phpunit --coverage-html build/coverage-report
+      - store_artifacts:
+          path:  build/coverage-report
 jobs:
   build:
     executor:
