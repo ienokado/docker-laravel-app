@@ -63,7 +63,7 @@ class DebayashiSearchController extends Controller
             if ($debayashi->spotifyInfos) {
                 $externalUrl = $debayashi->spotifyInfos->external_url;
                 $text .= "${externalUrl}%0a";
-            } else if ($debayashi->appleMusicInfos) {
+            } elseif ($debayashi->appleMusicInfos) {
                 $externalUrl = $debayashi->appleMusicInfos->external_url;
                 $text .= "${externalUrl}%0a";
             }
@@ -83,9 +83,10 @@ class DebayashiSearchController extends Controller
     private function spotifySearch($debayashi)
     {
         // Client IDとClient Secretが設定されていない場合はSpotifyAPIを利用しない
-        if ($debayashi && is_null($debayashi->spotifyInfos) &&
-            env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')) {
-
+        if (
+            $debayashi && is_null($debayashi->spotifyInfos) &&
+            env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')
+        ) {
             $spotify = new SpotifyFacade();
             $query = $debayashi->artist_name . ' ' . $debayashi->name;
 
@@ -121,9 +122,10 @@ class DebayashiSearchController extends Controller
     private function appleMusicSearch($debayashi)
     {
         // Team IDとKey IDとAuthKey Pathが設定されていない場合はApple Music APIを利用しない
-        if ($debayashi && is_null($debayashi->appleMusicInfos) &&
-            env('APPLE_TEAM_ID') && env('APPLE_KEY_ID') && env('APPLE_AUTH_KEY_PATH')) {
-
+        if (
+            $debayashi && is_null($debayashi->appleMusicInfos) &&
+            env('APPLE_TEAM_ID') && env('APPLE_KEY_ID') && env('APPLE_AUTH_KEY_PATH')
+        ) {
             $appleMusic = new AppleMusicFacade();
             $str = $debayashi->artist_name . ' ' . $debayashi->name;
             // TODO: AppleMusic検索で「&」の文字列がそのまま利用できないのでURLエンコードするなりして回避したい
