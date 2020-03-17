@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/ienokado/debayashi-koreyashi.svg?style=svg)](https://circleci.com/gh/ienokado/debayashi-koreyashi)
+[![codecov](https://codecov.io/gh/ienokado/debayashi-koreyashi/branch/develop/graph/badge.svg)](https://codecov.io/gh/ienokado/debayashi-koreyashi)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+
 # でばやし コレヤシ
 
 ## 概要
