@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@1.0.5
+
 executors:
   default:
     working_directory: ~/repo
@@ -75,7 +78,14 @@ commands:
       - run:
           name: Unittest
           working_directory: src
-          command: ./vendor/bin/phpunit
+          command: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+  test-coverage:
+    steps:
+      - run:
+          name: Coverage
+          working_directory: src
+          command: bash <(curl -s https://codecov.io/bash -t $CODECOV_TOKEN)
+          when: on_success
 
 jobs:
   build:
@@ -101,6 +111,7 @@ jobs:
       - migration-seeding
       - test-static-code-analysis
       - test-unittest
+      - test-coverage
 
 workflows:
   build-and-test:
