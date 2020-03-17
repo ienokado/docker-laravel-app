@@ -24,13 +24,9 @@ class DebayashiSearchController extends Controller
         }
 
         // Spotify検索
-        if (!is_null($debayashi) && is_null($debayashi->spotifyInfos)) {
-            $this->spotifySearch($debayashi);
-        }
+        $this->spotifySearch($debayashi);
         // Apple Music検索
-        if (!is_null($debayashi) && is_null($debayashi->appleMusicInfos)) {
-            $this->appleMusicSearch($debayashi);
-        }
+        $this->appleMusicSearch($debayashi);
         // シェアボタン用テキストの取得
         $shareText = $this->getShareText($debayashi);
 
@@ -62,7 +58,15 @@ class DebayashiSearchController extends Controller
 
             // コメントの生成
             $text .= "みんな知ってた？%0a";
-            $text .= "「${comedianName}」の出囃子は・・・「${debayashiName} - ${artistName}」%0a";
+            $text .= "「${comedianName}」の出囃子は・・・%0a";
+            $text .= "「${debayashiName} - ${artistName}」%0a";
+            if ($debayashi->spotifyInfos) {
+                $externalUrl = $debayashi->spotifyInfos->external_url;
+                $text .= "${externalUrl}%0a";
+            } else if ($debayashi->appleMusicInfos) {
+                $externalUrl = $debayashi->appleMusicInfos->external_url;
+                $text .= "${externalUrl}%0a";
+            }
             $text .= "%23" . env('APP_NAME');
         }
 
@@ -79,9 +83,12 @@ class DebayashiSearchController extends Controller
     private function spotifySearch($debayashi)
     {
         // Client IDとClient Secretが設定されていない場合はSpotifyAPIを利用しない
-        if ($debayashi && env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')) {
+        if ($debayashi && is_null($debayashi->spotifyInfos) &&
+            env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')) {
+
             $spotify = new SpotifyFacade();
             $query = $debayashi->artist_name . ' ' . $debayashi->name;
+
             try {
                 $result = $spotify->search($query, 'track', ['market' => env('SPOTIFY_COUNTRY_CODE', 'JP')]);
 
@@ -114,7 +121,9 @@ class DebayashiSearchController extends Controller
     private function appleMusicSearch($debayashi)
     {
         // Team IDとKey IDとAuthKey Pathが設定されていない場合はApple Music APIを利用しない
-        if ($debayashi && env('APPLE_TEAM_ID') && env('APPLE_KEY_ID') && env('APPLE_AUTH_KEY_PATH')) {
+        if ($debayashi && is_null($debayashi->appleMusicInfos) &&
+            env('APPLE_TEAM_ID') && env('APPLE_KEY_ID') && env('APPLE_AUTH_KEY_PATH')) {
+
             $appleMusic = new AppleMusicFacade();
             $str = $debayashi->artist_name . ' ' . $debayashi->name;
             // TODO: AppleMusic検索で「&」の文字列がそのまま利用できないのでURLエンコードするなりして回避したい

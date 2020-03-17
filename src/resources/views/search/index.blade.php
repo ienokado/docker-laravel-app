@@ -61,7 +61,7 @@
         <a class="share-item" href="{{ config('const.sns_share_url.facebook') }}">
             <i class="fab fa-facebook-f"></i>
         </a>
-        <a class="share-item" href="{{ config('const.sns_share_url.line') }}{{ $shareText }}">
+        <a class="share-item" href="{{ config('const.sns_share_url.line') }}{{ $shareText }}%20{{ config('app.url') }}">
             <i class="fab fa-line"></i>
         </a>
     </div>
