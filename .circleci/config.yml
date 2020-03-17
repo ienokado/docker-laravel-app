@@ -84,7 +84,7 @@ commands:
       - run:
           name: Coverage
           working_directory: src
-          command: bash <(curl -s https://codecov.io/bash) -t {{ CODECOV_TOKEN }}
+          command: bash <(curl -s https://codecov.io/bash -t $CODECOV_TOKEN)
           when: on_success
 
 jobs:
