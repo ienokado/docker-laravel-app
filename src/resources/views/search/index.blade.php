@@ -43,25 +43,25 @@
         @endif
         @if ($debayashi->appleMusicInfos)
         <a href="{{ $debayashi->appleMusicInfos->external_url }}" id="link-apple-music" class="link-btn"
-            target="_blank">
+           >
             <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
         </a>
         @endif
         @if ($debayashi->spotifyInfos)
-        <a href="{{ $debayashi->spotifyInfos->external_url }}" id="link-spotify" class="link-btn" target="_blank">
+        <a href="{{ $debayashi->spotifyInfos->external_url }}" id="link-spotify" class="link-btn">
             <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
         </a>
         @endif
     </div>
     <div class="share-area">
         <span class="share-item">SHARE ON</span>
-        <a class="share-item" href="{{ config('const.sns_share_url.twitter') }}{{ $shareText }}" target="_blank">
+        <a class="share-item" href="{{ config('const.sns_share_url.twitter') }}&text={{ $shareText }}">
             <i class="fab fa-twitter"></i>
         </a>
-        <a class="share-item" href="{{ config('const.sns_share_url.facebook') }}" target="_blank">
+        <a class="share-item" href="{{ config('const.sns_share_url.facebook') }}">
             <i class="fab fa-facebook-f"></i>
         </a>
-        <a class="share-item" href="{{ config('const.sns_share_url.line') }}{{ $shareText }}" target="_blank">
+        <a class="share-item" href="{{ config('const.sns_share_url.line') }}{{ $shareText }}">
             <i class="fab fa-line"></i>
         </a>
     </div>
