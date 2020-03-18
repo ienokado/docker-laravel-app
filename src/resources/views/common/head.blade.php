@@ -23,6 +23,9 @@
     <!-- スマホ用アイコン -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
 
+    <meta name="description" content="{{ config('app.description') }}">
+    <meta name="keyword" content="{{ config('app.keyword') }}">
+
     <!-- OGP画像 -->
     <meta property="og:url" content="{{ route('home') }}" />
     <meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
