@@ -5,7 +5,10 @@
 # でばやし コレヤシ
 
 ## 概要
-でばやしコレヤシは芸人さんの出囃子を検索するサービスです。
+https://debayashi-koreyashi.com
+
+でばやしコレヤシは芸人さんの出囃子を検索してシェアしたり、
+SpotifyやApple Musicで視聴できるサービスです。
 
 ## 環境設定
 ### Git clone
