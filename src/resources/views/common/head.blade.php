@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
 
     <meta name="description" content="{{ config('app.description') }}">
-    <meta name="keyword" content="{{ config('app.keyword') }}">
+    <meta name="Keywords" content="{{ config('app.keywords') }}">
 
     <!-- OGP画像 -->
     <meta property="og:url" content="{{ route('home') }}" />
@@ -50,5 +50,5 @@
     <link href="{{ asset('css/app.css') }}?date=202003112300" rel="stylesheet">
 
     <!-- Google Adsense -->
-    <script data-ad-client="ca-pub-6430844467630766" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {{-- <script data-ad-client="ca-pub-6430844467630766" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --}}
 </head>
