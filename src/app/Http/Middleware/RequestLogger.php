@@ -32,6 +32,8 @@ class RequestLogger
         \Log::channel('request')->info(
             $request->method(),
             [
+                'ip' => $request->ip(),
+                'user-agent' => $request->userAgent(),
                 'url' => $request->fullUrl(),
                 'request' => $request->search_keyword
             ]
