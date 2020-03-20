@@ -50,5 +50,5 @@
     <link href="{{ asset('css/app.css') }}?date=202003112300" rel="stylesheet">
 
     <!-- Google Adsense -->
-    {{-- <script data-ad-client="ca-pub-6430844467630766" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> --}}
+    <script data-ad-client="ca-pub-6430844467630766" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
