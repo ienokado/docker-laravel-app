@@ -1,0 +1,3 @@
+User-agent: Googlebot-Mobile
+allow: /
+Disallow: /admin/

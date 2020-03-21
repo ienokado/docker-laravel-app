@@ -1,0 +1,68 @@
+.top-form-group.top-animation {
+    animation:
+    form-display 2000ms ease 0ms 1 normal backwards running,
+    form-up 2000ms ease 2000ms 1 normal backwards running;
+}
+.female-img.top-animation,
+.microphone-img.top-animation {
+    animation:
+    comedian-up 2000ms ease-out 2000ms 1 normal backwards running
+}
+.male-img.top-animation {
+  animation:
+    male-jump 2000ms ease-out 2000ms 1 normal backwards running
+}
+.serif.top-animation {
+  animation:
+    serif-display 1000ms ease 4000ms 1 normal backwards running
+}
+
+@keyframes form-display {
+  0% {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(50%);
+  }
+}
+
+@keyframes form-up {
+  0% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes comedian-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes male-jump {
+  0% {
+    transform: translateY(120%);
+  }
+  70% {
+    transform: translateY(0%) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(0deg);
+  }
+}
+
+@keyframes serif-display {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
