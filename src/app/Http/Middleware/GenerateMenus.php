@@ -16,8 +16,12 @@ class GenerateMenus
     public function handle($request, Closure $next)
     {
         \Menu::make('AdminMenus', function ($menu) {
-            $menu->add('Top', ['label' => 'Top', 'route' => 'admin.top', 'icon' => 'ti-home', 'icon-color' => 'c-red-500']);
-            $menu->add('Debayashi', ['label' => '出囃子情報', 'icon' => 'ti-view-list-alt', 'icon-color' => 'c-light-blue-500']);
+            $menu->add('Top', [
+                'label' => 'Top', 'route' => 'admin.top', 'icon' => 'ti-home', 'icon-color' => 'c-red-500'
+            ]);
+            $menu->add('Debayashi', [
+                'label' => '出囃子情報', 'icon' => 'ti-view-list-alt', 'icon-color' => 'c-light-blue-500'
+            ]);
             $menu->debayashi->add('List', ['label' => '出囃子一覧', 'route'  => 'admin.debayashi']);
             $menu->debayashi->add('Regist', ['label' => '出囃子登録', 'route'  => 'admin.debayashi.new']);
 
