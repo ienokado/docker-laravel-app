@@ -71,6 +71,16 @@ $ docker-compose run app php artisan command:comedian_groups_scraping
 $ docker-compose exec app php artisan db:seed
 ```
 
+### Insert admin user data
+```cmd
+$ docker-compose exec app php artisan tinker
+$ $admin = new App\Models\AdminUser();
+$ $admin->name = "admin";
+$ $admin->email = 'test@example.com';
+$ $admin->password = password_hash('password', PASSWORD_DEFAULT);
+$ $admin->save();
+```
+
 ### sniffer(コード整形)
 ```
 $ docker-compose run app composer sniffer
