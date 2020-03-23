@@ -13,8 +13,8 @@ class Controller extends BaseController
     public function __construct(Request $request)
     {
 
-        // 管理画面のURL場合は無視
-        if ($request->is('admin/*')) {
+        // 管理画面のURLの場合は無視
+        if ($request->is('admin') || $request->is('admin/*')) {
             return;
         }
 
