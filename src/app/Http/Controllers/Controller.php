@@ -12,6 +12,12 @@ class Controller extends BaseController
 {
     public function __construct(Request $request)
     {
+
+        // 管理画面のURL場合は無視
+        if ($request->is('admin/*')) {
+            return;
+        }
+
         // 本番環境の場合、PCでのアクセスはエラーとする
         if (\App::environment() === 'production' && !$this->isMobile($request)) {
             throw new OnlyMobileException();
