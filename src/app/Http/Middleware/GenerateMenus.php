@@ -25,6 +25,12 @@ class GenerateMenus
             $menu->debayashi->add('List', ['label' => '出囃子一覧', 'route'  => 'admin.debayashi']);
             $menu->debayashi->add('Regist', ['label' => '出囃子登録', 'route'  => 'admin.debayashi.new']);
 
+            $menu->add('ComedianGroup', [
+                'label' => '芸人情報', 'icon' => 'ti-view-list-alt', 'icon-color' => 'c-light-black-500'
+            ]);
+            $menu->comedianGroup->add('List', ['label' => '芸人一覧', 'route'  => 'admin.comedian_group']);
+            $menu->comedianGroup->add('Regist', ['label' => '芸人登録', 'route'  => 'admin.comedian_group.new']);
+
             $menu->add('System', ['label' => 'システム', 'icon' => 'ti-settings', 'icon-color' => 'c-gray-500']);
             $menu->system->add('RequestLog', ['label' => 'リクエストログ', 'route'  => 'admin.system.log']);
         });

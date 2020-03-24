@@ -31,5 +31,10 @@ Route::group(['middleware' => 'auth:admin'], function(){
     Route::get('/debayashi/{id}/edit', 'DebayashiController@edit')->name('debayashi.edit');
     Route::post('/debayashi/store', 'DebayashiController@store')->name('debayashi.store');
 
+    Route::get('/comedian_group', 'ComedianGroupController@index')->name('comedian_group');
+    Route::get('/comedian_group/new', 'ComedianGroupController@edit')->name('comedian_group.new');
+    Route::get('/comedian_group/{id}/edit', 'ComedianGroupController@edit')->name('comedian_group.edit');
+    Route::post('/comedian_group/store', 'ComedianGroupController@store')->name('comedian_group.store');
+
     Route::get('/system/log', 'LogController@index')->name('system.log');
 });
