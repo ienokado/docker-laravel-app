@@ -22,7 +22,7 @@ Route::group(['middleware' => 'guest:admin'], function() {
 });
 
 Route::group(['middleware' => 'auth:admin'], function(){
-    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::get('/', 'TopController@index')->name('top');
 
