@@ -14,19 +14,7 @@ class DebayashiController extends Controller
     {
         $query = Debayashi::query();
 
-        #もしキーワードがあったら
-        if (!empty($keyword)) {
-            //  TODO: ID検索
-            // TODO: 芸人名で検索
-            // TODO: アーティスト名で検索
-            // TODO: 曲名で検索
-            $query
-                ->where('name','like','%'.$keyword.'%')
-                ->orWhere('mail','like','%'.$keyword.'%');
-        }
-
-        #ページネーション
-        $debayashis = $query->orderBy('created_at','desc')->get();
+        $debayashis = $query->orderBy('created_at', 'desc')->get();
 
         return view('admin.debayashi.index', [
             'debayashis' => $debayashis,
@@ -47,8 +35,8 @@ class DebayashiController extends Controller
         }
 
         // セレクトボックス
-        $comedianGroups = ComedianGroup::select('id', 'name')->orderBy('name','asc')->get();
-        $selectValues = $comedianGroups->pluck('name','id');
+        $comedianGroups = ComedianGroup::select('id', 'name')->orderBy('name', 'asc')->get();
+        $selectValues = $comedianGroups->pluck('name', 'id');
 
         return view('admin.debayashi.edit', [
             'debayashi' => $debayashi,
