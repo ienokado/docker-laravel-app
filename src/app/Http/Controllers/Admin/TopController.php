@@ -15,6 +15,6 @@ class TopController extends Controller
      */
     public function index()
     {
-        return view('admin.top');   // 管理者用のテンプレート
+        return view('admin.top');
     }
 }

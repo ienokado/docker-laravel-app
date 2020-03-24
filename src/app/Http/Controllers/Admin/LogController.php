@@ -11,7 +11,6 @@ class LogController extends Controller
     {
         $logs = $this->parseLogFile();
 
-        //検索フォームへ
         return view('admin.log.index', [
             'logs' => $logs,
         ]);

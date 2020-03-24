@@ -98,6 +98,16 @@
         <!-- ### $App Screen Content ### -->
         <main class='main-content bgc-grey-100'>
             <div id='mainContent'>
+                @if (session('success_message'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success_message') }}
+                    </div>
+                @endif
+                @if (session('error_message'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error_message') }}
+                    </div>
+                @endif
                 @yield('mainContent')
             </div>
         </main>
