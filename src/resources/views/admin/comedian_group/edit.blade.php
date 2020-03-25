@@ -20,7 +20,7 @@
                             <div class="form-group">
                                 <label for="input-debayashi-id">{{ __('出囃子') }}</label>
                                 <select name="debayashi_id" class="form-control">
-                                    <option value="null">{{ __('未選択') }}</option>
+                                    <option value>{{ __('未選択') }}</option>
                                     @foreach ($selectValues as $id => $value)
                                         <option value="{{ $id }}" @if ($comedianGroup->debayashi && $comedianGroup->debayashi->id == $id) selected @endif>{{ $value }}</option>
                                     @endforeach
