@@ -36,9 +36,9 @@
         <p class="artist-name">{{ $debayashi->artist_name }}</p>
     </div>
     <div class="link-area">
-        @if ($debayashi->spotifyInfos->preview_url)
+        @if ($debayashi->spotifyInfos && $debayashi->spotifyInfos->preview_url)
         <audio id="music-preview" src="{{ $debayashi->spotifyInfos->preview_url }}"></audio>
-        @elseif ($debayashi->appleMusicInfos->preview_url)
+        @elseif ($debayashi->appleMusicInfos && $debayashi->appleMusicInfos->preview_url)
         <audio id="music-preview" src="{{ $debayashi->appleMusicInfos->preview_url }}"></audio>
         @endif
         @if ($debayashi->appleMusicInfos)
