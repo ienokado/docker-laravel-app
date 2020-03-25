@@ -55,7 +55,7 @@ class ComedianGroupController extends Controller
             $comedianGroup = ComedianGroup::find($id);
             if (is_null($comedianGroup)) {
                 session()->flash('error_message', '保存ができませんでした。');
-                return redirect()->route('admin.comedian_group.edit');
+                return redirect()->route('admin.comedian_group.new');
             }
         }
 

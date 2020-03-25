@@ -55,7 +55,7 @@ class DebayashiController extends Controller
             $debayashi = Debayashi::find($id);
             if (is_null($debayashi)) {
                 session()->flash('error_message', '保存ができませんでした。');
-                return redirect()->route('admin.debayashi.edit');
+                return redirect()->route('admin.debayashi.new');
             }
         }
         $debayashi->name = $request->name;
