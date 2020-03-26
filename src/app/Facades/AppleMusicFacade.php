@@ -42,11 +42,14 @@ class AppleMusicFacade extends Facade
      */
     public function search($query, $type = 'songs', $limit = 1)
     {
-        $api = new AppleMusicAPI($this->client);
+        $data = null;
 
         try {
+            $api = new AppleMusicAPI($this->client);
             $result = $api->searchCatalog(env('APPLE_COUNTRY_CODE'), $query . '&limit=' . $limit, $type);
-            $data = $result->results->songs->data;
+            if (property_exists($result->results, 'songs')) {
+                $data = $result->results->songs->data;
+            }
         } catch (\Exception $e) {
             throw $e;
         }
