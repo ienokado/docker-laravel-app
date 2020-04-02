@@ -10,31 +10,31 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "axios": "^0.18",
+        "axios": "^0.19",
         "babel-preset-react": "^6.24.1",
-        "bootstrap": "^4.0.0",
-        "bootstrap-datepicker": "^1.7.1",
-        "chart.js": "^2.7.1",
-        "cross-env": "^5.1",
-        "datatables": "^1.10.13",
+        "bootstrap": "^4.4.1",
+        "bootstrap-datepicker": "^1.9.0",
+        "chart.js": "^2.9.3",
+        "cross-env": "^7.0",
+        "datatables": "^1.10.18",
         "easy-pie-chart": "^2.1.7",
-        "file-loader": "^1.1.5",
-        "fullcalendar": "^3.6.2",
-        "jquery": "^3.2",
+        "file-loader": "^6.0.0",
+        "fullcalendar": "^3.10.1",
+        "jquery": "^3.4",
         "jquery-sparkline": "^2.4.0",
         "jvectormap": "^2.0.4",
-        "laravel-mix": "^2.0",
-        "load-google-maps-api": "^1.0.0",
-        "lodash": "^4.17.4",
-        "masonry-layout": "^4.2.0",
-        "moment": "^2.19.1",
-        "perfect-scrollbar": "^1.1.0",
-        "popper.js": "^1.12",
+        "laravel-mix": "^5.0",
+        "load-google-maps-api": "^2.0.2",
+        "lodash": "^4.17.15",
+        "masonry-layout": "^4.2.2",
+        "moment": "^2.24.0",
+        "perfect-scrollbar": "^1.5.0",
+        "popper.js": "^1.16",
         "skycons": "^1.0.0",
-        "vue": "^2.5.7"
+        "vue": "^2.6.11"
     },
     "dependencies": {
-        "react": "^16.13.0",
-        "react-dom": "^16.13.0"
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
     }
 }
