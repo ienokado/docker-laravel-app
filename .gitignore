@@ -13,6 +13,9 @@
 
 # Visual Studio Code
 .vscode
+# Rest Client
+*.http
 
 # CircleCI
 process.yml
+

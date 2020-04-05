@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Debayashi;
 
@@ -12,7 +13,7 @@ class DebayashiSearchController extends Controller
         // 初期化
         $debayashi = null;
         // キーワードを取得
-        $keyword = $request->input('search_keyword');
+        $keyword = $request->input('q');
 
         // もしキーワードが入力されている場合
         if (!empty($keyword)) {
@@ -26,11 +27,9 @@ class DebayashiSearchController extends Controller
         // シェアボタン用テキストの取得
         $shareText = $this->getShareText($debayashi);
 
-        //検索フォームへ
-        return view('search.index', [
+        return response()->json([
             'debayashi' => $debayashi,
-            'shareText' => $shareText,
-            'keyword' => $keyword,
+            'share_text' => $shareText,
         ]);
     }
 }

@@ -44,7 +44,7 @@ SPOTIFY_COUNTRY_CODE=JP
 ```
 
 ### Apple Music API の設定
-- [PHPライブラリ仕様](https://github.com/PouleR/apple-music-api)
+- https://github.com/PouleR/apple-music-api
 ```cmd
 src/.envへ追記
 
@@ -53,6 +53,15 @@ APPLE_KEY_ID=XXXX
 APPLE_AUTH_KEY_PATH=/path/to/AuthKey.p8
 APPLE_COUNTRY_CODE=jp
 ```
+
+### JWT設定
+- https://github.com/tymondesigns/jwt-auth
+```cmd
+$ docker-compose run app php artisan jwt:secret
+
+※ 管理者アカウントのID/PASSでログイン可能
+```
+
 ### Sentryの設定（エラー通知）
 - [Sentry](https://sentry.io)
 ```cmd
