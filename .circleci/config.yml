@@ -20,8 +20,8 @@ executors:
       - APP_DEBUG: true
       - APP_ENV: testing
       - APP_KEY: base64:YlIJx6uH3OUb3hxN+PAiJKlC+EGZ2KYi8VHxsfdJpLk=
-      - DB_CONNECTION: circleci
-      - DB_DATABASE: circle_test
+      - DB_CONNECTION: testing
+      - DB_DATABASE: debayashi_koreyashi_test_db
       - DB_USERNAME: root
       - MYSQL_ALLOW_EMPTY_PASSWORD: true
 
