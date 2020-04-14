@@ -1,16 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Debayashi;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\AppleMusicInfo;
 use App\Models\Debayashi;
 use App\Models\SpotifyInfo;
 use SpotifyFacade;
 use AppleMusicFacade;
 
-class DebayashiSearchController extends Controller
+class SearchController extends Controller
 {
+    /**
+     * 出囃子検索.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function index(Request $request)
     {
         // 初期化
@@ -31,7 +38,7 @@ class DebayashiSearchController extends Controller
         $shareText = $this->getShareText($debayashi);
 
         //検索フォームへ
-        return view('search.index', [
+        return view('debayashi.search', [
             'debayashi' => $debayashi,
             'shareText' => $shareText,
             'keyword' => $keyword,
@@ -39,7 +46,7 @@ class DebayashiSearchController extends Controller
     }
 
     /**
-     * Undocumented function
+     * SNSシェア用のテキストを生成する.
      *
      * @param Debayashi $debayashi
      * @return void
