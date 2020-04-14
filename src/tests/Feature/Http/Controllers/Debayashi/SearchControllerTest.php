@@ -9,13 +9,13 @@ use Tests\TestCase;
 class SearchControllerTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * routing test.
      *
      * @return void
      */
     public function testRouting()
     {
-        $response = $this->post('/debayashi/search');
+        $response = $this->post(route('debayashi.search'));
 
         $response->assertStatus(200);
     }

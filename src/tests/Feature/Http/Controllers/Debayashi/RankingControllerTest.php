@@ -9,13 +9,13 @@ use Tests\TestCase;
 class RankingControllerTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * routing test.
      *
      * @return void
      */
     public function testRouting()
     {
-        $response = $this->get('/debayashi/ranking');
+        $response = $this->get(route('debayashi.ranking'));
 
         $response->assertStatus(200);
     }

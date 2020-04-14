@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class AdminUser extends Authenticatable
+class AdminUser extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -36,4 +37,16 @@ class AdminUser extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getJWTIdentifier()
+    {
+        // JWT トークンに保存する ID を返す
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        // JWT トークンに埋め込む追加の情報を返す
+        return [];
+    }
 }

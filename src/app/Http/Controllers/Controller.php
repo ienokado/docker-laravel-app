@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\OnlyMobileException;
+use App\Services\AppleMusicService;
+use App\Services\SpotifyService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Cookie;
@@ -10,8 +12,14 @@ use Jenssegers\Agent\Agent;
 
 class Controller extends BaseController
 {
-    public function __construct(Request $request)
+    protected $appleMusicService;
+
+    protected $spotifyService;
+
+    public function __construct(Request $request, AppleMusicService $appleMusicService, SpotifyService $spotifyService)
     {
+        $this->appleMusicService = $appleMusicService;
+        $this->spotifyService = $spotifyService;
 
         // 管理画面のURLの場合は無視
         if ($request->is('admin') || $request->is('admin/*')) {
@@ -69,5 +77,40 @@ class Controller extends BaseController
         $expireTime = time() + config('const.cookie_expire.disp_count');
 
         Cookie::queue(Cookie::make($this->getCookieName(), 1, $expireTime));
+    }
+
+    /**
+     * SNSシェア用のコメント生成
+     *
+     * @param Debayashi $debayashi
+     * @return void
+     */
+    protected function getShareText($debayashi = null)
+    {
+        $text = "";
+
+        if ($debayashi) {
+            // 芸人名
+            $comedianName = $debayashi->comedianGroups()->first()->name;
+            // 出囃子名
+            $debayashiName = $debayashi->name;
+            // アーティスト名
+            $artistName = $debayashi->artist_name;
+
+            // コメントの生成
+            $text .= "みんな知ってた？%0a";
+            $text .= "「${comedianName}」の出囃子は・・・%0a";
+            $text .= "「${debayashiName} - ${artistName}」%0a";
+            if ($debayashi->spotifyInfos) {
+                $externalUrl = $debayashi->spotifyInfos->external_url;
+                $text .= "${externalUrl}%0a";
+            } elseif ($debayashi->appleMusicInfos) {
+                $externalUrl = $debayashi->appleMusicInfos->external_url;
+                $text .= "${externalUrl}%0a";
+            }
+            $text .= "%23" . env('APP_NAME');
+        }
+
+        return $text;
     }
 }
