@@ -16,9 +16,6 @@ if (App::environment('production')) {
 Route::group(['middleware' => 'guest:admin'], function() {
     Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login.form');
     Route::post('/login', 'Auth\LoginController@login')->name('login');
-
-    Route::get('/404', function () { return view('admin.404'); });
-    Route::get('/500', function () { return view('admin.500'); });
 });
 
 Route::group(['middleware' => 'auth:admin'], function(){
@@ -36,5 +33,5 @@ Route::group(['middleware' => 'auth:admin'], function(){
     Route::get('/comedian_group/{id}/edit', 'ComedianGroupController@edit')->name('comedian_group.edit');
     Route::post('/comedian_group/store', 'ComedianGroupController@store')->name('comedian_group.store');
 
-    Route::get('/system/log', 'LogController@index')->name('system.log');
+    Route::get('/system/log', 'System\LogController@index')->name('system.log');
 });
