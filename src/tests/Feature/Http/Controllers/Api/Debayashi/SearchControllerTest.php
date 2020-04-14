@@ -41,7 +41,7 @@ class SearchControllerTest extends TestCase
     public function testRouting()
     {
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer '. $this->accessToken,
+            'Authorization' => 'Bearer ' . $this->accessToken,
             'Content-Type' => 'application/json',
         ])->json('get', route('api.debayashi.search', ['q' => 'test']));
 
