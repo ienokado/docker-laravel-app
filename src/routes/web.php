@@ -19,4 +19,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'TopController')->name('top');
-Route::post('/debayashi/search', 'DebayashiSearchController@index')->name('debayashi.search.index')->middleware('request.logger');
+Route::post('/debayashi/search', 'Debayashi\SearchController@index')->name('debayashi.search')->middleware('request.logger');
+Route::get('/debayashi/history', 'Debayashi\HistoryController@index')->name('debayashi.history');
+Route::get('/debayashi/ranking', 'Debayashi\RankingController@index')->name('debayashi.ranking');

@@ -1,12 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Debayashi;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Debayashi;
 
-class DebayashiSearchController extends Controller
+class SearchController extends Controller
 {
+    /**
+     * 出囃子検索.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function index(Request $request)
     {
         // 初期化
@@ -27,7 +34,7 @@ class DebayashiSearchController extends Controller
         $shareText = $this->getShareText($debayashi);
 
         //検索フォームへ
-        return view('search.index', [
+        return view('debayashi.search', [
             'debayashi' => $debayashi,
             'shareText' => $shareText,
             'keyword' => $keyword,

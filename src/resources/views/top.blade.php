@@ -7,7 +7,7 @@
     <img class="logo-img" src="{{ asset('images/top/logo.svg')}}">
     <p class="font-white">あの芸人の出囃子を検索しよう</p>
     <!-- form -->
-    <form action="{{ route('debayashi.search.index') }}" method="post">
+    <form action="{{ route('debayashi.search') }}" method="post">
       {{ csrf_field() }}
           <div class="search-box">
             <input id="search-keyword" type="text" name="search_keyword" class="search-text outline-none" placeholder="コンビ名で検索" required="">
