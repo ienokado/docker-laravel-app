@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Debayashi;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Debayashi;
 
-class DebayashiSearchController extends Controller
+class SearchController extends Controller
 {
     public function index(Request $request)
     {

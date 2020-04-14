@@ -9,13 +9,13 @@ use Tests\TestCase;
 class HistoryControllerTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * routing test.
      *
      * @return void
      */
     public function testRouting()
     {
-        $response = $this->get('/debayashi/history');
+        $response = $this->get(route('debayashi.history'));
 
         $response->assertStatus(200);
     }
