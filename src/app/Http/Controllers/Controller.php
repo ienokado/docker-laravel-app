@@ -16,10 +16,21 @@ class Controller extends BaseController
 
     protected $spotifyService;
 
-    public function __construct(Request $request, AppleMusicService $appleMusicService, SpotifyService $spotifyService)
+    protected $cookieName;
+
+    /**
+     * initialize.
+     *
+     * @param Request $request
+     * @param Agent $agent
+     * @param AppleMusicService $appleMusicService
+     * @param SpotifyService $spotifyService
+     */
+    public function __construct(Request $request, Agent $agent, AppleMusicService $appleMusicService, SpotifyService $spotifyService)
     {
         $this->appleMusicService = $appleMusicService;
         $this->spotifyService = $spotifyService;
+        $this->cookieName = $this->getCookieName();
 
         // 管理画面のURLの場合は無視
         if ($request->is('admin') || $request->is('admin/*')) {
@@ -27,30 +38,11 @@ class Controller extends BaseController
         }
 
         // 本番環境の場合、PCでのアクセスはエラーとする
-        if (\App::environment() === 'production' && !$this->isMobile($request)) {
+        if (\App::environment() === 'production' && !$agent->isMobile()) {
             throw new OnlyMobileException();
         }
 
-        // Cookieが設定されていない場合に設定
-        if (is_null(Cookie::get($this->getCookieName()))) {
-            $this->setCookie();
-        }
-    }
-
-    /**
-     * スマホ端末かどうか判定する
-     *
-     * @param Request $request
-     * @return boolean
-     */
-    protected function isMobile($request)
-    {
-        $agent = new Agent();
-        if ($agent->isMobile()) {
-            return true;
-        }
-
-        return false;
+        $this->setCookie($request);
     }
 
     /**
@@ -63,7 +55,7 @@ class Controller extends BaseController
         // 動作しているController名を取得する
         $controllerName = str_replace('Controller', '', (new \ReflectionClass($this))->getShortName());
 
-        return $controllerName . '_DispCount';
+        return $controllerName;
     }
 
     /**
@@ -71,12 +63,22 @@ class Controller extends BaseController
      *
      * @return void
      */
-    protected function setCookie()
+    protected function setCookie(Request $request)
     {
-        // 30日間の有効期限
-        $expireTime = time() + config('const.cookie_expire.disp_count');
-
-        Cookie::queue(Cookie::make($this->getCookieName(), 1, $expireTime));
+        switch ($this->cookieName) {
+            // TOPページのアニメーションは初めの1回のみ
+            case "Top":
+                $_cookieName = $this->cookieName . '_DispCount';
+                // Cookieが設定されていない場合に設定
+                if (is_null(Cookie::get($_cookieName))) {
+                    // 30日間の有効期限
+                    $expireTime = time() + config('const.cookie_expire.disp_count');
+                    Cookie::queue(Cookie::make($_cookieName, 1, $expireTime));
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     /**
