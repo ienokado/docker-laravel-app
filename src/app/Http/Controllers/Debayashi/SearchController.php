@@ -58,7 +58,7 @@ class SearchController extends Controller
         if (!is_null($ids) && strpos($ids, (string) $debayashi->id) === false) {
             $ids .= ',' . $debayashi->id;
         // 初回のみ
-        } else if (is_null($ids)) {
+        } elseif (is_null($ids)) {
             $ids .= (string) $debayashi->id;
         }
 

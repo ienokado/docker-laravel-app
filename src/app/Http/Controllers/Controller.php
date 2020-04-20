@@ -26,8 +26,12 @@ class Controller extends BaseController
      * @param AppleMusicService $appleMusicService
      * @param SpotifyService $spotifyService
      */
-    public function __construct(Request $request, Agent $agent, AppleMusicService $appleMusicService, SpotifyService $spotifyService)
-    {
+    public function __construct(
+        Request $request,
+        Agent $agent,
+        AppleMusicService $appleMusicService,
+        SpotifyService $spotifyService
+    ) {
         $this->appleMusicService = $appleMusicService;
         $this->spotifyService = $spotifyService;
         $this->cookieName = $this->getCookieName();

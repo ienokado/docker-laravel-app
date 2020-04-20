@@ -19,7 +19,7 @@ class HistoryController extends Controller
     {
         $debayashis = $this->getSearchHistories();
 
-        return view('debayashi.history',[
+        return view('debayashi.history', [
             'debayashis' => $debayashis,
         ]);
     }
