@@ -15,8 +15,8 @@ class HistoryController extends Controller
      */
     public function index(Request $request)
     {
-        return view('debayashi.history' , [
-            'historyExists' => true,
+        return view('debayashi.history', [
+            'historyExists' => true,    // モック動作確認用
         ]);
     }
 }
