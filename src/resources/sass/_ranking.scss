@@ -1,0 +1,160 @@
+ul.ranking-card-list {
+  padding: 0;
+  margin: 0;
+  margin-bottom: calc(40px + #{$f-height});
+  li.ranking-card-list-item {
+    list-style-type: none;
+    background: #fff;
+    user-select: none;
+    height: auto;
+    //スマホ small
+    width: 260px;
+    //スマホ large, タブレット, PC
+    @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
+        width: 335px;
+    }
+    border-radius: 10px;
+    display: flex;
+    padding: 20px 10px 20px 0;
+    margin-bottom: 20px;
+    box-shadow: 0 0 23px #FF9B91;
+    .ranking-order {
+      width: 8%;
+      position: relative;
+        p {
+          font-size: 15px;
+          color: $body-bg;
+          font-family: "Lato";
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+    }
+    .ranking-card-debayashi-img {
+      width: 80px;
+      height: 80px;
+      margin-right: 15px;
+      // margin-left: 10px;
+      position: relative;
+      img {
+          border-radius: 5px;
+      }
+      .size-based-on-width,.card-artwork-img-resize-default {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .size-based-on-height {
+        width: auto;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .ranking-card-debayashi-alt-img {
+        border-radius: 5px;
+        background: #919191;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .ranking-card-debayashi-info {
+      width: 60%;
+      >p {
+        word-break: break-all;
+      }
+      .ranking-card-item-comedian-group-name {
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .ranking-card-item-debayashi-name {
+        margin-bottom: 4px;
+      }
+      >p:last-child {
+        margin: 0;
+      }
+    }
+
+    .ranking-card-preview-area-base {
+      position: relative;
+      .ranking-card-preview-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+        user-select: none;
+        width: 100%;
+        height: 100%;
+        .ranking-card-preview-control {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+        }
+        .ranking-card-icon-base-circle {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: rgba(45, 45, 45, 0.7);
+          .ranking-card-preview-control-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            font-size: 14px;
+            transform: translate(-50%, -50%);
+          }
+          .fa-play {
+            transform: translate(-36%, -50%);
+          }
+        }
+      }
+    }
+  }
+  li:first-child {
+    position: relative;
+    min-height: 240px;
+    padding: 20px 0;
+    .ranking-order {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 8%;
+    }
+    .ranking-card-contents::before  {
+      background-repeat: no-repeat;
+      background-position: center;
+      content: url('/images/ranking/i-1st.svg');
+    }
+    div.ranking-card-contents {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      .ranking-card-debayashi-img {
+        margin: 0 auto;
+      }
+      .ranking-card-debayashi-info {
+        margin: 10px auto 0;
+      }
+    }
+  }
+  li:not(:first-child) {
+    div.ranking-order ~ div {
+      display: flex;
+    }
+  }
+}
