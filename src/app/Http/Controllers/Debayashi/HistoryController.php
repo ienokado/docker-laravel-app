@@ -37,6 +37,5 @@ class HistoryController extends Controller
         $ids = explode(',', Cookie::get($_cookieName));
 
         return Debayashi::find($ids);
-
     }
 }
