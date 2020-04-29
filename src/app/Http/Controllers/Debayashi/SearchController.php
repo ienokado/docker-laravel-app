@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Debayashi;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Debayashi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class SearchController extends Controller
 {
@@ -22,8 +23,9 @@ class SearchController extends Controller
         $keyword = $request->input('search_keyword');
 
         // もしキーワードが入力されている場合
-        if (!empty($keyword)) {
+        if ($keyword) {
             $debayashi = Debayashi::getByKeyword($keyword);
+            $this->setKeyword($debayashi);
         }
 
         // Spotify検索
@@ -39,5 +41,27 @@ class SearchController extends Controller
             'shareText' => $shareText,
             'keyword' => $keyword,
         ]);
+    }
+
+    private function setKeyword(Debayashi $debayashi)
+    {
+        // 出囃子
+        if (is_null($debayashi)) {
+            return;
+        }
+
+        $_cookieName = $this->cookieName . '_History';
+
+        $ids = Cookie::get($_cookieName);
+
+        // 初回以降かつ検索されていない出囃子の場合
+        if (!is_null($ids) && strpos($ids, (string) $debayashi->id) === false) {
+            $ids .= ',' . $debayashi->id;
+        // 初回のみ
+        } elseif (is_null($ids)) {
+            $ids .= (string) $debayashi->id;
+        }
+
+        Cookie::queue(Cookie::make($_cookieName, $ids));
     }
 }
