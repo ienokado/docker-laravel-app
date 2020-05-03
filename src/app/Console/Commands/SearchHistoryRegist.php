@@ -69,7 +69,7 @@ class SearchHistoryRegist extends Command
                     ]);
                     $count++;
                 } catch (\Exception $e) {
-                    \Log::channel('slack')->info('keyword: ' . $value['request'] . '/ip: ' . $value['ip'], $e);
+                    \Log::channel('slack')->error('keyword: ' . $value['request'] . '/ip: ' . $value['ip'], $e);
                 }
             }
         }
