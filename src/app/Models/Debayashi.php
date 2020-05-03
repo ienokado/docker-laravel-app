@@ -6,13 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Debayashi extends Model
 {
-    /**
-     * モデルと関連しているテーブル
-     *
-     * @var string
-     */
-    protected $table = 'debayashis';
-
     public function comedianGroups()
     {
         return $this->hasMany(ComedianGroup::class);
