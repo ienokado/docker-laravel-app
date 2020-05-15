@@ -15,4 +15,7 @@ return [
             'production',
         ],
     ],
+    'ranking' => [
+        'count' => 10,
+    ]
 ];
