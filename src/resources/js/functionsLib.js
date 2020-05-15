@@ -29,23 +29,6 @@ window.FunctionsLib = {};
         }
     }
 
-    // アートワークリサイズ
-    window.FunctionsLib.resizeArtwork = resizeArtwork;
-    function resizeArtwork() {
-        var artworks = document.querySelectorAll('img.card-artwork-img');
-        artworks.forEach(artwork=> {
-            var imgW = artwork.width;
-            var imgH = artwork.height;
-            //card-artwork-img-
-            artwork.classList.remove('card-artwork-img-resize-default')
-            if (imgH <= imgW) {
-                artwork.classList.add('size-based-on-width');
-            } else if (imgW < imgH) {
-                artwork.classList.add('size-based-on-height');
-            }
-        });
-    }
-
     // 検索結果の高さ調整
     window.FunctionsLib.adjustHeightSearchResultCard = adjustHeightSearchResultCard;
     function adjustHeightSearchResultCard() {

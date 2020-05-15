@@ -41,25 +41,11 @@ ul.ranking-card-list {
       img {
           border-radius: 5px;
       }
-      .size-based-on-width,.card-artwork-img-resize-default {
+      .ranking-card-debayashi-img-resize {
+        background: #919191;
         width: 100%;
-        height: auto;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-      }
-      .size-based-on-height {
-        width: auto;
         height: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
+        object-fit: contain;
       }
       .ranking-card-debayashi-alt-img {
         border-radius: 5px;

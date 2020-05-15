@@ -43,7 +43,7 @@ class SearchController extends Controller
         ]);
     }
 
-    private function setKeyword(Debayashi $debayashi)
+    private function setKeyword(?Debayashi $debayashi)
     {
         // 出囃子
         if (is_null($debayashi)) {

@@ -11408,27 +11408,12 @@ a.text-dark:focus {
   position: relative;
 }
 
-.search-result-card .debayashi-info .debayashi-img .size-based-on-width,
-.search-result-card .debayashi-info .debayashi-img .resize-default {
+.search-result-card .debayashi-info .debayashi-img .debayashi-img-resize {
+  background: #919191;
   width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.search-result-card .debayashi-info .debayashi-img .size-based-on-height {
-  width: auto;
   height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .search-result-card .debayashi-info .debayashi-img .alt-desc {
@@ -11933,27 +11918,12 @@ ul.history-card-list li.history-card-list-item .history-card-debayashi-img img {
   border-radius: 5px;
 }
 
-ul.history-card-list li.history-card-list-item .history-card-debayashi-img .size-based-on-width,
-ul.history-card-list li.history-card-list-item .history-card-debayashi-img .card-artwork-img-resize-default {
+ul.history-card-list li.history-card-list-item .history-card-debayashi-img .history-card-debayashi-img-resize {
+  background: #919191;
   width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-img .size-based-on-height {
-  width: auto;
   height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 ul.history-card-list li.history-card-list-item .history-card-debayashi-img .history-card-debayashi-alt-img {
@@ -12158,27 +12128,12 @@ ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img img {
   border-radius: 5px;
 }
 
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img .size-based-on-width,
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img .card-artwork-img-resize-default {
+ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img .ranking-card-debayashi-img-resize {
+  background: #919191;
   width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img .size-based-on-height {
-  width: auto;
   height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img .ranking-card-debayashi-alt-img {

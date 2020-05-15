@@ -12,13 +12,13 @@
     <div class="debayashi-info">
         <div class="debayashi-img">
             @if ($debayashi->spotifyInfos)
-            <img id="artwork" src="{{ $debayashi->spotifyInfos->image_url }}" alt="{{ $debayashi->name }}" class="card-artwork-img card-artwork-img-resize-default">
+                <img id="artwork" src="{{ $debayashi->spotifyInfos->image_url }}" alt="{{ $debayashi->name }}" class="debayashi-img-resize">
             @elseif ($debayashi->appleMusicInfos)
-            <img id="artwork" src="{{ $debayashi->appleMusicInfos->image_url }}" alt="{{ $debayashi->name }}" class="card-artwork-img card-artwork-img-resize-default">
+                <img id="artwork" src="{{ $debayashi->appleMusicInfos->image_url }}" alt="{{ $debayashi->name }}" class="debayashi-img-resize">
             @else
-            <div class="alt-desc">
-                <p>No Image</p>
-            </div>
+                <div class="alt-desc">
+                    <p>No Image</p>
+                </div>
             @endif
 
             @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
@@ -95,10 +95,6 @@
 
     window.onload = function () {
         @if ($debayashi)
-            @if($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
-                // アートワークリサイズ
-                FunctionsLib.resizeArtwork();
-            @endif
 
             // 高さ調整
             FunctionsLib.adjustHeightSearchResultCard();
