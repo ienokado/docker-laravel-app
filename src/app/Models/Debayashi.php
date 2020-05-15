@@ -6,13 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Debayashi extends Model
 {
-    /**
-     * モデルと関連しているテーブル
-     *
-     * @var string
-     */
-    protected $table = 'debayashis';
-
     public function comedianGroups()
     {
         return $this->hasMany(ComedianGroup::class);
@@ -30,8 +23,8 @@ class Debayashi extends Model
 
     public static function getByKeyword(string $keyword = null)
     {
-        return Debayashi::whereHas('comedianGroups', function ($query) use ($keyword) {
+        return self::whereHas('comedianGroups', function ($query) use ($keyword) {
             $query->where('name', "${keyword}");
-        })->get()->first();
+        })->first();
     }
 }
