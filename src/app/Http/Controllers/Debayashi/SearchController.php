@@ -55,11 +55,11 @@ class SearchController extends Controller
         $ids = Cookie::get($_cookieName);
 
         // 初回以降かつ検索されていない出囃子の場合
-        if (!is_null($ids) && strpos($ids, (string) $debayashi->id) === false) {
-            $ids .= ',' . $debayashi->id;
+        if (!is_null($ids) && strpos($ids, (string) $debayashi->comedianGroups()->first()->id) === false) {
+            $ids .= ',' . $debayashi->comedianGroups()->first()->id;
         // 初回のみ
         } elseif (is_null($ids)) {
-            $ids .= (string) $debayashi->id;
+            $ids .= (string) $debayashi->comedianGroups()->first()->id;
         }
 
         Cookie::queue(Cookie::make($_cookieName, $ids));

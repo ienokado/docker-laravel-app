@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Debayashi;
 
 use App\Http\Controllers\Controller;
-use App\Models\Debayashi;
+use App\Models\ComedianGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -17,18 +17,17 @@ class HistoryController extends Controller
      */
     public function index(Request $request)
     {
-
-        $debayashis = $this->getSearchHistories();
+        $comedianGroups = $this->getSearchHistories();
 
         return view('debayashi.history', [
-            'debayashis' => $debayashis,
+            'comedianGroups' => $comedianGroups,
         ]);
     }
 
     /**
      * 検索履歴を返す.
      *
-     * @return Debayshi
+     * @return ComedianGroup
      */
     private function getSearchHistories()
     {
@@ -36,6 +35,6 @@ class HistoryController extends Controller
 
         $ids = explode(',', Cookie::get($_cookieName));
 
-        return Debayashi::find($ids);
+        return ComedianGroup::find($ids);
     }
 }

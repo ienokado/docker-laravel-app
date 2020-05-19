@@ -1,8 +1,8 @@
-@extends('layouts.app_bg_custom')
-
+@extends('layouts.app')
+@section('body_class', 'body-bg-pink')
 @section('content')
 
-@if (count($debayashis) > 0)
+@if (count($comedianGroups) > 0)
 {{-- 履歴がある場合 --}}
 <div class="content-wrapper">
     <form action="" method="" class="search-form">
@@ -15,44 +15,13 @@
         </div>
     </form>
 
-    <ul class="history-card-list">
-        @foreach ($debayashis as $debayashi)
-            {{-- history-card --}}
-            <li class="history-card-list-item">
-                {{-- アートワーク --}}
-                <div class="history-card-debayashi-img">
-                    @if ($debayashi->spotifyInfos)
-                        <img class="history-card-debayashi-img-resize" src="{{ $debayashi->spotifyInfos->image_url }}" alt="{{ $debayashi->name }}">
-                    @elseif ($debayashi->appleMusicInfos)
-                        <img class="history-card-debayashi-img-resize" src="{{ $debayashi->appleMusicInfos->image_url}}" alt="{{ $debayashi->name }}">
-                    @else
-                        <div class="history-card-debayashi-alt-img">
-                        </div>
-                    @endif
-                    {{-- メディアコントロール --}}
-                    @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
-                        <div class="history-card-preview-area">
-                            <div class="history-card-preview-control" data-id="{{ $debayashi->id}}">
-                                <div class="history-card-icon-base-circle">
-                                    <i class="history-card-preview-control-icon fas fa-play" data-id="{{ $debayashi->id}}"></i>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                </div>
-                <div class="history-card-debayashi-info">
-                    <p class="history-card-item-comedian-group-name">{{ $debayashi->comedianGroups[0]->name }}</p>
-                    <p class="history-card-item-debayashi-name">{{ $debayashi->name }}</p>
-                    <p class="history-card-item-artist-name">{{ $debayashi->artist_name }}</p>
-                </div>
-                {{-- メディアソース --}}
-                @if ($debayashi->spotifyInfos && $debayashi->spotifyInfos->preview_url)
-                    <audio src="{{ $debayashi->spotifyInfos->preview_url }}" data-id="{{ $debayashi->id}}"></audio>
-                @elseif ($debayashi->appleMusicInfos && $debayashi->appleMusicInfos->preview_url)
-                    <audio src="{{ $debayashi->appleMusicInfos->preview_url }}" data-id="{{ $debayashi->id}}"></audio>
-                @endif
+    <ul class="card-list history-card-list" id="history-list">
+        @foreach ($comedianGroups as $comedianGroup)
+
+            <li class="card-list-item">
+                @include('debayashi.list-item', ['comedianGroup' => $comedianGroup])
             </li>
-            {{-- history-card --}}
+
         @endforeach
     </ul>
 
@@ -80,18 +49,17 @@
 
 <!-- 履歴検索ヒット時 -->
 @section('javascript')
-<script src="{{ asset('/js/functionsLib.js') }}"></script>
 <script>
 
     window.CardItem = {};
     window.CardItem.audios = document.querySelectorAll('audio');
-    window.CardItem.icons = document.querySelectorAll('.history-card-preview-control-icon');
+    window.CardItem.icons = document.querySelectorAll('.card-preview-control-icon');
 
     window.onload = function () {
         // (試聴用)プレビューエリア生成, イベントリスナー生成
-        FunctionsLib.createPreviewAreaForCardItem('history');
+        PlayDebayashis.createPreviewArea();
         // フッター表示
-        FunctionsLib.displayFooter('history');
+        AdjustStyles.displayFooter('history');
     }
 </script>
 @endsection

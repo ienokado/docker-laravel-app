@@ -47,7 +47,6 @@
 @endsection
 
 @section('javascript')
-  <script src="{{ asset('/js/functionsLib.js') }}"></script>
   <script>
     window.onload = function(){
         // Cookie名の存在チェック
@@ -63,10 +62,10 @@
                 item.classList.remove('top-animation');
             });
             // フッター表示
-            FunctionsLib.displayFooter();
+            AdjustStyles.displayFooter();
         } else {
             // フッター表示
-            FunctionsLib.displayFooter('', 'animation-item-last');
+            AdjustStyles.displayFooter('', 'animation-item-last');
         }
 
     }

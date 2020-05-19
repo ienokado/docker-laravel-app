@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('common.head')
-<body>
+<body class="@yield('body_class')">
     {{-- @include('common.header') --}}
 
     <div class="wrapper">

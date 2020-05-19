@@ -11562,11 +11562,11 @@ a:hover {
   bottom: 0;
 }
 
-.preview-area-base {
+.card-preview-area-base {
   position: relative;
 }
 
-.preview-area-base #preview-area {
+.card-preview-area-base .card-preview-area {
   position: absolute;
   top: 0;
   left: 0;
@@ -11578,13 +11578,13 @@ a:hover {
   height: 100%;
 }
 
-.preview-area-base #preview-area #preview-control {
+.card-preview-area-base .card-preview-area .card-preview-control {
   display: inline-block;
   width: 100%;
   height: 100%;
 }
 
-.preview-area-base #preview-area .icon-base-circle {
+.card-preview-area-base .card-preview-area .card-icon-base-circle {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11595,7 +11595,7 @@ a:hover {
   background: rgba(45, 45, 45, 0.7);
 }
 
-.preview-area-base #preview-area .icon-base-circle .preview-control-icon {
+.card-preview-area-base .card-preview-area .card-icon-base-circle .card-preview-control-icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11604,7 +11604,7 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
-.preview-area-base #preview-area .icon-base-circle .fa-play {
+.card-preview-area-base .card-preview-area .card-icon-base-circle .fa-play {
   transform: translate(-36%, -50%);
 }
 
@@ -11781,6 +11781,131 @@ footer.footer-appear {
   }
 }
 
+ul.card-list {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+ul.card-list li.card-list-item {
+  list-style-type: none;
+  background: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  height: auto;
+  width: 260px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 23px #FF9B91;
+}
+
+@media screen and (min-width: 360px) and (min-height: 635px) {
+  ul.card-list li.card-list-item {
+    width: 335px;
+  }
+}
+
+ul.card-list li.card-list-item .card-contents {
+  display: flex;
+  width: 100%;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  position: relative;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img img {
+  border-radius: 5px;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img .card-debayashi-img-resize {
+  background: #919191;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img .card-debayashi-alt-img {
+  border-radius: 5px;
+  background: #919191;
+  width: 100%;
+  height: 100%;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info {
+  width: 60%;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info > p {
+  word-break: break-all;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info .card-item-comedian-group-name {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info .card-item-debayashi-name {
+  margin-bottom: 4px;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info > p:last-child {
+  margin: 0;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base {
+  position: relative;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-preview-control {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-icon-base-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(45, 45, 45, 0.7);
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-icon-base-circle .card-preview-control-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-icon-base-circle .fa-play {
+  transform: translate(-36%, -50%);
+}
+
 .history-search-box {
   position: relative;
   z-index: 1000;
@@ -11879,127 +12004,6 @@ footer.footer-appear {
   }
 }
 
-ul.history-card-list {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 40px;
-}
-
-ul.history-card-list li.history-card-list-item {
-  list-style-type: none;
-  background: #fff;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  height: auto;
-  width: 260px;
-  border-radius: 10px;
-  display: flex;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 23px #FF9B91;
-}
-
-@media screen and (min-width: 360px) and (min-height: 635px) {
-  ul.history-card-list li.history-card-list-item {
-    width: 335px;
-  }
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-img {
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
-  position: relative;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-img img {
-  border-radius: 5px;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-img .history-card-debayashi-img-resize {
-  background: #919191;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-img .history-card-debayashi-alt-img {
-  border-radius: 5px;
-  background: #919191;
-  width: 100%;
-  height: 100%;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-info {
-  width: 60%;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-info > p {
-  word-break: break-all;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-info .history-card-item-comedian-group-name {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-info .history-card-item-debayashi-name {
-  margin-bottom: 4px;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-debayashi-info > p:last-child {
-  margin: 0;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-preview-area-base {
-  position: relative;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-preview-area-base .history-card-preview-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  width: 100%;
-  height: 100%;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-preview-area-base .history-card-preview-area .history-card-preview-control {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-}
-
-ul.history-card-list li.history-card-list-item .history-card-preview-area-base .history-card-preview-area .history-card-icon-base-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(45, 45, 45, 0.7);
-}
-
-ul.history-card-list li.history-card-list-item .history-card-preview-area-base .history-card-preview-area .history-card-icon-base-circle .history-card-preview-control-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: white;
-  font-size: 14px;
-  transform: translate(-50%, -50%);
-}
-
-ul.history-card-list li.history-card-list-item .history-card-preview-area-base .history-card-preview-area .history-card-icon-base-circle .fa-play {
-  transform: translate(-36%, -50%);
-}
-
 ul.history-paging-btn-list {
   list-style-type: none;
   padding: 0;
@@ -12073,40 +12077,21 @@ ul.history-paging-btn-list:after {
   bottom: -50px;
 }
 
-ul.ranking-card-list {
-  padding: 0;
-  margin: 0;
+#ranking-list {
   margin-bottom: calc(40px + 70px);
 }
 
-ul.ranking-card-list li.ranking-card-list-item {
-  list-style-type: none;
-  background: #fff;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  height: auto;
-  width: 260px;
-  border-radius: 10px;
-  display: flex;
+#ranking-list li.card-list-item {
   padding: 20px 10px 20px 0;
-  margin-bottom: 20px;
-  box-shadow: 0 0 23px #FF9B91;
+  display: flex;
 }
 
-@media screen and (min-width: 360px) and (min-height: 635px) {
-  ul.ranking-card-list li.ranking-card-list-item {
-    width: 335px;
-  }
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-order {
+#ranking-list li.card-list-item .ranking-order {
   width: 8%;
   position: relative;
 }
 
-ul.ranking-card-list li.ranking-card-list-item .ranking-order p {
+#ranking-list li.card-list-item .ranking-order p {
   font-size: 15px;
   color: #4960FA;
   font-family: "Lato";
@@ -12117,106 +12102,17 @@ ul.ranking-card-list li.ranking-card-list-item .ranking-order p {
   transform: translate(-50%, -50%);
 }
 
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img {
-  width: 80px;
-  height: 80px;
+#ranking-list .card-debayashi-img {
   margin-right: 15px;
-  position: relative;
 }
 
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img img {
-  border-radius: 5px;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img .ranking-card-debayashi-img-resize {
-  background: #919191;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-img .ranking-card-debayashi-alt-img {
-  border-radius: 5px;
-  background: #919191;
-  width: 100%;
-  height: 100%;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-info {
-  width: 60%;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-info > p {
-  word-break: break-all;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-info .ranking-card-item-comedian-group-name {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-info .ranking-card-item-debayashi-name {
-  margin-bottom: 4px;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-debayashi-info > p:last-child {
-  margin: 0;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-preview-area-base {
-  position: relative;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-preview-area-base .ranking-card-preview-area {
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  width: 100%;
-  height: 100%;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-preview-area-base .ranking-card-preview-area .ranking-card-preview-control {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-preview-area-base .ranking-card-preview-area .ranking-card-icon-base-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(45, 45, 45, 0.7);
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-preview-area-base .ranking-card-preview-area .ranking-card-icon-base-circle .ranking-card-preview-control-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  color: white;
-  font-size: 14px;
-  transform: translate(-50%, -50%);
-}
-
-ul.ranking-card-list li.ranking-card-list-item .ranking-card-preview-area-base .ranking-card-preview-area .ranking-card-icon-base-circle .fa-play {
-  transform: translate(-36%, -50%);
-}
-
-ul.ranking-card-list li:first-child {
+#ranking-list li:first-child {
   position: relative;
   min-height: 240px;
   padding: 20px 0;
 }
 
-ul.ranking-card-list li:first-child .ranking-order {
+#ranking-list li:first-child div.ranking-order {
   position: absolute;
   top: 0;
   left: 0;
@@ -12224,27 +12120,28 @@ ul.ranking-card-list li:first-child .ranking-order {
   width: 8%;
 }
 
-ul.ranking-card-list li:first-child .ranking-card-contents::before {
+#ranking-list li:first-child .card-contents::before {
   background-repeat: no-repeat;
   background-position: center;
   content: url("/images/ranking/i-1st.svg");
 }
 
-ul.ranking-card-list li:first-child div.ranking-card-contents {
+#ranking-list li:first-child div.card-contents {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  display: block;
 }
 
-ul.ranking-card-list li:first-child div.ranking-card-contents .ranking-card-debayashi-img {
+#ranking-list li:first-child div.card-contents .card-debayashi-img {
   margin: 0 auto;
 }
 
-ul.ranking-card-list li:first-child div.ranking-card-contents .ranking-card-debayashi-info {
+#ranking-list li:first-child div.card-contents .card-debayashi-info {
   margin: 10px auto 0;
 }
 
-ul.ranking-card-list li:not(:first-child) div.ranking-order ~ div {
+#ranking-list li:not(:first-child) div.ranking-order ~ div {
   display: flex;
 }
 
@@ -12320,7 +12217,7 @@ body {
   padding: 0;
 }
 
-.body-bg-custom-pink {
+.body-bg-pink {
   background: #FED3CF;
 }
 

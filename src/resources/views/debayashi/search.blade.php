@@ -2,7 +2,7 @@
 
 @section('content')
 @if ($debayashi)
-<div class="search-keyword" id="search-keyword-area">
+<div class="search-keyword" >
     <div class="keyword-header search-result-animation">
         <span class="keyword">{{ $keyword }}</span><br>
         の出囃子は・・・
@@ -12,9 +12,9 @@
     <div class="debayashi-info">
         <div class="debayashi-img">
             @if ($debayashi->spotifyInfos)
-                <img id="artwork" src="{{ $debayashi->spotifyInfos->image_url }}" alt="{{ $debayashi->name }}" class="debayashi-img-resize">
+                <img src="{{ $debayashi->spotifyInfos->image_url }}" alt="{{ $debayashi->name }}" class="debayashi-img-resize">
             @elseif ($debayashi->appleMusicInfos)
-                <img id="artwork" src="{{ $debayashi->appleMusicInfos->image_url }}" alt="{{ $debayashi->name }}" class="debayashi-img-resize">
+                <img src="{{ $debayashi->appleMusicInfos->image_url }}" alt="{{ $debayashi->name }}" class="debayashi-img-resize">
             @else
                 <div class="alt-desc">
                     <p>No Image</p>
@@ -22,10 +22,10 @@
             @endif
 
             @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
-            <div id="preview-area">
-                <div id="preview-control">
-                    <div class="icon-base-circle">
-                        <i id="preview-control-icon" class="fas fa-play preview-control-icon"></i>
+            <div class="card-preview-area">
+                <div class="card-preview-control" data-id="{{ $debayashi->id}}">
+                    <div class="card-icon-base-circle">
+                        <i class="fas fa-play card-preview-control-icon" data-id="{{ $debayashi->id}}"></i>
                     </div>
                 </div>
             </div>
@@ -37,18 +37,18 @@
     </div>
     <div class="link-area">
         @if ($debayashi->spotifyInfos && $debayashi->spotifyInfos->preview_url)
-        <audio id="music-preview" src="{{ $debayashi->spotifyInfos->preview_url }}"></audio>
+        <audio src="{{ $debayashi->spotifyInfos->preview_url }}" data-id="{{ $debayashi->id}}"></audio>
         @elseif ($debayashi->appleMusicInfos && $debayashi->appleMusicInfos->preview_url)
-        <audio id="music-preview" src="{{ $debayashi->appleMusicInfos->preview_url }}"></audio>
+        <audio src="{{ $debayashi->appleMusicInfos->preview_url }}" data-id="{{ $debayashi->id}}"></audio>
         @endif
         @if ($debayashi->appleMusicInfos)
-        <a href="{{ $debayashi->appleMusicInfos->external_url }}" id="link-apple-music" class="link-btn"
+        <a href="{{ $debayashi->appleMusicInfos->external_url }}" class="link-btn"
            >
             <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
         </a>
         @endif
         @if ($debayashi->spotifyInfos)
-        <a href="{{ $debayashi->spotifyInfos->external_url }}" id="link-spotify" class="link-btn">
+        <a href="{{ $debayashi->spotifyInfos->external_url }}" class="link-btn">
             <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
         </a>
         @endif
@@ -82,33 +82,25 @@
 
 
 @section('javascript')
-<script src="{{ asset('/js/functionsLib.js') }}"></script>
 <script>
-    @if ($debayashi)
-    // 検索ヒット時
-        @if($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
-            window.SearchResult = {};
-            SearchResult.controlIcon = document.getElementById('preview-control-icon');
-            SearchResult.audio = document.getElementById('music-preview');
-        @endif
-    @endif
-
     window.onload = function () {
         @if ($debayashi)
-
             // 高さ調整
-            FunctionsLib.adjustHeightSearchResultCard();
+            AdjustStyles.adjustHeightSearchResultCard();
 
             @if($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
+                window.CardItem = {};
+                window.CardItem.audios = document.querySelectorAll('audio');
+                window.CardItem.icons = document.querySelectorAll('.card-preview-control-icon');
                 // プレビューエリア生成
-                FunctionsLib.createPreviewAreaForSearchResultCard();
+                PlayDebayashis.createPreviewArea();
             @endif
 
             // フッター表示
-            FunctionsLib.displayFooter('search', 'search-result-card');
+            AdjustStyles.displayFooter('search', 'search-result-card');
         @else
             // フッター表示
-            FunctionsLib.displayFooter('search');
+            AdjustStyles.displayFooter('search');
         @endif
     }
 

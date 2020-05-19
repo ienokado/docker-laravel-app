@@ -21,6 +21,7 @@
 @import 'search-animation';
 @import 'footer';
 
+@import 'card-list-item';
 @import 'history';
 @import 'ranking';
 
@@ -44,7 +45,7 @@ body {
   padding: 0;
 }
 
-.body-bg-custom-pink {
+.body-bg-pink {
   background: #FED3CF;
 }
 

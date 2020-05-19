@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Debayashi;
 
 use App\Http\Controllers\Controller;
 use App\Models\SearchHistory;
-use App\Models\Debayashi;
+use App\Models\ComedianGroup;
 use Illuminate\Http\Request;
 
 class RankingController extends Controller
@@ -21,15 +21,15 @@ class RankingController extends Controller
         $rankingData = SearchHistory::getRanking();
         foreach ($rankingData as $data) {
             try {
-                $debayashi = Debayashi::find($data->debayashi_id);
-                $debayashis[] = $debayashi;
+                $comedianGroup = ComedianGroup::find($data->comedian_group_id);
+                $comedianGroups[] = $comedianGroup;
             } catch (\Exception $e) {
                 continue;
             }
         }
 
         return view('debayashi.ranking', [
-            'debayashis' => $debayashis
+            'comedianGroups' => $comedianGroups,
         ]);
     }
 }
