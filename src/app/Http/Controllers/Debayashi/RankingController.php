@@ -17,7 +17,7 @@ class RankingController extends Controller
      */
     public function index(Request $request)
     {
-        $debayashis = [];
+        $comedianGroups = [];
         $rankingData = SearchHistory::getRanking();
         foreach ($rankingData as $data) {
             try {
