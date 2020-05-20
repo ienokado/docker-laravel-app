@@ -1,0 +1,101 @@
+ul.card-list {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 40px;
+  li.card-list-item {
+    list-style-type: none;
+    background: #fff;
+    user-select: none;
+    height: auto;
+    //スマホ small
+    width: 260px;
+    //スマホ large, タブレット, PC
+    @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
+        width: 335px;
+    }
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 23px #FF9B91;
+    .card-contents {
+      display: flex;
+      width: 100%;
+    }
+    .card-debayashi-img {
+        width: 80px;
+        height: 80px;
+        margin-right: 20px;
+        position: relative;
+        img {
+            border-radius: 5px;
+        }
+        .card-debayashi-img-resize {
+          background: #919191;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        .card-debayashi-alt-img {
+            border-radius: 5px;
+            background: #919191;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .card-debayashi-info {
+        width: 60%;
+        >p {
+            word-break: break-all;
+          }
+        .card-item-comedian-group-name {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .card-item-debayashi-name {
+            margin-bottom: 4px;
+        }
+        >p:last-child {
+            margin: 0;
+        }
+    }
+
+    .card-preview-area-base {
+      position: relative;
+      .card-preview-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+        user-select: none;
+        width: 100%;
+        height: 100%;
+        .card-preview-control {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+        }
+        .card-icon-base-circle {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: rgba(45, 45, 45, 0.7);
+          .card-preview-control-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            font-size: 14px;
+            transform: translate(-50%, -50%);
+          }
+          .fa-play {
+            transform: translate(-36%, -50%);
+          }
+        }
+      }
+    }
+  }
+}

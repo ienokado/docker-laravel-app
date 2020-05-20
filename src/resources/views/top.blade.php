@@ -21,7 +21,7 @@
   <div class="comedian-wrapper">
     <div class="comedian">
       <div class="center-pos">
-        <div class="serif top-animation">
+        <div class="serif top-animation" id="animation-item-last">
           <img class="serif-img" src="{{ asset('images/top/serif.svg')}}">
         </div>
         <div class="male">
@@ -61,7 +61,13 @@
             itemArray.forEach(item => {
                 item.classList.remove('top-animation');
             });
+            // フッター表示
+            AdjustStyles.displayFooter();
+        } else {
+            // フッター表示
+            AdjustStyles.displayFooter('', 'animation-item-last');
         }
+
     }
   </script>
 @endsection

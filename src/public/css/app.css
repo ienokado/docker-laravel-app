@@ -11374,7 +11374,7 @@ a.text-dark:focus {
   border-radius: 30px 30px 0px 0px;
   padding-top: 60px;
   margin: 0 auto 0;
-  padding-bottom: 60px;
+  padding-bottom: calc(60px + 70px);
   text-align: center;
   width: 100vw;
   height: auto;
@@ -11408,26 +11408,12 @@ a.text-dark:focus {
   position: relative;
 }
 
-.search-result-card .debayashi-info .debayashi-img .size-based-on-width {
+.search-result-card .debayashi-info .debayashi-img .debayashi-img-resize {
+  background: #919191;
   width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.search-result-card .debayashi-info .debayashi-img .size-based-on-height {
-  width: auto;
   height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .search-result-card .debayashi-info .debayashi-img .alt-desc {
@@ -11576,11 +11562,11 @@ a:hover {
   bottom: 0;
 }
 
-.preview-area-base {
+.card-preview-area-base {
   position: relative;
 }
 
-.preview-area-base #preview-area {
+.card-preview-area-base .card-preview-area {
   position: absolute;
   top: 0;
   left: 0;
@@ -11592,13 +11578,13 @@ a:hover {
   height: 100%;
 }
 
-.preview-area-base #preview-area #preview-control {
+.card-preview-area-base .card-preview-area .card-preview-control {
   display: inline-block;
   width: 100%;
   height: 100%;
 }
 
-.preview-area-base #preview-area .icon-base-circle {
+.card-preview-area-base .card-preview-area .card-icon-base-circle {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11609,7 +11595,7 @@ a:hover {
   background: rgba(45, 45, 45, 0.7);
 }
 
-.preview-area-base #preview-area .icon-base-circle .preview-control-icon {
+.card-preview-area-base .card-preview-area .card-icon-base-circle .card-preview-control-icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11618,7 +11604,7 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 
-.preview-area-base #preview-area .icon-base-circle .fa-play {
+.card-preview-area-base .card-preview-area .card-icon-base-circle .fa-play {
   transform: translate(-36%, -50%);
 }
 
@@ -11686,28 +11672,477 @@ a:hover {
   }
 }
 
+footer.disappear {
+  display: none;
+}
+
 footer {
   width: 100vw;
-  background-color: #222222;
-  position: absolute;
+  height: 70px;
+  background-color: #fff;
+  position: fixed;
   bottom: 0;
   z-index: 1030;
 }
 
-footer .hr {
-  height: 2px;
+ul.footer-menu-list {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 40px;
+  display: table;
+  table-layout: fixed;
+}
+
+ul.footer-menu-list li.footer-menu-list-item {
+  list-style-type: none;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  padding-top: 12px;
+  position: relative;
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-icon {
+  height: 25px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 5px;
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-icon-history {
+  background-image: url("/images/menu/i-history.svg");
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-icon-history.selected {
+  background-image: url("/images/menu/i-history-selected.svg");
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-icon-search {
+  background-image: url("/images/menu/i-search.svg");
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-icon-search.selected {
+  background-image: url("/images/menu/i-search-selected.svg");
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-icon-ranking {
+  background-image: url("/images/menu/i-ranking.svg");
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-icon-ranking.selected {
+  background-image: url("/images/menu/i-ranking-selected.svg");
+}
+
+ul.footer-menu-list li.footer-menu-list-item p {
+  color: #8B8B8B;
+  font-size: 11px;
+  text-align: center;
+  margin: 0;
+}
+
+ul.footer-menu-list li.footer-menu-list-item p.selected {
+  color: #4960FA;
+}
+
+ul.footer-menu-list li.footer-menu-list-item .footer-menu-item-selected {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  width: 80%;
+  background: #4960FA;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer.footer-appear {
+  -webkit-animation: anime-appearance 100ms ease 0ms 1 normal backwards running;
+          animation: anime-appearance 100ms ease 0ms 1 normal backwards running;
+}
+
+@-webkit-keyframes anime-appearance {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes anime-appearance {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+ul.card-list {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+ul.card-list li.card-list-item {
+  list-style-type: none;
   background: #fff;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  height: auto;
+  width: 260px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 23px #FF9B91;
+}
+
+@media screen and (min-width: 360px) and (min-height: 635px) {
+  ul.card-list li.card-list-item {
+    width: 335px;
+  }
+}
+
+ul.card-list li.card-list-item .card-contents {
+  display: flex;
+  width: 100%;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  position: relative;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img img {
+  border-radius: 5px;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img .card-debayashi-img-resize {
+  background: #919191;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+ul.card-list li.card-list-item .card-debayashi-img .card-debayashi-alt-img {
+  border-radius: 5px;
+  background: #919191;
+  width: 100%;
+  height: 100%;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info {
+  width: 60%;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info > p {
+  word-break: break-all;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info .card-item-comedian-group-name {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info .card-item-debayashi-name {
+  margin-bottom: 4px;
+}
+
+ul.card-list li.card-list-item .card-debayashi-info > p:last-child {
+  margin: 0;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base {
+  position: relative;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-preview-control {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-icon-base-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(45, 45, 45, 0.7);
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-icon-base-circle .card-preview-control-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 14px;
+  transform: translate(-50%, -50%);
+}
+
+ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-icon-base-circle .fa-play {
+  transform: translate(-36%, -50%);
+}
+
+.history-search-box {
+  position: relative;
+  z-index: 1000;
+  min-width: 260px;
+  margin-bottom: 36px;
+}
+
+.history-search-box .history-search-text {
+  padding-left: 20px;
+  background: #FDB0A8;
+  border-radius: 10px;
+  font-weight: normal;
+  font-size: 17px;
+  width: 260px;
+  height: 47px;
+}
+
+.history-search-box .history-search-text::-webkit-input-placeholder {
+  color: #4960FA;
+  text-align: left;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
+  opacity: 0.7;
+}
+
+.history-search-box .history-search-text::-moz-placeholder {
+  color: #4960FA;
+  text-align: left;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
+  opacity: 0.7;
+}
+
+.history-search-box .history-search-text:-ms-input-placeholder {
+  color: #4960FA;
+  text-align: left;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
+  opacity: 0.7;
+}
+
+.history-search-box .history-search-text::-ms-input-placeholder {
+  color: #4960FA;
+  text-align: left;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
+  opacity: 0.7;
+}
+
+.history-search-box .history-search-text::placeholder {
+  color: #4960FA;
+  text-align: left;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 31px;
+  opacity: 0.7;
+}
+
+.history-search-box .history-search-text:-ms-input-placeholder {
+  color: #4960FA;
+}
+
+.history-search-box .history-search-text::-ms-input-placeholder {
+  color: #4960FA;
+}
+
+@media screen and (min-width: 360px) and (min-height: 635px) {
+  .history-search-box .history-search-text {
+    width: 335px;
+    height: 58px;
+  }
+}
+
+.history-search-box .history-search-btn {
+  position: absolute;
+  background: #4960F9;
+  border-radius: 10px;
+  font-family: FontAwesome;
+  color: #FFFFFF;
+  top: 5px;
+  right: 5px;
+  width: 38px;
+  height: 38px;
+}
+
+@media screen and (min-width: 360px) and (min-height: 635px) {
+  .history-search-box .history-search-btn {
+    top: 7px;
+    right: 7px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+ul.history-paging-btn-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: calc(40px + 70px);
+  text-align: justify;
+  height: 50px;
+}
+
+ul.history-paging-btn-list li {
+  display: inline-block;
+  color: #fff;
+}
+
+ul.history-paging-btn-list:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 0;
+}
+
+.history-paging-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: #4960FA;
+  box-shadow: 0 0 23px #FF9B91;
+  position: relative;
+}
+
+.history-paging-btn i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.history-paging-btn.btn-inactive {
+  background: #919191;
+}
+
+.history-not-exists-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.history-not-exists-msg {
+  margin-top: 130px;
+  height: 90px;
+}
+
+.history-not-exists-msg p {
+  text-align: center;
+  font-weight: Bold;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #4960FA;
+}
+
+.history-not-exists-img-microphone {
+  display: block;
+  height: 290px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+}
+
+#ranking-list {
+  margin-bottom: calc(40px + 70px);
+}
+
+#ranking-list li.card-list-item {
+  padding: 20px 10px 20px 0;
+  display: flex;
+}
+
+#ranking-list li.card-list-item .ranking-order {
+  width: 8%;
+  position: relative;
+}
+
+#ranking-list li.card-list-item .ranking-order p {
+  font-size: 15px;
+  color: #4960FA;
+  font-family: "Lato";
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#ranking-list .card-debayashi-img {
+  margin-right: 15px;
+}
+
+#ranking-list li:first-child {
+  position: relative;
+  min-height: 240px;
+  padding: 20px 0;
+}
+
+#ranking-list li:first-child div.ranking-order {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 8%;
+}
+
+#ranking-list li:first-child .card-contents::before {
+  background-repeat: no-repeat;
+  background-position: center;
+  content: url("/images/ranking/i-1st.svg");
+}
+
+#ranking-list li:first-child div.card-contents {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
   display: block;
 }
 
-.footer-copyright {
-  color: #b1aca1;
+#ranking-list li:first-child div.card-contents .card-debayashi-img {
+  margin: 0 auto;
 }
 
-@media screen and (max-width: 360px) {
-  .footer-copyright {
-    font-size: 11px;
-  }
+#ranking-list li:first-child div.card-contents .card-debayashi-info {
+  margin: 10px auto 0;
+}
+
+#ranking-list li:not(:first-child) div.ranking-order ~ div {
+  display: flex;
 }
 
 .error-wrapper {
@@ -11769,13 +12204,21 @@ html {
   margin: 0 auto;
   padding: 0;
   display: table;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
-  font-family: "Sawarabi Gothic", sans-serif;
+  font-family: "noto sans JP", sans-serif;
   min-height: 100vh;
   margin: 0 auto;
   padding: 0;
+}
+
+.body-bg-pink {
+  background: #FED3CF;
 }
 
 .wrapper {
@@ -11784,6 +12227,15 @@ body {
   width: 100vw;
   position: relative;
   box-sizing: border-box;
+}
+
+.content-wrapper {
+  height: 100%;
+  padding: 36px 20px;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 a {

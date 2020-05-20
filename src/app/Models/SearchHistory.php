@@ -13,7 +13,7 @@ class SearchHistory extends Model
         // ランキング表示は10件まで（定数で指定）
         return self::select(\DB::raw('count(*) as count, comedian_group_id'))
             ->groupBy('comedian_group_id')
-            ->orderBy('count')
+            ->orderBy('count', 'desc')
             ->limit(config('const.ranking.count'))
             ->get();
     }
