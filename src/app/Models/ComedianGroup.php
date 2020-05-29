@@ -19,15 +19,13 @@ class ComedianGroup extends Model
             $query->where(function ($query) use ($keyword) {
                 $query
                     ->where('name', 'like', "%${keyword}%")
-                    ->orWhereHas('debayashi', function($query) use ($keyword) {
+                    ->orWhereHas('debayashi', function ($query) use ($keyword) {
                         $query
                             ->where('name', 'like', "%${keyword}%")
                             ->orWhere('artist_name', 'like', "%${keyword}%");
                     });
             });
         }
-
-        // dd($query->toSql());
 
         return $query->get();
     }
