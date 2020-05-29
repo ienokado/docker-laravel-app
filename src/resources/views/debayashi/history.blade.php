@@ -1,16 +1,17 @@
 @extends('layouts.app')
-@section('body_class', 'body-bg-pink')
-@section('content')
 
+@section('body_class', 'body-bg-pink')
+
+@section('content')
 @if (count($comedianGroups) > 0)
 {{-- 履歴がある場合 --}}
 <div class="content-wrapper">
-    <form action="" method="" class="search-form">
+    <form action="{{ route('debayashi.history') }}" method="post" class="search-form">
         {{ csrf_field() }}
         <div class="history-search-box">
-            <input id="search-keyword" type="text" name="search_keyword" class="history-search-text outline-none" placeholder="履歴を検索" required="">
+            <input id="search-keyword" class="history-search-text outline-none" type="text" name="search_keyword" placeholder="履歴を検索" value="{{ old('search_keyword') ? : $search_keyword }}">
             <button id="search-button" type="submit" class="history-search-btn outline-none">
-            <i class="fas fa-search"></i>
+                <i class="fas fa-search"></i>
             </button>
         </div>
     </form>
@@ -41,7 +42,7 @@
             <p>検索履歴が<br>ありません</p>
         </div>
         <div class="history-not-exists-img">
-          <img class="history-not-exists-img-microphone" src="{{ asset('images/error/microphone.svg')}}">
+            <img class="history-not-exists-img-microphone" src="{{ asset('images/error/microphone.svg')}}">
         </div>
     </div>
 @endif

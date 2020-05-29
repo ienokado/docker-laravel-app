@@ -26,9 +26,9 @@ class AppleMusicFacade extends Facade
         $tokenGenerator = new AppleMusicAPITokenGenerator();
 
         $jwtToken = $tokenGenerator->generateDeveloperToken(
-            env('APPLE_TEAM_ID'),
-            env('APPLE_KEY_ID'),
-            env('APPLE_AUTH_KEY_PATH'),
+            config('services.apple_music.team_id'),
+            config('services.apple_music.key_id'),
+            config('services.apple_music.auth_key_path'),
         );
         $this->client->setDeveloperToken($jwtToken);
     }
@@ -46,7 +46,7 @@ class AppleMusicFacade extends Facade
 
         try {
             $api = new AppleMusicAPI($this->client);
-            $result = $api->searchCatalog(env('APPLE_COUNTRY_CODE'), $query . '&limit=' . $limit, $type);
+            $result = $api->searchCatalog(config('services.apple_music.country_code'), $query . '&limit=' . $limit, $type);
             if (property_exists($result->results, 'songs')) {
                 $data = $result->results->songs->data;
             }

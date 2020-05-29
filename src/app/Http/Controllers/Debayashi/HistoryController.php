@@ -17,24 +17,27 @@ class HistoryController extends Controller
      */
     public function index(Request $request)
     {
-        $comedianGroups = $this->getSearchHistories();
+        $keyword = $request->input('search_keyword');
+        $comedianGroups = $this->getSearchHistories($keyword);
 
         return view('debayashi.history', [
             'comedianGroups' => $comedianGroups,
+            'search_keyword' => $keyword,
         ]);
     }
 
     /**
      * 検索履歴を返す.
+     * @param string|null $keyword 検索キーワード
      *
      * @return ComedianGroup
      */
-    private function getSearchHistories()
+    private function getSearchHistories($keyword)
     {
         $_cookieName = 'Search_' . $this->cookieName;
 
         $ids = explode(',', Cookie::get($_cookieName));
 
-        return ComedianGroup::find($ids);
+        return ComedianGroup::searchByKeyword($ids, $keyword);
     }
 }

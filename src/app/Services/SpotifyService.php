@@ -20,13 +20,13 @@ class SpotifyService
         // Client IDとClient Secretが設定されていない場合はSpotifyAPIを利用しない
         if (
             $debayashi && is_null($debayashi->spotifyInfos) &&
-            env('SPOTIFY_CLIENT_ID') && env('SPOTIFY_CLIENT_SECRET')
+            config('services.spotify.client_id') && config('services.spotify.client_secret')
         ) {
             $spotify = new SpotifyFacade();
             $query = $debayashi->artist_name . ' ' . $debayashi->name;
 
             try {
-                $result = $spotify->search($query, 'track', ['market' => env('SPOTIFY_COUNTRY_CODE', 'JP')]);
+                $result = $spotify->search($query, 'track', ['market' => config('services.spotify.country_code')]);
 
                 if (count($result) > 0) {
                     $spotifyInfo = new SpotifyInfo();

@@ -10,4 +10,25 @@ class ComedianGroup extends Model
     {
         return $this->belongsTo(Debayashi::class);
     }
+
+    public static function searchByKeyword($ids, $keyword = null)
+    {
+        $query = self::whereIn('id', $ids);
+
+        if (!is_null($keyword)) {
+            $query->where(function ($query) use ($keyword) {
+                $query
+                    ->where('name', 'like', "%${keyword}%")
+                    ->orWhereHas('debayashi', function($query) use ($keyword) {
+                        $query
+                            ->where('name', 'like', "%${keyword}%")
+                            ->orWhere('artist_name', 'like', "%${keyword}%");
+                    });
+            });
+        }
+
+        // dd($query->toSql());
+
+        return $query->get();
+    }
 }
