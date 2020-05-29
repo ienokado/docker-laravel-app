@@ -50,7 +50,7 @@
             <p>検索履歴が<br>ありません</p>
         </div>
         <div class="history-not-exists-img">
-            <img class="history-not-exists-img-microphone" src="{{ asset('images/error/microphone.svg')}}">
+            <img class="history-not-exists-img-microphone" src="{{ asset('images/error/microphone.svg') }}">
         </div>
     </div>
 @endif

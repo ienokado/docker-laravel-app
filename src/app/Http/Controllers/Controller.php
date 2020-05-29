@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Exceptions\OnlyMobileException;
 use App\Services\AppleMusicService;
 use App\Services\SpotifyService;
 use Illuminate\Http\Request;
@@ -39,11 +38,6 @@ class Controller extends BaseController
         // 管理画面のURLの場合は無視
         if ($request->is('admin') || $request->is('admin/*')) {
             return;
-        }
-
-        // 本番環境の場合、PCでのアクセスはエラーとする
-        if (\App::environment() === 'production' && !$agent->isMobile()) {
-            throw new OnlyMobileException();
         }
 
         $this->setCookie($request);

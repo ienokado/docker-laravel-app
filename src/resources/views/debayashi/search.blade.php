@@ -23,9 +23,9 @@
 
             @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)
             <div class="card-preview-area">
-                <div class="card-preview-control" data-id="{{ $debayashi->id}}">
+                <div class="card-preview-control" data-id="{{ $debayashi->id }}">
                     <div class="card-icon-base-circle">
-                        <i class="fas fa-play card-preview-control-icon" data-id="{{ $debayashi->id}}"></i>
+                        <i class="fas fa-play card-preview-control-icon" data-id="{{ $debayashi->id }}"></i>
                     </div>
                 </div>
             </div>
@@ -37,19 +37,19 @@
     </div>
     <div class="link-area">
         @if ($debayashi->spotifyInfos && $debayashi->spotifyInfos->preview_url)
-        <audio src="{{ $debayashi->spotifyInfos->preview_url }}" data-id="{{ $debayashi->id}}"></audio>
+        <audio src="{{ $debayashi->spotifyInfos->preview_url }}" data-id="{{ $debayashi->id }}"></audio>
         @elseif ($debayashi->appleMusicInfos && $debayashi->appleMusicInfos->preview_url)
-        <audio src="{{ $debayashi->appleMusicInfos->preview_url }}" data-id="{{ $debayashi->id}}"></audio>
+        <audio src="{{ $debayashi->appleMusicInfos->preview_url }}" data-id="{{ $debayashi->id }}"></audio>
         @endif
         @if ($debayashi->appleMusicInfos)
         <a href="{{ $debayashi->appleMusicInfos->external_url }}" class="link-btn"
            >
-            <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg')}}">
+            <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg') }}">
         </a>
         @endif
         @if ($debayashi->spotifyInfos)
         <a href="{{ $debayashi->spotifyInfos->external_url }}" class="link-btn">
-            <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg')}}">
+            <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg') }}">
         </a>
         @endif
     </div>
