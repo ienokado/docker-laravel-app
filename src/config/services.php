@@ -33,6 +33,14 @@ return [
     'spotify' => [
         'client_id' => env('SPOTIFY_CLIENT_ID'),
         'client_secret' => env('SPOTIFY_CLIENT_SECRET'),
+        'country_code' => env('SPOTIFY_COUNTRY_CODE' , 'JP'),
+    ],
+
+    'apple_music' => [
+        'team_id' => env('APPLE_TEAM_ID'),
+        'key_id' => env('APPLE_KEY_ID'),
+        'auth_key_path' => env('APPLE_AUTH_KEY_PATH'),
+        'country_code' => env('APPLE_COUNTRY_CODE' , 'jp'),
     ],
 
 ];

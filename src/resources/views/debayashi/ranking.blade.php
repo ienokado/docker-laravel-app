@@ -1,7 +1,8 @@
 @extends('layouts.app')
-@section('body_class', 'body-bg-pink')
-@section('content')
 
+@section('body_class', 'body-bg-pink')
+
+@section('content')
 @if (count($comedianGroups) > 0)
 <div class="content-wrapper">
 
@@ -10,7 +11,7 @@
 
             <li class="card-list-item">
                 <div class="ranking-order">
-                    <p>{{$loop->iteration}}</p>
+                    <p>{{ $loop->iteration }}</p>
                 </div>
                 @include('debayashi.list-item', ['comedianGroup' => $comedianGroup])
             </li>

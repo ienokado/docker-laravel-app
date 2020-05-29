@@ -20,7 +20,7 @@ class AppleMusicService
         // Team IDとKey IDとAuthKey Pathが設定されていない場合はApple Music APIを利用しない
         if (
             $debayashi && is_null($debayashi->appleMusicInfos) &&
-            env('APPLE_TEAM_ID') && env('APPLE_KEY_ID') && env('APPLE_AUTH_KEY_PATH')
+            config('apple_music.team_id') && env('apple_music.key_id') && env('apple_music.auth_key_path')
         ) {
             $appleMusic = new AppleMusicFacade();
             $str = $debayashi->artist_name . ' ' . $debayashi->name;
