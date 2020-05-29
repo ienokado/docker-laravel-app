@@ -46,9 +46,9 @@ class AppleMusicFacade extends Facade
 
         try {
             $api = new AppleMusicAPI($this->client);
-            $result = $api->searchCatalog(
-                config('services.apple_music.country_code'), $query . '&limit=' . $limit, $type
-            );
+            // 検索に利用する文字列
+            $term = "${query}&limit=${limit}";
+            $result = $api->searchCatalog(config('services.apple_music.country_code'), $term, $type);
             if (property_exists($result->results, 'songs')) {
                 $data = $result->results->songs->data;
             }
