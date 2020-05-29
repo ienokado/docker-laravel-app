@@ -2,7 +2,7 @@
 $body-bg: #4960FA;
 
 // Typography
-$font-family-sawarabi: 'Sawarabi Gothic', sans-serif;
+$font-family-sawarabi: 'noto sans JP', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -18,9 +18,16 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
+// Search Form Height
+$search-form-height-sp-small: 47px;
+$search-form-height-sp-large: 58px;
+
 // BreakPoint Width
 $bp-width-sp-small: 360px; //iPhone SE
 $bp-width-sp-large: 560px;
+$bp-width-pc: 960px;       // PC
 // BreakPoint Height
 $bp-height-sp-large: 635px; //iPhoneX safari
 
+// Footer Height
+$f-height: 70px;

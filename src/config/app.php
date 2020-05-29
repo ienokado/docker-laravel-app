@@ -169,6 +169,7 @@ return [
          */
         Weidner\Goutte\GoutteServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Lavary\Menu\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -232,6 +233,7 @@ return [
 
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Menu' => Lavary\Menu\Facade::class,
 
         'SpotifyFacade' => App\Facades\SpotifyFacade::class,
         'AppleMusicFacade' => App\Facades\AppleMusicFacade::class,

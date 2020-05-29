@@ -1,0 +1,59 @@
+#ranking-list {
+  margin-bottom: calc(40px + #{$f-height});
+  li.card-list-item {
+    padding: 20px 10px 20px 0;
+
+    display: flex;
+    .ranking-order {
+      width: 8%;
+      position: relative;
+        p {
+          font-size: 15px;
+          color: $body-bg;
+          font-family: "Lato";
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+    }
+  }
+  .card-debayashi-img {
+    margin-right: 15px;
+  }
+  li:first-child {
+    position: relative;
+    min-height: 240px;
+    padding: 20px 0;
+    div.ranking-order {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 8%;
+    }
+    .card-contents::before  {
+      background-repeat: no-repeat;
+      background-position: center;
+      content: url('/images/ranking/i-1st.svg');
+    }
+    div.card-contents {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+      .card-debayashi-img {
+        margin: 0 auto;
+      }
+      .card-debayashi-info {
+        margin: 10px auto 0;
+      }
+    }
+  }
+  li:not(:first-child) {
+    div.ranking-order ~ div {
+      display: flex;
+    }
+  }
+}

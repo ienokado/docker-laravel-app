@@ -1,15 +1,12 @@
 .comedian-wrapper {
-  position: absolute;
-	bottom: 0;
+  margin-top: 10%;
+  width: 100vw;
   // スマホ small
   height: 40%;
   //スマホ large, タブレット, PC
   @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
     height: 45%;
   }
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: -100;
 }
 .comedian {
@@ -30,14 +27,13 @@
   width: 0;
   height: 0;
   transform: translateX(50%);
-
   //セリフ
   .serif {
     position: absolute;
     // スマホ small
     top: -35px;
     left: -87px;
-    //スマホ large, タブレット, PC
+    //スマホ large, タブレット
     @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
       top: -55px;
       left: -102px;
@@ -47,10 +43,14 @@
         //スマホ small
         width: 137px;
         height: auto;
-        //スマホ large, タブレット, PC
+        //スマホ large, タブレット
         @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
           width: auto;
           height: auto;
+        }
+        //PC
+        @media screen and (min-width: $bp-width-pc) {
+          display: none;
         }
     }
   }
@@ -61,9 +61,14 @@
     top: 0;
     // スマホ small
     left: -160px;
-    //スマホ large, タブレット, PC
+    //スマホ large, タブレット
     @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
       left: -195px;
+    }
+    //PC
+    @media screen and (min-width: $bp-width-pc) {
+      top: -172px;
+      left: -500px;
     }
     .male-trim {
       position: relative;
@@ -71,10 +76,15 @@
       // スマホ small
       width: 300px;
       height: 250px;
-      //スマホ large, タブレット, PC
+      //スマホ large, タブレット
       @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
         width: 300px;
         height: 365px;
+      }
+      //PC
+      @media screen and (min-width: $bp-width-pc) {
+        width: 400px;
+        height: 610px;
       }
       img{
         position: absolute;
@@ -83,11 +93,19 @@
         left: 4px;
         width: 261px;
         height: auto;
-        //スマホ large, タブレット, PC
+        //スマホ large, タブレット
         @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
           top: -3px;
           left: 4px;
           width: auto;
+          height: auto;
+        }
+        //PC
+        @media screen and (min-width: $bp-width-pc) {
+          transform: rotate(11deg);
+          top: 13px;
+          left: 35px;
+          width: 400px;
           height: auto;
         }
       }
@@ -100,10 +118,15 @@
     //スマホ small
     top: -21px;
     left: -45px;
-    //スマホ large, タブレット, PC
+    //スマホ large, タブレット
     @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
       top: -29px;
       left: -30px;
+    }
+    //PC
+    @media screen and (min-width: $bp-width-pc) {
+      top: -164px;
+      left: 173px;
     }
     .female-trim {
       position: relative;
@@ -111,10 +134,15 @@
       //スマホ small
       width: 191px;
       height: 271px;
-      //スマホ large, タブレット, PC
+      //スマホ large, タブレット
       @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
         width: 197px;
         height: 394px;
+      }
+      //PC
+      @media screen and (min-width: $bp-width-pc) {
+        width: 261px;
+        height: 605px;
       }
       img {
         position: absolute;
@@ -123,11 +151,18 @@
         left: 5px;
         width: 189px;
         height: auto;
-        //スマホ large, タブレット, PC
+        //スマホ large, タブレット
         @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
           top: 0px;
           left: 0px;
           width: auto;
+          height: auto;
+        }
+        //PC
+        @media screen and (min-width: $bp-width-pc) {
+          top: 0px;
+          left: 0px;
+          width: 265px;
           height: auto;
         }
       }
@@ -138,9 +173,13 @@
     position: absolute;
     //スマホ small
     top: 117px;
-    //スマホ large, タブレット, PC
+    //スマホ large, タブレット
     @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
       top: 114px;
+    }
+    //PC
+    @media screen and (min-width: $bp-width-pc) {
+      top: 6px;
     }
     left: 0;
     transform: translateX(-50%);
@@ -158,11 +197,24 @@
         height: auto;
       }
     }
-    //スマホ large, タブレット, PC
+    //スマホ large, タブレット
     @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
       .microphone-trim {
         width: 30px;
         height: 251px;
+        img {
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    //PC
+    @media screen and (min-width: $bp-width-pc) {
+      .microphone-trim {
+        width: 30px;
+        height: 320px;
         img {
           top: 0px;
           left: 0px;

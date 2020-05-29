@@ -15,4 +15,10 @@ return [
             'production',
         ],
     ],
+    'ranking' => [
+        'count' => 5,
+    ],
+    'paginate' => [
+        'count' => 5,
+    ],
 ];

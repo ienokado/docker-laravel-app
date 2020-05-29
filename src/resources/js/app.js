@@ -13,3 +13,8 @@ require('./bootstrap');
  */
 
 require('./components/Example');
+
+// 表示制御, スタイル調整用
+require('./adjustStyles');
+// 出囃子試聴用
+require('./playDebayashis');

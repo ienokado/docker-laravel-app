@@ -44,7 +44,7 @@ SPOTIFY_COUNTRY_CODE=JP
 ```
 
 ### Apple Music API の設定
-- [PHPライブラリ仕様](https://github.com/PouleR/apple-music-api)
+- https://github.com/PouleR/apple-music-api
 ```cmd
 src/.envへ追記
 
@@ -53,6 +53,15 @@ APPLE_KEY_ID=XXXX
 APPLE_AUTH_KEY_PATH=/path/to/AuthKey.p8
 APPLE_COUNTRY_CODE=jp
 ```
+
+### JWT設定
+- https://github.com/tymondesigns/jwt-auth
+```cmd
+$ docker-compose run app php artisan jwt:secret
+
+※ 管理者アカウントのID/PASSでログイン可能
+```
+
 ### Sentryの設定（エラー通知）
 - [Sentry](https://sentry.io)
 ```cmd
@@ -69,6 +78,16 @@ $ docker-compose run app php artisan command:comedian_groups_scraping
 ### Insert Initial Data
 ```cmd
 $ docker-compose exec app php artisan db:seed
+```
+
+### Insert admin user data
+```cmd
+$ docker-compose exec app php artisan tinker
+$ $admin = new App\Models\AdminUser();
+$ $admin->name = "admin";
+$ $admin->email = 'test@example.com';
+$ $admin->password = password_hash('password', PASSWORD_DEFAULT);
+$ $admin->save();
 ```
 
 ### sniffer(コード整形)

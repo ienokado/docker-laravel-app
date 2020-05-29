@@ -1,3 +1,5 @@
-User-agent: Googlebot-Mobile
-allow: /
+User-agent: *
 Disallow: /admin/
+
+User-agent: AdsBot-Google-mobile
+Allow: /
