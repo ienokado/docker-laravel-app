@@ -49,7 +49,9 @@ ul.history-paging-btn-list {
   height: 50px;
   li {
     display: inline-block;
-    color: #fff;
+    a {
+      color: #fff;
+    }
   }
 }
 ul.history-paging-btn-list:after {

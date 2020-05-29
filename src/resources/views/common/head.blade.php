@@ -41,13 +41,13 @@
     <meta name="msapplication-TileColor" content="#FAA500"/>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}?date=202005300200" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}?date=202005191400" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}?date=202005300200" rel="stylesheet">
 
     <!-- Google Adsense -->
     <script data-ad-client="ca-pub-6430844467630766" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
