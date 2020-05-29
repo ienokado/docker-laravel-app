@@ -12246,6 +12246,9 @@ ul.history-paging-btn-list {
 
 ul.history-paging-btn-list li {
   display: inline-block;
+}
+
+ul.history-paging-btn-list li a {
   color: #fff;
 }
 

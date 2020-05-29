@@ -27,6 +27,6 @@ class ComedianGroup extends Model
             });
         }
 
-        return $query->get();
+        return $query->paginate(config('const.paginate.count'));
     }
 }

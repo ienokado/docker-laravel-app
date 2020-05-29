@@ -9,7 +9,7 @@
     <form action="{{ route('debayashi.history') }}" method="post" class="search-form">
         {{ csrf_field() }}
         <div class="history-search-box">
-            <input id="search-keyword" class="history-search-text outline-none" type="text" name="search_keyword" placeholder="履歴を検索" value="{{ old('search_keyword') ? : $search_keyword }}">
+            <input id="search-keyword" class="history-search-text outline-none" type="text" name="search_keyword" placeholder="履歴を検索" value="{{ old('search_keyword') ? : $params['search_keyword'] }}">
             <button id="search-button" type="submit" class="history-search-btn outline-none">
                 <i class="fas fa-search"></i>
             </button>
@@ -27,11 +27,19 @@
     </ul>
 
     <ul class="history-paging-btn-list">
-        <li class="history-paging-btn btn-inactive">
-            <i class="fas fa-arrow-left"></i>
+        <li @if ($comedianGroups->currentPage() !== 1)class="history-paging-btn btn-inactive"@endif>
+            @if ($comedianGroups->currentPage() !== 1)
+                <a href="{{ $comedianGroups->appends($params)->previousPageUrl() }}">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            @endif
         </li>
-        <li class="history-paging-btn">
-            <i class="fas fa-arrow-right"></i>
+        <li @if ($comedianGroups->hasMorePages())class="history-paging-btn"@endif>
+            @if ($comedianGroups->hasMorePages())
+                <a class="" href="{{ $comedianGroups->appends($params)->nextPageUrl() }}">
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            @endif
         </li>
     </ul>
 </div>

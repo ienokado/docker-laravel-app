@@ -22,7 +22,7 @@ class HistoryController extends Controller
 
         return view('debayashi.history', [
             'comedianGroups' => $comedianGroups,
-            'search_keyword' => $keyword,
+            'params' => ['search_keyword' => $keyword],
         ]);
     }
 

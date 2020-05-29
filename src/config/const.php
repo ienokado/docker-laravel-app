@@ -16,6 +16,9 @@ return [
         ],
     ],
     'ranking' => [
-        'count' => 10,
-    ]
+        'count' => 5,
+    ],
+    'paginate' => [
+        'count' => 5,
+    ],
 ];
