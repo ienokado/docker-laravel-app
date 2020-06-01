@@ -12235,50 +12235,6 @@ ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-
   }
 }
 
-ul.history-paging-btn-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: calc(40px + 70px);
-  text-align: justify;
-  height: 50px;
-}
-
-ul.history-paging-btn-list li {
-  display: inline-block;
-}
-
-ul.history-paging-btn-list li a {
-  color: #fff;
-}
-
-ul.history-paging-btn-list:after {
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 0;
-}
-
-.history-paging-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  background: #4960FA;
-  box-shadow: 0 0 23px #FF9B91;
-  position: relative;
-}
-
-.history-paging-btn i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.history-paging-btn.btn-inactive {
-  background: #919191;
-}
-
 .history-not-exists-wrapper {
   display: flex;
   flex-direction: column;
@@ -12311,10 +12267,6 @@ ul.history-paging-btn-list:after {
   bottom: -50px;
 }
 
-#ranking-list {
-  margin-bottom: calc(40px + 70px);
-}
-
 #ranking-list li.card-list-item {
   padding: 20px 10px 20px 0;
   display: flex;
@@ -12340,13 +12292,13 @@ ul.history-paging-btn-list:after {
   margin-right: 15px;
 }
 
-#ranking-list li:first-child {
+#ranking-list li.ranking-top {
   position: relative;
   min-height: 240px;
   padding: 20px 0;
 }
 
-#ranking-list li:first-child div.ranking-order {
+#ranking-list li.ranking-top div.ranking-order {
   position: absolute;
   top: 0;
   left: 0;
@@ -12354,29 +12306,73 @@ ul.history-paging-btn-list:after {
   width: 8%;
 }
 
-#ranking-list li:first-child .card-contents::before {
+#ranking-list li.ranking-top .card-contents::before {
   background-repeat: no-repeat;
   background-position: center;
   content: url("/images/ranking/i-1st.svg");
 }
 
-#ranking-list li:first-child div.card-contents {
+#ranking-list li.ranking-top div.card-contents {
   width: 100%;
   margin: 0 auto;
   text-align: center;
   display: block;
 }
 
-#ranking-list li:first-child div.card-contents .card-debayashi-img {
+#ranking-list li.ranking-top div.card-contents .card-debayashi-img {
   margin: 0 auto;
 }
 
-#ranking-list li:first-child div.card-contents .card-debayashi-info {
+#ranking-list li.ranking-top div.card-contents .card-debayashi-info {
   margin: 10px auto 0;
 }
 
 #ranking-list li:not(:first-child) div.ranking-order ~ div {
   display: flex;
+}
+
+ul.paging-btn-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: calc(40px + 70px);
+  text-align: justify;
+  height: 50px;
+}
+
+ul.paging-btn-list li {
+  display: inline-block;
+}
+
+ul.paging-btn-list li a {
+  color: #fff;
+}
+
+ul.paging-btn-list:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 0;
+}
+
+.paging-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: #4960FA;
+  box-shadow: 0 0 23px #FF9B91;
+  position: relative;
+}
+
+.paging-btn i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.paging-btn.btn-inactive {
+  background: #919191;
 }
 
 .error-wrapper {

@@ -28,6 +28,9 @@ class RankingController extends Controller
             }
         }
 
+        // ページネーション用データ生成
+        $comedianGroups = $this->makePagination($request, $comedianGroups, config('const.paginate.count'));
+
         return view('debayashi.ranking', [
             'comedianGroups' => $comedianGroups,
         ]);

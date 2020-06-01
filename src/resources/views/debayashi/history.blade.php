@@ -26,15 +26,15 @@
         @endforeach
     </ul>
 
-    <ul class="history-paging-btn-list">
-        <li @if ($comedianGroups->currentPage() !== 1)class="history-paging-btn btn-inactive"@endif>
+    <ul class="paging-btn-list">
+        <li @if ($comedianGroups->currentPage() !== 1)class="paging-btn"@endif>
             @if ($comedianGroups->currentPage() !== 1)
                 <a href="{{ $comedianGroups->appends($params)->previousPageUrl() }}">
                     <i class="fas fa-arrow-left"></i>
                 </a>
             @endif
         </li>
-        <li @if ($comedianGroups->hasMorePages())class="history-paging-btn"@endif>
+        <li @if ($comedianGroups->hasMorePages())class="paging-btn"@endif>
             @if ($comedianGroups->hasMorePages())
                 <a class="" href="{{ $comedianGroups->appends($params)->nextPageUrl() }}">
                     <i class="fas fa-arrow-right"></i>

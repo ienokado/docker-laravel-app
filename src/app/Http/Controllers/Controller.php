@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Cookie;
 use Jenssegers\Agent\Agent;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Controller extends BaseController
 {
@@ -112,5 +113,42 @@ class Controller extends BaseController
         }
 
         return $text;
+    }
+
+    /**
+     * ページネーションのデータ生成
+     *
+     * @param Request $request
+     * @param array $result
+     * @param integer $perPage
+     * @return void
+     */
+    protected function makePagination(Request $request, array $result, int $perPage)
+    {
+        $displayData = array_chunk($result, $perPage, true);
+
+        $requestPage = $request->input('page', 1);
+        // URLでpageを変更された場合の対処
+        if (
+            !is_numeric($requestPage)
+            || $requestPage > count($displayData)
+            || $requestPage < 1
+        ) {
+            // 1ページ目を強制的に設定
+            $currentPageNo = 1;
+        } else {
+            $currentPageNo = $requestPage;
+        }
+
+        // ページネーションのデータ生成
+        $pagination = new LengthAwarePaginator(
+            $displayData[$currentPageNo - 1],
+            count($result),
+            $perPage,
+            $currentPageNo,
+            array('path' => $request->url())
+        );
+
+        return $pagination;
     }
 }
