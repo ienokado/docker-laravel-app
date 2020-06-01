@@ -125,6 +125,10 @@ class Controller extends BaseController
      */
     protected function makePagination(Request $request, array $result, int $perPage)
     {
+        if (count($result) === 0) {
+            return $result;
+        }
+
         $displayData = array_chunk($result, $perPage, true);
 
         $requestPage = $request->input('page', 1);
