@@ -25,6 +25,6 @@ class SearchHistory extends Model
             ->groupBy('comedian_group_id')
             ->orderBy('count', 'desc')
             ->limit(config('const.ranking.count'))
-            ->paginate(config('const.paginate.count'));;
+            ->paginate(config('const.paginate.count'));
     }
 }
