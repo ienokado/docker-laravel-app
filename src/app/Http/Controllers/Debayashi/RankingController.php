@@ -17,22 +17,11 @@ class RankingController extends Controller
      */
     public function index(Request $request)
     {
-        $comedianGroups = [];
-        $rankingData = SearchHistory::getRanking();
-        foreach ($rankingData as $data) {
-            try {
-                $comedianGroup = ComedianGroup::find($data->comedian_group_id);
-                $comedianGroups[] = $comedianGroup;
-            } catch (\Exception $e) {
-                continue;
-            }
-        }
-
-        // ページネーション用データ生成
-        $comedianGroups = $this->makePagination($request, $comedianGroups, config('const.paginate.count'));
+        // 検索回数ランキングを順位付で取得
+        $searchHistories = SearchHistory::getRanking();
 
         return view('debayashi.ranking', [
-            'comedianGroups' => $comedianGroups,
+            'searchHistories' => $searchHistories,
         ]);
     }
 }
