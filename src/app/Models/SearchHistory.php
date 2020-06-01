@@ -20,7 +20,7 @@ class SearchHistory extends Model
 
     public static function getRanking()
     {
-        // ランキング表示は20件まで（定数で指定）
+        // ランキング表示は5件ずつ20件まで（定数で指定）
         return self::select(\DB::raw('count(*) as count, comedian_group_id'))
             ->groupBy('comedian_group_id')
             ->orderBy('count', 'desc')
