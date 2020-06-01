@@ -57,10 +57,10 @@
 
         if (cookieValue) {
             // フッター表示
-            AdjustStyles.displayFooter();
+            AdjustStyles.displayFooter('search');
         } else {
             // フッター表示
-            AdjustStyles.displayFooter('', 'animation-item-last');
+            AdjustStyles.displayFooter('search', 'animation-item-last');
         }
 
     }
