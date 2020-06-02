@@ -1,5 +1,4 @@
 #ranking-list {
-  margin-bottom: calc(40px + #{$f-height});
   li.card-list-item {
     padding: 20px 10px 20px 0;
 
@@ -22,7 +21,7 @@
   .card-debayashi-img {
     margin-right: 15px;
   }
-  li:first-child {
+  li.ranking-top {
     position: relative;
     min-height: 240px;
     padding: 20px 0;

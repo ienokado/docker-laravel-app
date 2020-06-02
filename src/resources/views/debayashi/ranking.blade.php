@@ -3,23 +3,38 @@
 @section('body_class', 'body-bg-pink')
 
 @section('content')
-@if (count($comedianGroups) > 0)
+@if (count($searchHistories) > 0)
 <div class="content-wrapper">
 
     <ul class="card-list" id="ranking-list">
-        @foreach ($comedianGroups as $comedianGroup)
+        @foreach ($searchHistories as $key => $searchHistory)
 
-            <li class="card-list-item">
+
+            <li class="card-list-item @if (($searchHistories->firstItem() + $key) === 1)ranking-top @endif">
                 <div class="ranking-order">
-                    <p>{{ $loop->iteration }}</p>
+                    <p>{{ $searchHistories->firstItem() + $key }}</p>
                 </div>
-                @include('debayashi.list-item', ['comedianGroup' => $comedianGroup])
+                @include('debayashi.list-item', ['comedianGroup' => $searchHistory->comedianGroup])
             </li>
 
         @endforeach
     </ul>
 
+    <div class="paging-btn-area">
+        @if ($searchHistories->currentPage() !== 1)
+            <a href="{{ $searchHistories->previousPageUrl() }}" class="paging-btn back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        @endif
+
+        @if ($searchHistories->hasMorePages())
+            <a href="{{ $searchHistories->nextPageUrl() }}" class="paging-btn forward-btn">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        @endif
+    </div>
 </div>
+
 @endif
 @endsection
 

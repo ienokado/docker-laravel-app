@@ -10,7 +10,7 @@
 </div>
 <div class="search-result-card search-result-animation" id="search-result-card">
     <div class="debayashi-info">
-        <div class="debayashi-img">
+        <div class="debayashi-img @if ($debayashi->spotifyInfos || $debayashi->appleMusicInfos)card-preview-area-base @endif">
             @if ($debayashi->spotifyInfos)
                 <img src="{{ $debayashi->spotifyInfos->image_url }}" alt="{{ $debayashi->name }}" class="debayashi-img-resize">
             @elseif ($debayashi->appleMusicInfos)

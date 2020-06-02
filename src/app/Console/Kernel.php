@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\SearchHistoryRegist;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -26,6 +27,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+        // 前日分の検索履歴を1日1回DBに登録するコマンド実行
+        $schedule->command(SearchHistoryRegist::class)->daily();
     }
 
     /**
