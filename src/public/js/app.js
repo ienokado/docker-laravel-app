@@ -66009,7 +66009,7 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-window.PlayDebayashis = {}; // (試聴用)プレビューエリア生成, イベントリスナー生成
+window.PlayDebayashis = {}; // (試聴用)イベントリスナー生成
 
 window.PlayDebayashis.createPreviewArea = createPreviewArea;
 
@@ -66017,7 +66017,6 @@ function createPreviewArea() {
   var previewAreas = document.querySelectorAll('.card-preview-area');
   previewAreas.forEach(function (previewArea) {
     previewArea.firstElementChild.addEventListener('click', previewClick);
-    previewArea.parentNode.classList.add('card-preview-area-base');
   });
 } // プレビューボタンクリック
 
