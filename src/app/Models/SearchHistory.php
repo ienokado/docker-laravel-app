@@ -20,11 +20,20 @@ class SearchHistory extends Model
 
     public static function getRanking()
     {
-        // ランキング表示は5件ずつ20件まで（定数で指定）
-        return self::select(\DB::raw('count(*) as count, comedian_group_id'))
+        // 検索回数TOP20の芸人IDを取得する（定数で指定）
+        $top20 = self::select(\DB::raw('count(*) as count, comedian_group_id'))
             ->groupBy('comedian_group_id')
             ->orderBy('count', 'desc')
             ->limit(config('const.ranking.count'))
+            ->pluck('comedian_group_id');
+
+        // 芸人IDで絞り込んで検索回数で順位付け
+        // TODO: paginateを使うとlimitが利用できないので同じこと二回してしまっている
+        return self::select(\DB::raw('count(*) as count, comedian_group_id'))
+            ->whereIn('comedian_group_id', $top20)
+            ->groupBy('comedian_group_id')
+            ->orderBy('count', 'desc')
             ->paginate(config('const.paginate.count'));
+
     }
 }
