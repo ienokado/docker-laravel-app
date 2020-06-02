@@ -1,5 +1,5 @@
 <div class="card-contents">
-    <div class="card-debayashi-img">
+    <div class="card-debayashi-img @if ($comedianGroup->debayashi && ($comedianGroup->debayashi->spotifyInfos || $comedianGroup->debayashi->appleMusicInfos))card-preview-area-base @endif">
         {{-- アートワーク --}}
         @if ($comedianGroup->debayashi && $comedianGroup->debayashi->spotifyInfos)
             <img class="card-debayashi-img-resize" src="{{ $comedianGroup->debayashi->spotifyInfos->image_url }}" alt="{{ $comedianGroup->debayashi->name }}">
