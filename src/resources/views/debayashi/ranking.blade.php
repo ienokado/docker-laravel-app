@@ -20,22 +20,19 @@
         @endforeach
     </ul>
 
-    <ul class="paging-btn-list">
-        <li @if ($searchHistories->currentPage() !== 1)class="paging-btn"@endif>
-            @if ($searchHistories->currentPage() !== 1)
-                <a href="{{ $searchHistories->previousPageUrl() }}">
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-            @endif
-        </li>
-        <li @if ($searchHistories->hasMorePages())class="paging-btn"@endif>
-            @if ($searchHistories->hasMorePages())
-                <a class="" href="{{ $searchHistories->nextPageUrl() }}">
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            @endif
-        </li>
-    </ul>
+    <div class="paging-btn-area">
+        @if ($searchHistories->currentPage() !== 1)
+            <a href="{{ $searchHistories->previousPageUrl() }}" class="paging-btn back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        @endif
+
+        @if ($searchHistories->hasMorePages())
+            <a href="{{ $searchHistories->nextPageUrl() }}" class="paging-btn forward-btn">
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        @endif
+    </div>
 </div>
 
 @endif

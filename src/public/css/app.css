@@ -12331,47 +12331,42 @@ ul.card-list li.card-list-item .card-preview-area-base .card-preview-area .card-
   display: flex;
 }
 
-ul.paging-btn-list {
-  list-style-type: none;
+.paging-btn-area {
   padding: 0;
   margin: 0;
   margin-bottom: calc(40px + 70px);
   text-align: justify;
   height: 50px;
-}
-
-ul.paging-btn-list li {
-  display: inline-block;
-}
-
-ul.paging-btn-list li a {
-  color: #fff;
-}
-
-ul.paging-btn-list:after {
-  content: "";
-  display: inline-block;
   width: 100%;
-  height: 0;
+  position: relative;
 }
 
-.paging-btn {
+.paging-btn-area a.paging-btn {
+  color: #fff;
+  position: absolute;
   width: 50px;
   height: 50px;
   border-radius: 10px;
   background: #4960FA;
   box-shadow: 0 0 23px #FF9B91;
-  position: relative;
 }
 
-.paging-btn i {
+.paging-btn-area a.paging-btn i {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.paging-btn.btn-inactive {
+.paging-btn-area .back-btn {
+  left: 0;
+}
+
+.paging-btn-area .forward-btn {
+  right: 0;
+}
+
+.paging-btn-area .paging-btn.btn-inactive {
   background: #919191;
 }
 
