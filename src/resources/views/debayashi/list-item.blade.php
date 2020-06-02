@@ -7,6 +7,7 @@
             <img class="card-debayashi-img-resize" src="{{ $comedianGroup->debayashi->appleMusicInfos->image_url }}" alt="{{ $comedianGroup->debayashi->name }}">
         @else
             <div class="card-debayashi-alt-img">
+                <p>No Image</p>
             </div>
         @endif
         {{-- メディアコントロール --}}
