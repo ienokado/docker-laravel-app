@@ -8,8 +8,8 @@
     <p>スマホからしか見れへん･･･</p>
   </div>
   <div class="error-img-for-other-sp">
-    <img class="error-img error-img-question" src="{{ asset('images/error/question.svg') }}">
-    <img class="error-img error-img-microphone" src="{{ asset('images/error/microphone.svg') }}">
+    <img class="error-img error-img-question" src="{{ mix('images/error/question.svg') }}">
+    <img class="error-img error-img-microphone" src="{{ mix('images/error/microphone.svg') }}">
   </div>
 </div>
 @endsection

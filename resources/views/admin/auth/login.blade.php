@@ -74,7 +74,7 @@
     <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv"
          style='background-color: #4960fa'>
         <div class="pos-a centerXY">
-            <img class="pos-a centerXY" src="{{ asset('images/top/logo.svg') }}" alt="{{ config('app.name') }}">
+            <img class="pos-a centerXY" src="{{ mix('images/top/logo.svg') }}" alt="{{ config('app.name') }}">
         </div>
     </div>
     <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>

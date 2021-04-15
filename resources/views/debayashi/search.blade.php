@@ -44,12 +44,12 @@
         @if ($debayashi->appleMusicInfos)
         <a href="{{ $debayashi->appleMusicInfos->external_url }}" class="link-btn"
            >
-            <img class="apple-logo" src="{{ asset('images/search/logo-apple-music.svg') }}">
+            <img class="apple-logo" src="{{ mix('images/search/logo-apple-music.svg') }}">
         </a>
         @endif
         @if ($debayashi->spotifyInfos)
         <a href="{{ $debayashi->spotifyInfos->external_url }}" class="link-btn">
-            <img class="spotify-logo" src="{{ asset('images/search/logo-spotify.svg') }}">
+            <img class="spotify-logo" src="{{ mix('images/search/logo-spotify.svg') }}">
         </a>
         @endif
     </div>

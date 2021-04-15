@@ -5,7 +5,7 @@
 <div class="top-page-wrapper">
 
   <div class="top-logo-group {{ \Cookie::get($cookieName) ? "" : "top-animation" }}">
-    <img class="logo-img" src="{{ asset('images/top/logo.svg') }}">
+    <img class="logo-img" src="{{ mix('images/top/logo.svg') }}">
     <p class="font-white">あの芸人の出囃子を検索しよう</p>
   </div>
   <div class="top-form-group {{ \Cookie::get($cookieName) ? "" : "top-animation" }}">
@@ -25,21 +25,21 @@
     <div class="comedian">
       <div class="center-pos">
         <div class="serif {{ \Cookie::get($cookieName) ? "" : "top-animation" }}" id="animation-item-last">
-          <img class="serif-img" src="{{ asset('images/top/serif.svg')}}">
+          <img class="serif-img" src="{{ mix('images/top/serif.svg')}}">
         </div>
         <div class="male">
           <div class="male-trim">
-            <img class="male-img {{ \Cookie::get($cookieName) ? "" : "top-animation" }}" src="{{ asset('images/top/male.svg') }}">
+            <img class="male-img {{ \Cookie::get($cookieName) ? "" : "top-animation" }}" src="{{ mix('images/top/male.svg') }}">
           </div>
         </div>
         <div class="female">
           <div class="female-trim">
-            <img class="female-img {{ \Cookie::get($cookieName) ? "" : "top-animation" }}" src="{{ asset('images/top/female.svg') }}">
+            <img class="female-img {{ \Cookie::get($cookieName) ? "" : "top-animation" }}" src="{{ mix('images/top/female.svg') }}">
           </div>
         </div>
         <div class="microphone">
           <div class="microphone-trim">
-            <img class="microphone-img {{ \Cookie::get($cookieName) ? "" : "top-animation" }}" src="{{ asset('images/top/microphone.svg') }}">
+            <img class="microphone-img {{ \Cookie::get($cookieName) ? "" : "top-animation" }}" src="{{ mix('images/top/microphone.svg') }}">
           </div>
         </div>
       </div>

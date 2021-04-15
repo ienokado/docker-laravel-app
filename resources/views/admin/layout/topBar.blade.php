@@ -11,7 +11,7 @@
             <li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
                     <div class="peer mR-10">
-                        <img class="w-2r bdrs-50p" src="{{ asset('apple-touch-icon.png') }}" alt="{{ config('app.name') }}">
+                        <img class="w-2r bdrs-50p" src="{{ mix('apple-touch-icon.png') }}" alt="{{ config('app.name') }}">
                     </div>
                     <div class="peer">
                         <span class="fsz-sm c-grey-900">{{ Auth::guard('admin')->user()->name }}</span>
