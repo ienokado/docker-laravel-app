@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@babel/preset-react": "^7.9.4",
-        "axios": "^0.19",
+        "axios": "^0.21",
         "babel-preset-react": "^6.24.1",
         "bootstrap": "^4.4.1",
         "bootstrap-datepicker": "^1.9.0",
