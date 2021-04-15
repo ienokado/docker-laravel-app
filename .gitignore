@@ -10,6 +10,7 @@
 /docker/mysql/logs
 !/docker/php/psysh/config.php
 /logs/*
+/src
 
 # Visual Studio Code
 .vscode
