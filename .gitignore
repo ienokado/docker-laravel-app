@@ -1,21 +1,48 @@
-# Mac
-.DS_Store
+/public/css/
+/public/js/
 
+# Created by https://www.gitignore.io/api/vim,node,linux,macos,windows,laravel,intellij,sublimetext,visualstudio,visualstudiocode,composer
+
+### Composer ###
+composer.phar
+/vendor/
+
+# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+composer.lock
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+### Laravel ###
+/vendor
+node_modules/
+npm-debug.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+storage/*.key
+.env.*.php
+.env.php
 .env
-/.idea
-/docker/ash/.ash_history
-/docker/php/psysh
-/docker/php/logs
-/docker/nginx/logs
-/docker/mysql/logs
-!/docker/php/psysh/config.php
-/logs/*
+Homestead.yaml
+Homestead.json
 
-# Visual Studio Code
-.vscode
-# Rest Client
-*.http
+### macOS ###
+*.DS_Store
+.AppleDouble
+.LSOverride
 
-# CircleCI
-process.yml
-
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
