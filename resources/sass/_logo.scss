@@ -1,0 +1,21 @@
+.logo-img {
+  display: block;
+  //スマホ small
+  width: 160px;
+  margin: 15px auto 20px;
+  //スマホ large
+  @media screen and (min-width: $bp-width-sp-small) {
+    width: 200px;
+    margin: 30px auto 20px;
+  }
+  //タブレット
+  @media screen and (min-width: $bp-width-sp-large){
+    width: 259px;
+    margin: 62px auto 30px;
+  }
+  //PC
+  @media screen and (min-width: $bp-width-pc){
+    width: 360px;
+    margin: 62px auto 30px;
+  }
+}

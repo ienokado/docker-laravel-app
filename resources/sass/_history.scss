@@ -1,0 +1,66 @@
+.history-search-box {
+    position: relative;
+    z-index: 1000;
+    min-width: 260px;
+    margin-bottom: 36px;
+    .history-search-text {
+        padding-left: 20px;
+        background: #FDB0A8;
+        border-radius: 10px;
+        @include placeholder(#4960FA);
+        font-weight: normal;
+        font-size: 17px;
+        //スマホ small
+        width: 260px;
+        height: 47px;
+        //スマホ large, タブレット, PC
+        @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
+            width: 335px;
+            height: 58px;
+        }
+    }
+    .history-search-btn {
+        position: absolute;
+        background: #4960F9;
+        border-radius: 10px;
+        font-family: FontAwesome;
+        color: #FFFFFF;
+        //スマホ small
+        top: 5px;
+        right: 5px;
+        width: 38px;
+        height: 38px;
+        //スマホ large, タブレット, PC
+        @media screen and (min-width: $bp-width-sp-small) and (min-height: $bp-height-sp-large) {
+            top: 7px;
+            right: 7px;
+            width: 45px;
+            height: 45px;
+        }
+    }
+}
+.history-not-exists-wrapper {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  user-select: none;
+}
+.history-not-exists-msg {
+  margin-top: 130px;
+  height: 90px;
+  p {
+    text-align: center;
+    font-weight: Bold;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: $body-bg;
+  }
+}
+.history-not-exists-img-microphone {
+  display: block;
+  height: 290px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+}
