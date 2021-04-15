@@ -1,78 +1,89 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+[![CircleCI](https://circleci.com/gh/ienokado/debayashi-koreyashi.svg?style=svg)](https://circleci.com/gh/ienokado/debayashi-koreyashi)
+[![codecov](https://codecov.io/gh/ienokado/debayashi-koreyashi/branch/develop/graph/badge.svg)](https://codecov.io/gh/ienokado/debayashi-koreyashi)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# でばやし コレヤシ
 
-## About Laravel
+## 概要
+https://debayashi-koreyashi.work
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+でばやしコレヤシは芸人さんの出囃子を検索してシェアしたり、
+SpotifyやApple Musicで視聴できるサービスです。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 環境設定
+### Git clone
+```cmd
+$ git clone https://github.com/ienokado/debayashi-koreyashi.git 
+```
+### Docker compose build & up
+```cmd
+$ cd debayashi-koreyashi
+$ cp .env.example .env
+$ php artisan key:generate
+$ php artisan migrate:fresh
+```
+### Install Laravel using Composer
+```cmd
+$ composer install
+$ docker-compose run node npm install
+$ docker-compose run node npm run dev
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+http://localhost:10080
 
-## Learning Laravel
+### Spotify API の設定
+- [PHPライブラリ仕様](https://github.com/jwilsson/spotify-web-api-php)
+```cmd
+./src/.envへ追記
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+SPOTIFY_CLIENT_ID=XXXX
+SPOTIFY_CLIENT_SECRET=XXXX
+SPOTIFY_COUNTRY_CODE=JP
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Apple Music API の設定
+- https://github.com/PouleR/apple-music-api
+```cmd
+.envへ追記
 
-## Laravel Sponsors
+APPLE_TEAM_ID=XXX
+APPLE_KEY_ID=XXXX
+APPLE_AUTH_KEY_PATH=/path/to/AuthKey.p8
+APPLE_COUNTRY_CODE=jp
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### JWT設定
+- https://github.com/tymondesigns/jwt-auth
+```cmd
+$ php artisan jwt:secret
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+※ 管理者アカウントのID/PASSでログイン可能
+```
 
-## Contributing
+### Sentryの設定（エラー通知）
+- [Sentry](https://sentry.io)
+```cmd
+.envへ追記
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+SENTRY_LARAVEL_DSN=https://XXXXXXX/XXXXX
+```
 
-## Code of Conduct
+### 芸人データのスクレイピング
+```
+$ php artisan command:comedian_groups_scraping
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Insert Initial Data
+```cmd
+$ php artisan db:seed
+```
 
-## Security Vulnerabilities
+### tinker
+```cmd
+$ php artisan tinker
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### sniffer(コード整形)
+```
+$ composer sniffer
+```
