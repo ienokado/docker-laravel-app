@@ -36,7 +36,7 @@ class HistoryController extends Controller
     {
         $_cookieName = 'Search_' . $this->cookieName;
 
-        $ids = explode(',', Cookie::get($_cookieName));
+        $ids = empty(explode(',', Cookie::get($_cookieName))) ? null : explode(',', Cookie::get($_cookieName));
 
         return ComedianGroup::searchByKeyword($ids, $keyword);
     }
