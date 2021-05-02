@@ -11,7 +11,7 @@ class ComedianGroup extends Model
         return $this->belongsTo(Debayashi::class);
     }
 
-    public static function searchByKeyword($ids, $keyword = null)
+    public static function searchByKeyword($ids = [], $keyword = null)
     {
         $query = self::whereIn('id', $ids);
 
