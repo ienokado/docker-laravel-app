@@ -34,7 +34,16 @@
         @endif
     </div>
 </div>
-
+@else
+{{-- 履歴がない場合 --}}
+<div class="ranking-not-exists-wrapper">
+    <div class="ranking-not-exists-msg">
+        <p>ランキングは<br>準備中です...</p>
+    </div>
+    <div class="ranking-not-exists-img">
+        <img class="ranking-not-exists-img-microphone" src="{{ mix('images/error/microphone.svg') }}">
+    </div>
+</div>
 @endif
 @endsection
 
