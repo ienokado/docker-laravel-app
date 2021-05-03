@@ -13,7 +13,11 @@ class ComedianGroup extends Model
 
     public static function searchByKeyword($ids, $keyword = null)
     {
-        $query = self::whereIn('id', $ids);
+        $query = self::select('*');
+        
+        if ($ids) {
+            $query->whereIn('id', $ids);
+        }
 
         if (!is_null($keyword)) {
             $query->where(function ($query) use ($keyword) {
