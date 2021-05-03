@@ -13,13 +13,9 @@ class ComedianGroup extends Model
 
     public static function searchByKeyword($ids, $keyword = null)
     {
-        $query = self::query();
+        $query = self::whereIn('id', $ids);
 
-        if ($ids) {
-            $query->whereIn('id', $ids);
-        }
-
-        if ($keyword) {
+        if (!is_null($keyword)) {
             $query->where(function ($query) use ($keyword) {
                 $query
                     ->where('name', 'like', "%${keyword}%")
