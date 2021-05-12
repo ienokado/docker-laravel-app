@@ -15,7 +15,7 @@
         "babel-preset-react": "^6.24.1",
         "bootstrap": "^4.4.1",
         "bootstrap-datepicker": "^1.9.0",
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.9.4",
         "cross-env": "^7.0",
         "datatables": "^1.10.18",
         "easy-pie-chart": "^2.1.7",
